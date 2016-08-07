@@ -1,0 +1,162 @@
+sas:
+  name: sas
+  url: http://www.sas.com
+  image: images/logos/sas_white.png
+  class: images/logos/sas_white.png
+
+jpm:
+  name: jpm
+  url: http://www.jpm.com
+  image: images/logos/jpm_white.png
+
+guts-old:
+  name: guts
+  url: http://gutechsoc.com
+  image: images/logos/guts_old_white.png
+
+school:
+  name: school
+  url: http://www.dcs.gla.ac.uk/
+  image: images/logos/uofg_white.png
+
+sie:
+  name: sie
+  url: http://www.sie.ac.uk/
+  image: images/logos/sie_white.png
+
+amazon:
+  name: amazon
+  url: http://www.amazondc.com/
+  image: images/logos/amazon_white.png
+
+ms:
+  name: ms
+  url: http://www.morganstanley.com/
+  image: images/logos/morganstanley_white.png
+
+kana:
+  name: kana
+  url: http://www.kana.com/
+  image: images/logos/kana_white.png
+
+scotlandhacks:
+  name: scotlandhacks
+  url: http://www.scotlandhacks.org.uk/
+  image: images/logos/scotland_hacks_white.png
+
+gwob:
+  name: gwob
+  url: http://www.gwob.org/
+  image: images/logos/gwob_white.png
+
+mlh:
+  name: mlh
+  url: https://mlh.io/
+  image: images/logos/mlh_white.png
+
+github:
+  name: github
+  url: http://www.github.com/
+  image: images/logos/github_white.png
+
+ef:
+  name: ef
+  url: http://www.joinef.com/
+  image: images/logos/ef_white.png
+
+bloomberg:
+  name: bloomberg
+  url: http://www.bloomberg.com/
+  image: images/logos/bloomberg_white.png
+
+dogfish:
+  name: dogfish
+  url: http://www.dogfi.sh/
+  image: images/logos/dogfish_white.png
+
+namecheap:
+  name: namecheap
+  url: http://www.namecheap.com/
+  image: images/logos/namecheap_white.png
+
+sendgrid:
+  name: sendgrid
+  url: http://www.sendgrid.com/
+  image: images/logos/sendgrid_white.png
+
+supernatural:
+  name: supernatural
+  url: http://www.drinksupernatural.com/
+  image: images/logos/supernatural_white.png
+
+barclays:
+  name: barclays
+  url: http://www.barclays.co.uk/
+  image: images/logos/barclays_white.png
+
+metaswitch:
+  name: metaswitch
+  url: http://www.metaswitch.com/
+  image: images/logos/metaswitch_white.png
+
+dynamicallyloaded:
+  name: dynamicallyloaded
+  url: http://www.dynamicallyloaded.com/
+  image: images/logos/dynamicallyloaded_white.png
+
+svc2uk:
+  name: svc2uk
+  url: http://www.svc2uk.com/
+  image: images/logos/svc2uk_white.png
+
+informaticsventures:
+  name: informaticsventures
+  url: http://www.informatics-ventures.com/
+  image: images/logos/info_ventures_white.png
+
+dominos:
+  name: dominos
+  url: http://www.dominos.co.uk/
+  image: images/logos/dominos_white.png
+
+nakedsoup:
+  name: nakedsoup
+  url: http://www.nakedsoup.com/
+  image: images/logos/naked_soup_white.png
+
+compsoc:
+  name: compsoc
+  url: http://glasgowcompsoc.com/
+  image: images/logos/compsoc_white.png
+
+pentest:
+  name: pentest
+  url: http://www.pentest.co.uk/
+  image: images/logos/pentest_white.png
+
+cisco:
+  name: cisco
+  url: http://www.cisco.com/c/en_uk/index.html
+  image: images/logos/cisco_white.png
+  class: cisco-logo
+
+pwc:
+  name: pwc
+  url: http://www.pwc.co.uk/
+  image: images/logos/pwc_white.png
+  class: pwc-logo
+
+verint:
+  name: verint
+  url: http://uk.verint.com/
+  image: images/logos/verint_white.png
+
+guts:
+  name: guts
+  url: http://www.gutechsoc.com/
+  image: images/logo-small.png
+
+skyscanner:
+  name: skyscanner
+  url: http://www.skyscanner.com/
+  image: images/logos/skyscanner_white.png

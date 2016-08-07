@@ -1,0 +1,62 @@
+- title: hack2015
+  year: 2015
+  date: 02-04 Oct
+  gallery: hack_2015
+  gallery_size: 217
+  sponsors:
+      - guts
+      - school
+      - sie
+      - jpm
+      - amazon
+      - sas
+      - ms
+      - verint
+      - scotlandhacks
+      - gwob
+      - mlh
+
+- title: hack2014
+  year: 2014
+  date: 10-13 Oct
+  gallery: hack_2014
+  gallery_size: 170
+  sponsors:
+      - guts-old
+      - school
+      - sie
+      - jpm
+      - amazon
+      - sas
+      - github
+      - ef
+      - bloomberg
+      - dogfish
+      - kana
+      - namecheap
+      - sendgrid
+      - supernatural
+
+- title: hack2013
+  year: 2013
+  date: 1-3 Nov
+  gallery: hack_2013
+  gallery_size: 23
+  sponsors:
+      - guts-old
+      - school
+      - sie
+      - jpm
+      - barclays
+      - amazon
+      - sas
+      - github
+      - metaswitch
+      - skyscanner
+      - dynamicallyloaded
+      - svc2uk
+      - informaticsventures
+      - dominos
+      - nakedsoup
+      - scotlandhacks
+      - compsoc

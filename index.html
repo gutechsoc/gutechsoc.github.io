@@ -1,0 +1,178 @@
+---
+layout: default
+title: Glasgow University tech Society
+custom_css: index
+custom_js: mailing-list-signup
+
+intro_heading: We're the GU Tech Society
+intro_leadout: Our annual hackathon is hapenning in October, and you're invited!
+
+
+
+#GHOST LINKS FOR CDX
+#ghost_text: Tell Me More
+#ghost_link: /cdx
+
+#GHOST LINKS FOR THE HACK
+ghost_text: Tell Me More
+ghost_link: /hack
+
+#EXCITE LINKS FOR CDX
+#excite_text: "#CDXGlasgow"
+#excite_link: https://twitter.com/hashtag/CDXGlasgow
+
+#EXCITE LINKS FOR THE HACK
+excite_text: "#DoYouHaveTheGUTS"
+excite_link: https://twitter.com/hashtag/doyouhavetheguts
+
+---
+
+<header>
+    <div id="header-container">
+      <img id="header-img" src="images/header-bg.jpg" alt="" />
+      <!--video autoplay loop muted id="header-video">
+        <source type="video/youtube" src="http://www.youtube.com/watch?v=nOEw9iiopwI">
+        <img src="http://www.bhmpics.com/walls/nice_bird-wide.jpg">
+      </video-->
+    </div>
+    <div class="container" id="intro-container">
+        <div class="intro-text">
+            <div class="intro-lead-in visible-lg">Hello World!</div>
+            <div class="intro-heading">{{page.intro_heading}}</div>
+            <div class="intro-lead-out">{{page.intro_leadout}}</div>
+            <div class="row">
+              <!--div class="col-xs-12">
+                <a href="" class="page-scroll btn btn-xl btn-ghost header-button visible-sm-xl">Tell Me More</a>
+                <a href="https://twitter.com/hashtag/doyouhavetheguts" class="page-scroll btn btn-xl btn-excite header-button visible-sm-xl">#DoYouHaveTheGUTS</a>
+              </div-->
+              <div class="col-xs-12">
+               <a href="{{page.ghost_link}}" class="page-scroll btn btn-xl btn-ghost header-button visible-sm-xl">{{page.ghost_text}}</a>
+               <a href="{{page.excite_link}}" class="page-scroll btn btn-xl btn-excite header-button visible-sm-xl">{{page.excite_text}}</a>
+             </div>
+            </div>
+            <div class="row">
+              <br>
+              <div class="col-md-4 col-md-offset-4">
+                  <ul class="list-inline social-buttons">
+                      <li><a href="https://twitter.com/gutechsoc"><i class="fa fa-twitter"></i></a>
+                      </li>
+                      <li><a href="https://www.facebook.com/gutechsoc"><i class="fa fa-facebook"></i></a>
+                      </li>
+                      <li><a href="mailto:gutechsoc@gmail.com?Subject=I Love GUTS"><i class="fa fa-envelope"></i></a>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Services Section -->
+<section id="services" class="bg-very-light-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">What do we do?</h2>
+                <h3 class="section-subheading text-muted">We make cool stuff happen.</h3>
+            </div>
+            <div class="col-xs-12 text-center">
+                <p class="section-content">GUTS is a student society of hackers. We love everything to do with technology, so we host as many events as we can to bring students closer to the topics that excite them (from human centred security all the way down to the bits and bytes). Our annual hackathon and Cyber Defence Execsie events will give you the opportunity to unleash your creativity and chat to loads of industry experts, so why not come along? Check out the video about us below.</p>
+            </div>
+            <div class="col-xs-12 text-center">
+                <span class="glyphicon glyphicon-play-circle" id="video-button" href="http://www.youtube.com/watch?v=toiWRANJzyI"></span> <br>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="events">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Events</h2>
+                <h3 class="section-subheading text-muted">Some of the events we've hosted recently.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="timeline">
+                    {% for event in site.data.events %}
+                        <li>
+                            <div class="timeline-image">
+                              <!-- note: recommended size of 156x156 -->
+                                <img class="img-circle img-responsive" src="{{event.image}}" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>{{event.time}}</h4>
+                                    <h4 class="subheading">{{event.title}}</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">{{event.description}}</p>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>And <br> Many <br> More! </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Clients Aside -->
+<aside class="clients">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-md-4">
+                <a href="http://www.sas.com/">
+                    <img src="images/companies/sas_muted.jpg" class="img-responsive img-centered company-logo company-tall-logo" alt="">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <a href="http://www.morganstanley.com/">
+                    <img src="images/companies/morganstanley_muted.png" class="img-responsive img-centered company-logo company-wide-logo" alt="">
+                </a>
+            </div>
+            <div class="clearfix visible-xs-block  visible-sm-block"></div>
+            <div class="col-xs-6 col-md-4">
+                <a href="http://www.kana.com/">
+                    <img src="images/companies/verint_muted.png" class="img-responsive img-centered company-logo company-wide-logo" alt="" style="margin-top: 40px;">
+                </a>
+            </div>
+            <div class="clearfix visible-md-block visible-lg-block visible-xl-block"></div>
+            <div class="col-xs-6 col-md-4 col-md-offset-2">
+                <a href="http://www.jpmorgan.com/">
+                    <img src="images/companies/jpmorgan_muted.png" class="img-responsive img-centered company-logo company-wide-logo" alt="">
+                </a>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <a href="http://www.dcs.gla.ac.uk/">
+                    <img src="images/companies/school_muted.png" class="img-responsive img-centered company-logo company-wide-logo" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Contact Us</h2>
+                <h3 class="section-subheading text-white">If you have any questions, suggestions, or want to get involved, shoot us an email at team@gutechsoc.com - we'd love to hear from you!</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,37 @@
+- title: cdx2016
+  year: 2016
+  date: 27-28 Feb
+  gallery: cdx_2016
+  gallery_size: 217
+  sponsors:
+      - pentest
+      - gwob
+      - jpm
+      - cisco
+      - pwc
+      - ms
+      - verint
+      - sie
+      - school
+      - guts
+  buttons:
+      - text: Watch the Unofficial After-Movie by Ed Bruce
+        url: https://vimeo.com/157250218
+
+- title: cdx2015
+  year: 2015
+  date: 14-15 March
+  gallery: cdx_2015
+  gallery_size: 170
+  sponsors:
+      - scotlandhacks
+      - gwob
+      - kana
+      - sas
+      - ms
+      - sie
+      - school
+      - guts-old
+  buttons:
+    - text: Watch The After-Movie
+      url: https://www.youtube.com/watch?v=h7Ve-3LxXvg
