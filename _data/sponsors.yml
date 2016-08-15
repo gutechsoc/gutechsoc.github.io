@@ -29,6 +29,11 @@ amazon:
   url: http://www.amazondc.com/
   image: images/logos/amazon_white.png
 
+amazon-dev-centre:
+  name: amazon-dev-centre
+  url: http://www.amazondc.com/
+  image: images/logos/amazon_devcentre_white.png
+
 ms:
   name: ms
   url: http://www.morganstanley.com/
