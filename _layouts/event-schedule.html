@@ -1,0 +1,101 @@
+---
+#The event layout is the one used for major events like the hack and cdx.
+#it has a rigid structure which event pages alter with their YAML file.
+#custom content can be added to the page. this will display above all of the
+#current events, so is useful if you want to add info about a upcoming event.
+layout: default
+custom_css: schedule
+custom_js: lightbox.min
+
+#header_background_image: placeholder.jpg
+#header_image: placeholder.jpg
+#header_text: Placeholder Text!
+#header_button_url: /
+#header_button:text: Placeholder Text!
+---
+
+  <!-- Header -->
+  <header>
+      <div id="header-container">
+        <img id="header-img" src="{{page.header_background_image}}" alt="" />
+      </div>
+      <div class="container" id="intro-container">
+          <div class="intro-text">
+              <div class="intro-heading">{{page.header_title}}</div>
+
+              {% for button in page.buttons %}
+              <a href="{{button.link}}" class="btn btn-xl btn-excite header-button visible-sm-xl {{button.class}}">{{button.text}}</a>
+              {% endfor %}
+          </div>
+      </div>
+  </header>
+
+  {% for day in page.days %}
+  <section>
+    <h2 class="section-heading text-center">{{day.title}}</h2>
+      <div class="container">
+            {% for event in day.events %}
+              <div class="row event-row" start-time="{{event.start_time}}" end-time="{{event.end_time}}">
+                <div class="col-xs-3 col-md-2">
+                  <h3 class="text-muted event-time">{{event.time_text}}</h3>
+                </div>
+                <div class="col-xs-9 col-md-10">
+                  <h3>{{event.name}}</h3>
+
+                    {% if event.desc %}
+                    <h4 class="subheading text-muted">
+                      {{event.desc}}
+                    </h4>
+                    {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+      </div>
+  </section>
+  {% endfor %}
+  <!-- Services Section -->
+  <section id="saturday">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h2 class="section-heading">Saturday 3rd</h2>
+              </div>
+              <div class="col-xs-12">
+                  <h4 class="section-content">
+                    <ul>
+                      <li>08.00<i>       Breakfast</i></li>
+                      <li>12.00<i>       Lunch(Subway)</i></li>
+                      <li>17.00<i>       Dinner(Marthas)</i></li>
+                    </ul>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="sunday">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h2 class="section-heading">Sunday 4th</h2>
+              </div>
+              <div class="col-xs-12">
+                  <h4 class="section-content">
+                    <ul>
+                      <li>8.00 <i>       Breakfast </i></li>
+                      <li>12.00<i>       Coding stops, lunch (pizza)</i></li>
+                      <li>12:00<i>       Teams prepare to present their work to the judges</i></li>
+                      <li>13:30<i>       Demoing to the judges within challange groups</i></li>
+                      <li>15:00<i>       Judges determine challenge winners</i></li>
+                      <li>15:20<i>       Announcement of the challenge winners + challenge winners present their solutions</i></li>
+                      <li>16:00<i>       Judges choose the best teams (1st prize, 2nd prize, 3rd prize).</i></li>
+                      <li>16:10<i>       Prizes and closing word.</i></li>
+                      <li>16:30<i>       End of the hackathon. :(</i></li>
+
+                    </ul>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </section>
