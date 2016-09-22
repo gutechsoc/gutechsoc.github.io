@@ -9,8 +9,8 @@
 title: GU Tech Society
 email: gutechsoc@gmail.com
 description: The official website for the GU Tech Society
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "http://www.gutechsoc.com" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://www.gutechsoc.com/" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
