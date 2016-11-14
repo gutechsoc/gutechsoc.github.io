@@ -156,6 +156,16 @@ verint:
   url: http://uk.verint.com/
   image: images/logos/verint_white.png
 
+cooper-software:
+  name: cooper-software
+  url: http://www.coopersoftware.co.uk
+  image: images/logos/cooper_software_white.png
+
+opinew:
+  name: opinew
+  url: http://www.opinew.com
+  image: images/logos/opinew_white.png
+
 guts:
   name: guts
   url: http://www.gutechsoc.com/

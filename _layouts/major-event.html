@@ -76,6 +76,7 @@ custom_js: lightbox.min
                       <img src="{{thumb}}" alt="" class="gallery-img"/>
                     </a>
                 {% endfor %}
+                {% if event.gallery_button_url %}<br><a href="{{event.gallery_button_url}}" target="_blank" class="page-scroll btn btn-xl btn-default header-button {{event.gallery_button_class}}">{{event.gallery_button_text}}</a>{% endif %}
                 </div>
               </div>
           </div>
