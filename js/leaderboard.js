@@ -1,3 +1,18 @@
+/*
+ This is some hacked together code for creating a leaderboard for cdx from a google sheet.
+The google sheet needs to have team names in column A starting from row 2, and scores in column B starting from row 2.
+
+to find the worksheet id for the sheet use this api call:
+https://spreadsheets.google.com/feeds/worksheets/1at-FWTfCrWkDpgR6Dzb8D2ID9Kbop5DYQTmpT4tDTLo/public/basic?alt=json
+
+to grab the cell data from that worksheet use this api call:
+https://spreadsheets.google.com/feeds/cells/1at-FWTfCrWkDpgR6Dzb8D2ID9Kbop5DYQTmpT4tDTLo/osk8eva/public/basic?alt=json
+
+Note that the sheet needs to be shared for anyone with a link to view, and it also needs to be PUBLISHED to the web (through the file menu)
+*/
+
+
+
 $(function(){
 
   var mixer = null;
