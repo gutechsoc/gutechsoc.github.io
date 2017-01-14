@@ -32,8 +32,7 @@ $(function(){
       console.log("sorting!");
       mixer.sort('score:desc')
         .then(function(state) {
-            console.log(state);
-            console.log('sorted!');
+          //do nothing.
         });
   }
 
