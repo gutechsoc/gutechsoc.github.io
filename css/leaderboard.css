@@ -47,3 +47,14 @@
   content: "★ ";
   color: brown;
 }
+
+.leaderboard-item.large > h4 {
+  float: none;
+}
+
+.leaderboard-item.large {
+  color: dimgrey;
+  text-align: center;
+  padding-top: 25px;
+  height:100px;
+}

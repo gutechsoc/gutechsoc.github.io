@@ -16,6 +16,7 @@ Note that the sheet needs to be shared for anyone with a link to view, and it al
 $(function(){
 
   var mixer = null;
+  var fetchUrl = null;
 
   var mixerSort = function () {
       //why do we have to destroy the whole thing if we change the data values of an element? I hate javascript.
@@ -79,8 +80,20 @@ $(function(){
 
 
   var wrappedUpdater = function () {
-    $.getJSON('https://spreadsheets.google.com/feeds/cells/1at-FWTfCrWkDpgR6Dzb8D2ID9Kbop5DYQTmpT4tDTLo/osk8eva/public/basic?alt=json', parseJSON);
+    $.getJSON(fetchUrl, parseJSON).error(
+      function() {
+        $('.leaderboard>.leaderboard-item.mix').remove();
+        if(!$('#board-empty').length) {
+          $('.leaderboard').append('<div class="leaderboard-item large" id="board-empty"><h4>' + "The leaderboard is unavailable. <br> Maybe just to keep you in suspense! ;)" + '</h4></div>'); }
+        }
+    ).success(function(){
+      $('#board-empty').remove();
+    });
   }
+
+  fetchUrl = $('.leaderboard').attr('leaderboard-sheet');
+
+  console.log(fetchUrl);
 
   wrappedUpdater();
   setInterval(wrappedUpdater, 10000);
