@@ -1,4 +1,19 @@
+  - title: Cyber Defence Exercise
+    description: CDX this year featured a full story, with participants working for Blue Technologies Ltd. to patch security holes in outdated technologies. We also had some awesome side events, including a defusal challenge!
+    time: Feburary 2017
+    image: images/events/cdx2017.jpg
+
   - title: Do You Have The Guts Hackathon
-    description: It was awesome! Challenges included everything from big data to robotics to retro game-making, and there was loads of free food all weekend. Re-live the excitement by visiting the <a href="/hackathon">hackathon page</a>.
-    time: October 2015
-    image: images/events/hack2015.jpg
+    description: The 2016 hackathon was great! We had tons of challenges using cool tech, like Xbox Kinect and alternate reality mobile games.
+    time: October 2016
+    image: images/events/hack2016.jpg
+
+  # - title: Cyber Defence Exercise
+  #   description: Description of CDX 2016
+  #   time: Feburary 2016
+  #   image: images/events/cdx2016.jpg
+
+  # - title: Do You Have The Guts Hackathon
+  #   description: It was awesome! Challenges included everything from big data to robotics to retro game-making, and there was loads of free food all weekend. Re-live the excitement by visiting the <a href="/hackathon">hackathon page</a>.
+  #   time: October 2015
+  #   image: images/events/hack2015.jpg

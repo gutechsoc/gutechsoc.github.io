@@ -1,8 +1,29 @@
+- title: cdx2017
+  year: 2017
+  date: 18-19 Feb
+  gallery: cdx_2017
+  gallery_size: 133
+  colour: LightSlateGray
+  sponsors:
+      - pentest
+      - realise
+      - jpm
+      - ms
+    #   - gotham (image, anyone?)
+      - amazon-dev-centre
+      - school
+      - guts
+  buttons:
+    #   - text: After-Movie
+    #     url: www.youtube.com # add this when it's made
+      - text: Workshops
+        url: https://www.youtube.com/playlist?list=PLorFvlzsJFF-zEOBYusZequNY9lq-BDEd
+
 - title: cdx2016
   year: 2016
   date: 27-28 Feb
   gallery: cdx_2016
-  gallery_size: 217
+  gallery_size: 81
   sponsors:
       - pentest
       - gwob
@@ -22,7 +43,7 @@
   year: 2015
   date: 14-15 March
   gallery: cdx_2015
-  gallery_size: 170
+  gallery_size: 71
   sponsors:
       - scotlandhacks
       - gwob

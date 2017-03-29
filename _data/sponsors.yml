@@ -1,3 +1,9 @@
+realise:
+  name: realise
+  url: http://www.realise.com/
+  image: images/logos/realise_white.png
+  class: images/logos/realise_white.png
+
 sas:
   name: sas
   url: http://www.sas.com
