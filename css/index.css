@@ -19,12 +19,6 @@
   padding: 6px 12px;
 }
 
-.calWrapper iframe {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .section-content {
   margin-bottom: 50px;
 }
@@ -110,28 +104,69 @@
   padding: 20px 0px;
 }
 
+/*styles for the upcoming event section*/
+
+.event {
+  display:inline-flex;
+  clear:both;
+  width:100%;
+  background-color:#eaeaea;
+  border:0;
+}
+
+.eventinfo {
+  clear: both;
+  width: 80%;
+  margin: auto;
+}
+
+.eventinfo p {
+  padding-top: 5%;
+  margin-top: 1%
+}
+
+.eventTitle {
+  float: left;
+}
+
+.eventDate {
+  float: right;
+}
+
+.eventIcon {
+  position: relative;
+  width: 100px;
+}
+
+@media (max-width: 992px) {
+  .eventinfo p {
+    display: none;
+  }
+}
+
 @media (max-width: 835px) {
-  .calWrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 25px;
-    height: 0;
-    margin: auto;
+  .eventTitle {
+    float: none;
   }
 
-  .calWrapper iframe {
-    display: block;
-    margin: auto;
-    position: absolute;
-    /*top: 0;
-    left: 0;*/
-    max-width: 100%;
-    max-height: 100%;
+  .eventDate {
+    float: none;
   }
 }
 
 @media (max-width: 650px) {
   .company-wide-logo {
     padding: 0px 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .eventIcon {
+      padding-right: 10px;
+      left: -10px;
+  }
+
+  .eventinfo h2 {
+      font-size: 24px;
   }
 }
