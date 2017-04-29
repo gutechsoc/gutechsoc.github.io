@@ -128,55 +128,14 @@ excite_link: https://twitter.com/hashtag/cdxglasgow
     </div>
 </section>
 
-<!-- Upcoming Events Section -->
-<section id="events" class="bg-very-light-grey">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Upcoming Events</h2>
-                <h3 class="section-subheading text-muted">Our upcoming events. Click the title for the facebook event and more info.</h3>
-            </div>
-        </div>
-        <ul class="list-group" style="display:block">
-            {% for event in site.data.upcoming %}
-                <li class="list-group-item event">
-
-                    {% if event.type == 'lan' %}
-                        <div class="eventIcon">
-                            <div style="display:flex; justify-content:center; align-items:center;">
-                                <i class="fa fa-gamepad fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-                            </div>
-                        </div>
-                    {% elsif event.type == 'hackathon' %}
-                        <div class="eventIcon">
-                            <div style="display:flex; justify-content:center; align-items:center;">
-                                <i class="fa fa-code fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-                            </div>
-                        </div>
-                    {% elsif event.type == 'boardgames' %}
-                        <div class="eventIcon">
-                            <div style="display:flex; justify-content:center; align-items:center;">
-                                <i class="fa fa-trophy fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-                            </div>
-                        </div>
-                    {% else %}
-                        <div class="eventIcon">
-                            <div style="display:flex; justify-content:center; align-items:center;">
-                                <i class="fa fa-terminal fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-                            </div>
-                        </div>
-                    {% endif %}
-
-                    <div class="timeline-heading eventinfo">
-                        <a href=https://{{event.link}} target="_blank"><h2 class="eventTitle">{{event.title}}</h2></a>
-                        <h2 class="eventDate">{{event.date}}</h2>
-                        <br />
-                        <p class="text-muted eventLocation"><i>{{event.location}}</i></p>
-                    </div>
-
-                </li>
-            {% endfor %}
-        </ul>
+<!-- Calendar Section -->
+<section id="calendar" class="bg-very-light-grey">
+    <div class="col-lg-12 text-center">
+    <h2 class="section-heading">Our Calendar</h2>
+    <h3 class="section-subheading text-muted">A public calendar of all our events.<br><br><a href="https://calendar.google.com/calendar/render?cid=d9iat0vq96ncgu18iuoitr1058%40group.calendar.google.com#main_7">Click here</a> to add this to your calendar so you can be kept up to date!</h3>
+    </div>
+    <div class="calWrapper">
+        <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23eaeaea&amp;src=d9iat0vq96ncgu18iuoitr1058%40group.calendar.google.com&amp;color=%23398FB0&amp;ctz=Europe%2FLondon" style="border-width:0" width="800" height="450" frameborder="0" scrolling="no"></iframe>
     </div>
 </section>
 

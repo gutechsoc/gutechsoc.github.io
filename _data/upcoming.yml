@@ -1,8 +1,0 @@
-# Supported types: lan, hackathon, boardgames -> changes the icon
-# Make sure they are in date order :)
-
-  - title: Graduation Ball
-    link: facebook.com/events/271605539954153/
-    date: 21st May
-    location: Hilton Glasgow Grosvenor
-    type: ball
