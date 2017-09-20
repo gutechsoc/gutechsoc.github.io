@@ -1,17 +1,11 @@
 # Supported types: lan, hackathon, boardgames -> changes the icon
 # Make sure they are in date order :)
-
- # - title: Graduation Ball
- #   link: facebook.com/events/271605539954153/
- #   date: 21st May
- #   location: Hilton Glasgow Grosvenor
- #   type: ball
  
- - title: Board Games
-   link: facebook.com/events/525994937793797/
-   date: 19th Sept
-   location: Boyd Orr 616
-   type: boardgames
+ #- title: Board Games
+ #  link: facebook.com/events/525994937793797/
+ #  date: 19th Sept
+ #  location: Boyd Orr 616
+ #  type: boardgames
 
  - title: Hacker Olympics
    link: facebook.com/events/732923830226133/
