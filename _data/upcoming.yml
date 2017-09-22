@@ -1,6 +1,6 @@
 # Supported types: lan, hackathon, boardgames -> changes the icon
 # Make sure they are in date order :)
- 
+
  #- title: Board Games
  #  link: facebook.com/events/525994937793797/
  #  date: 19th Sept
@@ -12,9 +12,15 @@
    date: 30th Sept
    location: Sir Alywn Williams Bldg
    type: hackathon
-  
-# - title: Board Games
-#   link: facebook.com/gutechsoc
-#   date: 4th Oct
-#   location: Boyd Orr 616
-#   type: boardgames
+   
+ - title: Board Games
+   link: facebook.com/gutechsoc
+   date: 4th Oct
+   location: Boyd Orr 616
+   type: boardgames
+
+ - title: Do You Have the GUTS? 2017
+   link: facebook.com/events/2362668460624060/
+   date: 27-29th Oct
+   location: Hunter Halls
+   type: hackathon
