@@ -1,18 +1,12 @@
 # Supported types: lan, hackathon, boardgames -> changes the icon
 # Make sure they are in date order :)
 
- #- title: Board Games
- #  link: facebook.com/events/525994937793797/
- #  date: 19th Sept
- #  location: Boyd Orr 616
- #  type: boardgames
-
  - title: Hacker Olympics
    link: facebook.com/events/732923830226133/
    date: 30th Sept
    location: Sir Alywn Williams Bldg
    type: hackathon
-   
+
  - title: Board Games
    link: facebook.com/gutechsoc
    date: 4th Oct
