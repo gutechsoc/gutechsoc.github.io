@@ -1,15 +1,18 @@
-- title: hack2017
-  year: 2017
-  date: 27-29 Oct
-  gallery:
-  gallery_size: 0
-  gallery_button_url:
-  gallery_button_text:
-  sponsors:
-      - guts
-      - school
-      - jpm
-      - ms
+# - title: hack2017
+#   year: 2017
+#   date: 27-29 Oct
+#   gallery:
+#   gallery_size: 0
+#   gallery_button_url:
+#   gallery_button_text:
+#   sponsors:
+#       - guts
+#       - jpm
+#       - ms
+#       - sas
+#       - verint
+#       - amazon-dev-centre
+#       - school
 
 - title: hack2016
   year: 2016
