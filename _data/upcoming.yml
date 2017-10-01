@@ -1,12 +1,6 @@
 # Supported types: lan, hackathon, boardgames -> changes the icon
 # Make sure they are in date order :)
 
- - title: Hacker Olympics
-   link: facebook.com/events/732923830226133/
-   date: 30th Sept
-   location: Sir Alywn Williams Bldg
-   type: hackathon
-
  - title: Board Games
    link: facebook.com/events/1390534991059589/
    date: 4th Oct
