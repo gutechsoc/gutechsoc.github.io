@@ -3,7 +3,7 @@ section {
 }
 
 section:nth-child(odd) {
-  background-color: beige;
+  background-color: #eaeaea;
 }
 
 .event-row.active {
