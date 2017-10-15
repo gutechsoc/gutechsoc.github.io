@@ -3,8 +3,8 @@
 # Boyd Orr common room: 616 
 
  - title: Board Games
-   link: facebook.com/events/1390534991059589/
-   date: 4th Oct
+   link: facebook.com/events/734776943378250/
+   date: 17th Oct
    location: Boyd Orr 616
    type: boardgames
 
@@ -12,4 +12,10 @@
    link: facebook.com/events/2362668460624060/
    date: 27-29th Oct
    location: Boyd Orr, Hunter Halls
+   type: hackathon
+
+ - title: AI Mini-Hack
+   link: facebook.com/events/1368912256539554/
+   date: 4th Nov
+   location:  
    type: hackathon
