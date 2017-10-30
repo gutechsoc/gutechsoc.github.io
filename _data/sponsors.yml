@@ -1,3 +1,21 @@
+wrld:
+  name: wrld
+  url: https://www.wrld3d.com/
+  image: images/logos/WRLD_white.png
+  class: images/logos/WRLD_white.png
+
+dotTech:
+  name: dotTech
+  url: http://get.tech/
+  image: images/logos/tech_white.png
+  class: images/logos/tech_white.png
+
+slc:
+  name: slc
+  url: https://www.slc.co.uk/
+  image: images/logos/slc_white.png
+  class: images/logos/slc_white.png
+
 realise:
   name: realise
   url: http://www.realise.com/

@@ -1,18 +1,41 @@
-# - title: hack2017
-#   year: 2017
-#   date: 27-29 Oct
-#   gallery:
-#   gallery_size: 0
-#   gallery_button_url:
-#   gallery_button_text:
-#   sponsors:
-#       - guts
-#       - jpm
-#       - ms
-#       - sas
-#       - verint
-#       - amazon-dev-centre
-#       - school
+ # - title: hack2017
+ #   year: 2017
+ #   date: 27-29 Oct
+ #   gallery: hack_2017
+ #   gallery_size: 0
+ #   gallery_button_url: google.com
+ #   gallery_button_text: View the full gallery on facebook
+ #   sponsors:
+ #       - guts
+ #       - jpm
+ #       - ms
+ #       - verint
+ #       - wrld
+ #       - sas
+ #       - tech
+ #       - slc
+ #       - amazon-dev-centre
+ #       - school
+
+- title: hack2017
+  year: 2017
+  date: 27-29 Oct
+  gallery: hack_2017
+  gallery_size: 0
+  gallery_button_url: https://www.facebook.com/gutechsoc
+  gallery_button_text: Pictures coming soon!
+  sponsors:
+       - guts
+       - jpm
+       - ms
+       - verint
+       - wrld
+       - sas
+       - slc
+       - mlh
+       - amazon-dev-centre
+       - dotTech
+       - school
 
 - title: hack2016
   year: 2016
