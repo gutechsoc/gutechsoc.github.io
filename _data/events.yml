@@ -1,3 +1,8 @@
+  - title: Do You Have The Guts Hackathon
+    description: The 2017 hackathon was amazing! Students from all over the UK worked on projects all weekend including asymmetric games, making applying for student loans easier, and RESTful DOOM.
+    time: October 2017
+    image: images/events/hack2017.jpg
+
   - title: Hacker Olympics
     description: We ran our very first Hacker Olympics in September! Teams worked to complete small programming challenges, like making a program with a 42 second run time, and some fun ones, such as "make an Apple parody video".
     time: September 2017
@@ -8,10 +13,10 @@
     time: Feburary 2017
     image: images/events/cdx2017.jpg
 
-  - title: Do You Have The Guts Hackathon
-    description: The 2016 hackathon was great! We had tons of challenges using cool tech, like Xbox Kinect and alternate reality mobile games.
-    time: October 2016
-    image: images/events/hack2016.jpg
+  # - title: Do You Have The Guts Hackathon
+  #   description: The 2016 hackathon was great! We had tons of challenges using cool tech, like Xbox Kinect and alternate reality mobile games.
+  #   time: October 2016
+  #   image: images/events/hack2016.jpg
 
   # - title: Cyber Defence Exercise
   #   description: Description of CDX 2016
