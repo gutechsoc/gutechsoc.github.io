@@ -8,10 +8,10 @@
 #   location: Boyd Orr 616
 #   type: boardgames
 
- - title: CDX Workshops
-   link: www.facebook.com/gutechsoc
-   date: Various dates
-   location: Boyd Orr
+ - title: CDX Workshop - Intro to Pentesting
+   link: https://www.facebook.com/events/321276148376143/
+   date: 18/1
+   location: Boyd Orr 507
    type: hackathon
 
  # - title: AI Mini-Hack
