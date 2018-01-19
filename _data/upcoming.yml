@@ -8,11 +8,17 @@
 #   location: Boyd Orr 616
 #   type: boardgames
 
- - title: CDX Workshop - Intro to Pentesting
-   link: https://www.facebook.com/events/321276148376143/
-   date: 18/1
-   location: Boyd Orr 507
-   type: hackathon
+ # - title: CDX Workshop: Intro to Pentesting
+ #   link: https://www.facebook.com/events/321276148376143/
+ #   date: 18/1
+ #   location: Boyd Orr 507
+ #   type: hackathon
+
+  - title: Cyber Defence Exercise 2018
+    link: www.facebook.com/events/1453610181433845/
+    date: 17-18th Feb
+    location: Sir Alwyn Williams Bldg
+    type: hackathon
 
  # - title: AI Mini-Hack
  #   link: facebook.com/events/1368912256539554/
