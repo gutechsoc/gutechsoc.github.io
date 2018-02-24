@@ -1,3 +1,22 @@
+- title: cdx2018
+  year: 2018
+  date: 17-18 Feb
+  gallery: cdx_2018
+  gallery_size: 132
+  colour: rgba(232,50,41,1)
+  sponsors:
+       - milamber
+       - secarma
+       - ukfast
+       - ms
+       - jpm
+       - broadridge
+       - school
+       - guts
+  # buttons:
+       # - text: After-Movie
+         # url: https://www.youtube.com/watch?v=H-J8NreBmkA
+
 - title: cdx2017
   year: 2017
   date: 18-19 Feb

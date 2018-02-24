@@ -1,3 +1,27 @@
+secarma:
+  name: secarma
+  url: https://www.secarma.co.uk/
+  image: images/logos/secarma_white.png
+  class: images/logos/secarma_white.png
+
+ukfast:
+  name: ukfast
+  url: https://www.ukfast.co.uk/
+  image: images/logos/ukfast_white.png
+  class: images/logos/ukfast_white.png
+
+broadridge:
+  name: broadridge
+  url: https://www.broadridge.com/intl/
+  image: images/logos/broadridge_white.png
+  class: images/logos/broadridge_white.png
+
+milamber:
+  name: milamber
+  url: 
+  image: images/logos/milamber_white.png
+  class: images/logos/milamber_white.png
+
 wrld:
   name: wrld
   url: https://www.wrld3d.com/
