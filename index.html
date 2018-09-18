@@ -131,57 +131,61 @@ ghost_link: https://www.facebook.com/events/297419467514274/
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Upcoming Events</h2>
-                <h3 class="section-subheading text-muted">Our upcoming events. Click the title for the facebook event and more info.</h3>
+                <h3 class="section-subheading text-muted">Our upcoming events. Click the title for the facebook event
+                    and more info.</h3>
             </div>
         </div>
         <ul class="list-group" style="display:block">
-            {% for event in site.data.upcoming %}
+
+            {% if site.data.upcoming.size > 0 %}
+                {% for event in site.data.upcoming %}
+                    <li class="list-group-item event">
+
+                        {% if event.type == 'lan' %}
+                            <div class="eventIcon">
+                                <div style="display:flex; justify-content:center; align-items:center;">
+                                    <i class="fa fa-gamepad fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+                                </div>
+                            </div>
+                        {% elsif event.type == 'hackathon' %}
+                            <div class="eventIcon">
+                                <div style="display:flex; justify-content:center; align-items:center;">
+                                    <i class="fa fa-code fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+                                </div>
+                            </div>
+                        {% elsif event.type == 'boardgames' %}
+                            <div class="eventIcon">
+                                <div style="display:flex; justify-content:center; align-items:center;">
+                                    <i class="fa fa-trophy fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="eventIcon">
+                                <div style="display:flex; justify-content:center; align-items:center;">
+                                    <i class="fa fa-terminal fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        <div class="timeline-heading eventinfo">
+                            <a href=https://{{event.link}} target="_blank"><h2 class="eventTitle">{{event.title}}</h2></a>
+                            <h2 class="eventDate">{{event.date}}</h2>
+                            <br/>
+                            <p class="text-muted eventLocation"><i>{{event.location}}</i></p>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <!-- no upcoming events -->
                 <li class="list-group-item event">
-
-                    {% if event.type == 'lan' %}
-                        <div class="eventIcon">
-                            <div style="display:flex; justify-content:center; align-items:center;">
-                                <i class="fa fa-gamepad fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-                            </div>
-                        </div>
-                    {% elsif event.type == 'hackathon' %}
-                        <div class="eventIcon">
-                            <div style="display:flex; justify-content:center; align-items:center;">
-                                <i class="fa fa-code fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-                            </div>
-                        </div>
-                    {% elsif event.type == 'boardgames' %}
-                        <div class="eventIcon">
-                            <div style="display:flex; justify-content:center; align-items:center;">
-                                <i class="fa fa-trophy fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-                            </div>
-                        </div>
-                    {% else %}
-                        <div class="eventIcon">
-                            <div style="display:flex; justify-content:center; align-items:center;">
-                                <i class="fa fa-terminal fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-                            </div>
-                        </div>
-                    {% endif %}
-
                     <div class="timeline-heading eventinfo">
-                        <a href=https://{{event.link}} target="_blank"><h2 class="eventTitle">{{event.title}}</h2></a>
-                        <h2 class="eventDate">{{event.date}}</h2>
-                        <br />
-                        <p class="text-muted eventLocation"><i>{{event.location}}</i></p>
+                        <h2 class="eventTitle">We have nothing coming up right now :(</h2>
+                        <br/>
+                        <p class="text-muted eventLocation"><i>Check again soon though! :)</i></p>
                     </div>
-
                 </li>
-            {% endfor %}
+            {% endif %}
 
-            <!-- use this if there are no events -->
-            <li class="list-group-item event">
-                 <div class="timeline-heading eventinfo">
-                      <h2 class="eventTitle">We have nothing coming up until next semester :(</h2>
-                      <br />
-                      <p class="text-muted eventLocation"><i>Check again soon though! :)</i></p>
-                </div>
-            </li>
         </ul>
     </div>
 </section>
