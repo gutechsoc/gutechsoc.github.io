@@ -22,6 +22,7 @@ custom_js: lightbox.min
       <div class="container" id="intro-container">
           <div class="intro-text">
               <div class="intro-heading">{{page.header_title}}</div>
+              <div class="intro-lead-out">({{page.header_leadout}})</div>
 
               {% for button in page.buttons %}
               <a href="{{button.link}}" class="btn btn-xl btn-excite header-button visible-sm-xl {{button.class}}">{{button.text}}</a>
@@ -37,7 +38,12 @@ custom_js: lightbox.min
             {% for event in day.events %}
               <div class="row event-row" start-time="{{event.start_time}}" end-time="{{event.end_time}}">
                 <div class="col-xs-3 col-md-2">
-                  <h3 class="text-muted event-time">{{event.time_text}}</h3>
+                  {% if event.time_text %}
+                    <h3 class="text-muted event-time">{{event.time_text}}</h3>
+                  {% endif %}
+                  {% if event.side_time_text %}
+                    <h3 style="color:#4aacd2" class="text-muted event-time">{{event.side_time_text}}</h3>
+                  {% endif %}
                 </div>
                 <div class="col-xs-9 col-md-10">
                   <h3>{{event.name}}</h3>
