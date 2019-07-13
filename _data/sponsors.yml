@@ -1,3 +1,9 @@
+goldmansachs:
+  name: goldmansachs
+  url: https://www.goldmansachs.com/
+  image: images/logos/goldmansachs_white.png
+  class: goldmansachs-logo
+
 secarma:
   name: secarma
   url: https://www.secarma.co.uk/
