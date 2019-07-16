@@ -1,3 +1,9 @@
+craneware:
+  name: craneware
+  url: https://public.craneware.com/
+  image: images/logos/craneware_white.png
+  class: images/logos/craneware_white.png
+
 goldmansachs:
   name: goldmansachs
   url: https://www.goldmansachs.com/
