@@ -1,3 +1,21 @@
+- title: hack2018
+  year: 2018
+  date: 12-14 Oct
+  gallery: hack_2018
+  gallery_size: 82
+  gallery_button_url: https://www.facebook.com/pg/gutechsoc/photos/?tab=album&album_id=1914879805267099
+  gallery_button_text: View the full gallery on facebook
+  sponsors:
+       - guts
+       - jpm
+       - ms
+       - verint
+       - sas
+       - goldmansachs
+       - amazon-dev-centre
+       - school
+       - craneware
+
 - title: hack2017
   year: 2017
   date: 27-29 Oct
