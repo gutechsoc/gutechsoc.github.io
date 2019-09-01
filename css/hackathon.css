@@ -73,10 +73,17 @@ header .hack-intro {
   max-width:100px;
   min-width:60px;
   position:fixed;
-  right:10px;
+  right:50px;
   top:0;
   width:10%;
   z-index:10000;
+}
+
+#code-of-coduct{
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size:10px;
 }
 
 @media(max-width:768px) {
