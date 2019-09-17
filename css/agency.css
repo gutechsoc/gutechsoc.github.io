@@ -142,11 +142,11 @@ fieldset[disabled] .btn-primary.active {
 
 /* The styles that both ghost and excite have in common */
 .btn-ghost, .btn-excite {
-  padding: 12px 25px;
+  padding: 1.75vh 2.5vw;
   border-color: #4AACD2;
   text-transform: uppercase;
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 16px;
+  font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (3840 - 400) );
   font-weight: 700;
 }
 
@@ -250,16 +250,6 @@ fieldset[disabled] .btn-ghost.active {
 .btn-ghost .badge {
     color: #4AACD2;
     background-color: #fff;
-}
-
-
-@media(min-width:768px) {
-  /* The styles that both ghost and excite have in common. For larger screens */
-  .btn-ghost, .btn-excite {
-    padding: 20px 40px;
-    font-size: 18px;
-    font-weight: 700;
-  }
 }
 
 .navbar {
