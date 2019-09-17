@@ -11,75 +11,78 @@ custom_js: lightbox.min
 #header_text: Placeholder Text!
 #header_button_url: /
 #header_button:text: Placeholder Text!
+#ghost_text: Event page
+#ghost_link: Event link
 ---
 <header>
-      <div id="header-container">
-        <img id="header-img" src="{{page.header_background_image}}" alt="" />
-        <!--video autoplay loop muted id="header-video">
+  <div id="header-container">
+    <img id="header-img" src="{{page.header_background_image}}" alt="" />
+    <!--video autoplay loop muted id="header-video">
           <source type="video/youtube" src="http://www.youtube.com/watch?v=nOEw9iiopwI">
           <img src="http://www.bhmpics.com/walls/nice_bird-wide.jpg">
         </video-->
-      </div>
-      <div class="container">
-        <div class="row">
+  </div>
+  <div class="container">
+    <div class="row">
 
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <img id="header-hack-logo" src="{{page.header_image}}" alt="" />
+      </div>
+      <div class="col-xs-12 col-md-12">
+        <div class="hack-intro">
+          <div class="intro-lead-out">{{page.header_text}}</div>
+          <div class="text-center">
+            <a href="{{page.ghost_link}}" class="page-scroll btn btn-xl btn-ghost header-button visible-sm-xl">{{page.ghost_text}}</a>
+            <a href="{{page.header_button_url}}" class="page-scroll btn btn-xl btn-excite header-button visible-sm-xl">{{page.header_button_text}}</a>
+          </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-md-6">
-              <img id="header-hack-logo" src="{{page.header_image}}" alt="" />
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <div class="hack-intro">
-                <div class="intro-lead-out">{{page.header_text}}</div>
-                <div class="text-center">
-                    <a href="{{page.header_button_url}}" class="page-scroll btn btn-xl btn-excite header-button visible-sm-xl">{{page.header_button_text}}</a>
-                </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- THIS IS WHERE CUSTOM HTML FOR THE UPCOMING EVENT CAN GO -->
+{{content}}
+
+{% assign events = site.data[page.event_series] %}
+
+{% for event in events %}
+<section class="hack-section" id="{{event.title}}" style="{% if event.colour %}background-color: {{event.colour}}{% endif %}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 text-center hack-column">
+        <h1 class="hack-year">{{event.year}}</h1>
+        <h3><i class="fa fa-calendar"></i> {{event.date}}</h3>
+        <hr>
+        {% for s in event.sponsors %}
+        {% assign sponsor = site.data.sponsors[s] %}
+        <a href="{{sponsor.url}}" target="_blank">
+          <img src="{{sponsor.image}}" alt="company icon" class="company-logo {{sponsor.class}}">
+        </a>
+        {% endfor %}
+        {% if event.buttons %}
+        <br>
+        <br>
+        {% for button in event.buttons %}
+        <a href="{{button.url}}" target="_blank" class="page-scroll btn btn-xl btn-default header-button {{button.class}}">{{button.text}}</a>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="col-xs-12 col-md-12">
+        <div class="gallery-container text-center">
+          {% for i in (1..event.gallery_size) %}
+          {% assign thumb = site.base | append: 'images/galleries/' | append: event.gallery | append: '/t/' | append: i | append: '.jpg' %}
+          {% assign image = site.base | append: 'images/galleries/' | append: event.gallery | append: '/i/' | append: i | append: '.jpg' %}
+          <a href="{{image}}" data-lightbox="{{event.title}}">
+            <img src="{{thumb}}" alt="" class="gallery-img" />
+          </a>
+          {% endfor %}
+          {% if event.gallery_button_url %}<br><a href="{{event.gallery_button_url}}" target="_blank" class="page-scroll btn btn-xl btn-default header-button {{event.gallery_button_class}}">{{event.gallery_button_text}}</a>{% endif %}
         </div>
       </div>
-  </header>
-
-  <!-- THIS IS WHERE CUSTOM HTML FOR THE UPCOMING EVENT CAN GO -->
-  {{content}}
-
-  {% assign events = site.data[page.event_series] %}
-
-  {% for event in events %}
-  <section class="hack-section" id="{{event.title}}" style="{% if event.colour %}background-color: {{event.colour}}{% endif %}">
-      <div class="container">
-          <div class="row">
-              <div class="col-xs-12 col-md-6 text-center hack-column">
-                  <h1 class="hack-year">{{event.year}}</h1>
-                  <h3><i class="fa fa-calendar"></i> {{event.date}}</h3>
-                  <hr>
-                  {% for s in event.sponsors %}
-                  {% assign sponsor = site.data.sponsors[s] %}
-                    <a href="{{sponsor.url}}" target="_blank">
-                      <img src="{{sponsor.image}}" alt="company icon" class="company-logo {{sponsor.class}}">
-                    </a>
-                  {% endfor %}
-                  {% if event.buttons %}
-                    <br>
-                    <br>
-                    {% for button in event.buttons %}
-                      <a href="{{button.url}}" target="_blank" class="page-scroll btn btn-xl btn-default header-button {{button.class}}">{{button.text}}</a>
-                    {% endfor %}
-                  {% endif %}
-              </div>
-              <div class="col-xs-12 col-md-6">
-                <div class="gallery-container text-center">
-                  {% for i in (1..event.gallery_size) %}
-                  {% assign thumb = site.base | append: 'images/galleries/' | append: event.gallery | append: '/t/' | append: i | append: '.jpg' %}
-                  {% assign image = site.base | append: 'images/galleries/' | append: event.gallery | append: '/i/' | append: i | append: '.jpg' %}
-                  <a href="{{image}}"  data-lightbox="{{event.title}}">
-                      <img src="{{thumb}}" alt="" class="gallery-img"/>
-                    </a>
-                {% endfor %}
-                {% if event.gallery_button_url %}<br><a href="{{event.gallery_button_url}}" target="_blank" class="page-scroll btn btn-xl btn-default header-button {{event.gallery_button_class}}">{{event.gallery_button_text}}</a>{% endif %}
-                </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
