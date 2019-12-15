@@ -235,3 +235,20 @@ skyscanner:
   name: skyscanner
   url: http://www.skyscanner.com/
   image: images/logos/skyscanner_white.png
+
+metix-medical:
+  name: metix-medical
+  url: https://www.metixmedical.co.uk
+  image: images/logos/metix-logo_white.png
+
+twilo:
+  name: twilo 
+  url: https://www.twilio.com
+  image: images/logos/twilio-logo-white.png
+  class: twilo-logo
+
+tennents:
+  name: tennents
+  url: http://tennents.com/en/intro/
+  image: images/logos/tennents-logo-white.png
+  
