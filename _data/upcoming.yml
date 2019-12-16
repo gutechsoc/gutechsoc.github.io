@@ -2,20 +2,27 @@
 # Make sure they are in date order :)
 # Boyd Orr common room: 616
 
-  # - title: Board Games
-  #   link: facebook.com/events/1982258335319824
-  #   date: 6th Dec
-  #   location: Boyd Orr 616
-  #   type: boardgames
+# - title: Board Games
+#   link: facebook.com/events/1982258335319824
+#   date: 6th Dec
+#   location: Boyd Orr 616
+#   type: boardgames
 
-- title: Hacker Olympics
-  link: facebook.com/events/409431979711559
-  date: 28th Sep
-  location: Sir Alywn Williams Building
-  type: hackathon
+# - title: Hacker Olympics
+#   link: facebook.com/events/409431979711559
+#   date: 28th Sep
+#   location: Sir Alywn Williams Building
+#   type: hackathon
 
-- title: Hackathon
-  link: facebook.com/events/2108014776167341/
-  date: 18th-20th Oct
-  location: Western Infirmary Lecture Theatre
+# - title: Hackathon
+#   link: facebook.com/events/2108014776167341/
+#   date: 18th-20th Oct
+#   location: Western Infirmary Lecture Theatre
+#   type: hackathon
+
+- title: Cyber Defence Exercise 2020
+  # link: 
+  # date: 
+  location: Event Details TBA
   type: hackathon
+  

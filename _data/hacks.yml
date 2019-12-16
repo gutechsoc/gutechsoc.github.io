@@ -1,3 +1,24 @@
+- title: hack2019
+  year: 2019
+  date: 18-20 Oct
+  gallery: hack_2019
+  gallery_size: 0
+  gallery_button_url: https://www.facebook.com/pg/gutechsoc/photos
+  gallery_button_text: Photos will be available soon
+  sponsors:
+       - guts
+       - school
+       - jpm
+       - ms
+       - skyscanner
+       - craneware
+       - tennents
+       - metix-medical
+       - twilo
+       - verint
+       - sas
+       - mlh
+
 - title: hack2018
   year: 2018
   date: 12-14 Oct
@@ -7,13 +28,13 @@
   gallery_button_text: View the full gallery on facebook
   sponsors:
        - guts
+       - school
        - jpm
        - ms
        - verint
        - sas
        - goldmansachs
        - amazon-dev-centre
-       - school
        - craneware
 
 - title: hack2017
@@ -25,6 +46,7 @@
   gallery_button_text: View the full gallery on facebook
   sponsors:
        - guts
+       - school
        - jpm
        - ms
        - verint
@@ -34,7 +56,6 @@
        - mlh
        - amazon-dev-centre
        - dotTech
-       - school
 
 - title: hack2016
   year: 2016

@@ -1,4 +1,19 @@
-  - title: Do You Have The Guts Hackathon
+  - title: Do You Have the GUTS? Hackathon
+    description: The 2019 hackathon was awesome! Challenges included everything from big data to AI and there was plenty of free food all weekend!
+    time: October 2019
+    image: images/events/hack2017.jpg
+  
+  - title: Hacker Olympics 2.0
+    description: Following popular demand, Hacker Olympics was our first event of the academic year! The event featured new, creative challenges like creating a program which only works 50% of the time!
+    time: September 2019
+    image: images/events/holympics20192.0.jpg
+
+  - title: Hacker Olympics
+    description: Hacker Olympics was great! Students split into teams to solve a range of innovative programming and nonprogramming challenges!
+    time: January 2019
+    image: images/events/holympics2019.jpg
+
+  - title: Do You Have the GUTS? Hackathon
     description: Our 2018 hackathon was jam packed with challenges covering games, 25GB of data, and AI tanks.
     time: October 2018
     image: images/events/hack2016.jpg
@@ -8,15 +23,15 @@
     time: Feburary 2018
     image: images/events/cdx2018.jpg
 
-  - title: Do You Have The Guts Hackathon
-    description: The 2017 hackathon was amazing! Students from all over the UK worked on projects all weekend including asymmetric games, making applying for student loans easier, and RESTful DOOM.
-    time: October 2017
-    image: images/events/hack2017.jpg
+  # - title: Do You Have The Guts Hackathon
+  #   description: The 2017 hackathon was amazing! Students from all over the UK worked on projects all weekend including asymmetric games, making applying for student loans easier, and RESTful DOOM.
+  #   time: October 2017
+  #   image: images/events/hack2017.jpg
 
-  - title: Hacker Olympics
-    description: We ran our very first Hacker Olympics in September! Teams worked to complete small programming challenges, like making a program with a 42 second run time, and some fun ones, such as "make an Apple parody video".
-    time: September 2017
-    image: images/events/holympics2017.jpg
+  # - title: Hacker Olympics
+  #   description: We ran our very first Hacker Olympics in September! Teams worked to complete small programming challenges, like making a program with a 42 second run time, and some fun ones, such as "make an Apple parody video".
+  #   time: September 2017
+  #   image: images/events/holympics2017.jpg
 
   # - title: Cyber Defence Exercise
   #   description: CDX this year featured a full story, with participants working for Blue Technologies Ltd. to patch security holes in outdated technologies. We also had some awesome side events, including a defusal challenge!
