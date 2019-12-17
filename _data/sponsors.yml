@@ -235,3 +235,26 @@ skyscanner:
   name: skyscanner
   url: http://www.skyscanner.com/
   image: images/logos/skyscanner_white.png
+
+metix-medical:
+  name: metix-medical
+  url: https://www.metixmedical.co.uk
+  image: images/logos/metix-logo_white.png
+
+twilio:
+  name: twilio 
+  url: https://www.twilio.com
+  image: images/logos/twilio_white.png
+  class: twilio-logo
+
+tennents:
+  name: tennents
+  url: http://tennents.com
+  image: images/logos/tennents_white.png
+
+ibm:
+  name: ibm
+  url: https://www.ibm.com
+  image: images/logos/ibm_white.jpg
+  class: ibm-logo
+  
