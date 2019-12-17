@@ -249,11 +249,12 @@ twilio:
 
 tennents:
   name: tennents
-  url: http://tennents.com/en/intro/
+  url: http://tennents.com
   image: images/logos/tennents_white.png
 
 ibm:
   name: ibm
-  url: https://www.ibm.com/uk-en
+  url: https://www.ibm.com
   image: images/logos/ibm_white.jpg
   class: ibm-logo
+  
