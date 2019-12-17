@@ -255,6 +255,6 @@ tennents:
 ibm:
   name: ibm
   url: https://www.ibm.com
-  image: images/logos/ibm_white.jpg
+  image: images/logos/ibm_white.png
   class: ibm-logo
   
