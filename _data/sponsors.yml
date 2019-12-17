@@ -241,14 +241,19 @@ metix-medical:
   url: https://www.metixmedical.co.uk
   image: images/logos/metix-logo_white.png
 
-twilo:
-  name: twilo 
+twilio:
+  name: twilio 
   url: https://www.twilio.com
-  image: images/logos/twilio-logo-white.png
-  class: twilo-logo
+  image: images/logos/twilio_white.png
+  class: twilio-logo
 
 tennents:
   name: tennents
   url: http://tennents.com/en/intro/
-  image: images/logos/tennents-logo-white.png
-  
+  image: images/logos/tennents_white.png
+
+ibm:
+  name: ibm
+  url: https://www.ibm.com/uk-en
+  image: images/logos/ibm_white.jpg
+  class: ibm-logo

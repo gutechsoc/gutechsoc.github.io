@@ -43,17 +43,19 @@ header .hack-intro {
   margin: 7px;
 }
 
-.goldmansachs-logo{
+.goldmansachs-logo, .twilio-logo {  
   height: 50px;
   margin: 7px;
 }
 
-.twilo-logo {
-  height: 46px;
-}
+/* requirement for ibm logo margin >= height */
+.ibm-logo {
+  height: 30px;
+  margin: 30px;
+} 
 
 #hack2019 {
-  background-color: #800000
+  background-color: rgb(85, 41, 110)
 }
 
 #hack2018 {
