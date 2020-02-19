@@ -5,13 +5,13 @@ custom_css: index
 custom_js: mailing-list-signup
 
 intro_heading: We're the GU Tech Society
-intro_leadout: CDX is coming up next! <br> Tickets will be available soon.
+intro_leadout: Tickets for CDX available now
 
 excite_text: Tickets
-excite_link: https://www.eventbrite.co.uk/
+excite_link: https://www.eventbrite.co.uk/e/cyber-defense-exercise-2020-tickets-93688700425?utm-medium=discovery&utm-campaign=social&utm-content=attendeeshare&utm-source=strongmail&utm-term=listing
 
 ghost_text: Event page
-ghost_link: https://www.facebook.com/
+ghost_link: https://www.facebook.com/events/3113267502230875/
 ---
 
 <header>
@@ -30,13 +30,13 @@ ghost_link: https://www.facebook.com/
       <div class="intro-lead-out">{{page.intro_leadout}}</div>
       <div class="row">
         <div class="col-xs-12">
+          <a href="{{page.ghost_link}}" class="page-scroll btn btn-ghost header-button visible-sm-xl">{{page.ghost_text}}</a>
+          <!-- <a href="{{page.excite_link}}" class="page-scroll btn btn-excite header-button visible-sm-xl">{{page.excite_text}}</a> -->
+        </div>
+        <div class="col-xs-12">
           <!-- <a href="" class="page-scroll btn btn-xl btn-ghost header-button visible-sm-xl">Tell Me More</a> -->
           <a href="https://twitter.com/hashtag/doyouhavetheguts" class="page-scroll btn btn-xl btn-excite header-button visible-sm-xl">#DoYouHaveTheGUTS</a>
         </div>
-        <!-- <div class="col-xs-12">
-          <a href="{{page.ghost_link}}" class="page-scroll btn btn-ghost header-button visible-sm-xl">{{page.ghost_text}}</a>
-          <a href="{{page.excite_link}}" class="page-scroll btn btn-excite header-button visible-sm-xl">{{page.excite_text}}</a>
-        </div> -->
       </div>
       <div class="row">
         <br>
@@ -146,6 +146,12 @@ ghost_link: https://www.facebook.com/
         <div class="eventIcon">
           <div style="display:flex; justify-content:center; align-items:center;">
             <i class="fa fa-trophy fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+          </div>
+        </div>
+        {% elsif event.type == 'gala' %}
+        <div class="eventIcon">
+          <div style="display:flex; justify-content:center; align-items:center;">
+            <i class="fa fa-music fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
           </div>
         </div>
         {% else %}

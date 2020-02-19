@@ -1,4 +1,4 @@
-# Supported types: lan, hackathon, boardgames -> changes the icon
+# Supported types: lan, hackathon, boardgames, gala -> changes the icon
 # Make sure they are in date order :)
 # Boyd Orr common room: 616
 
@@ -21,8 +21,13 @@
 #   type: hackathon
 
 - title: Cyber Defence Exercise 2020
-  # link: 
-  # date: 
-  location: Event Details TBA
+  link: https://www.facebook.com/events/3113267502230875/
+  date: 22nd-23rd Feb
+  location: Western Infirmary Lecture Theatre
   type: hackathon
-  
+
+- title: Spring Gala 2020
+  link: https://www.facebook.com/events/694406751095779/
+  date: 10th Mar
+  location: Glasgow Marriott Hotel
+  type: gala
