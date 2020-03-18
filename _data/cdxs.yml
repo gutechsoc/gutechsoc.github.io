@@ -1,3 +1,18 @@
+- title: cdx2019
+  year: 2019
+  date: 22-23 Feb
+  gallery: cdx_2019
+  gallery_size: 0
+  gallery_button_url: https://www.facebook.com/pg/gutechsoc/photos
+  gallery_button_text: Photos will be available soon!
+  colour: rgb(128,128,0,1)
+  sponsors:
+       - jpm
+       - cyberpro
+  # buttons:
+       # - text: After-Movie
+         # url: https://www.youtube.com/watch?v=H-J8NreBmkA
+
 - title: cdx2018
   year: 2018
   date: 17-18 Feb

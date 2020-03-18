@@ -257,4 +257,9 @@ ibm:
   url: https://www.ibm.com
   image: images/logos/IBM_white.png
   class: ibm-logo
-  
+
+cyberpro:
+  name: cyberpro
+  url: https://cyberpro.co.uk
+  image: images/logos/cyberpro_white.png
+  class: cyberpro-logo

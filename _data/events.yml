@@ -1,7 +1,12 @@
+  - title: Cyber Defence Exercise
+    description: CDX 2019 involved students securing and building servers, before fighting off Red Cells (a team of professional pentesters). There was also an escape room style side event!
+    time: Feburary 2019
+    image: images/events/cdx2017.jpg # temporary image
+  
   - title: Do You Have the GUTS? Hackathon
     description: The 2019 hackathon was awesome! Challenges included everything from big data to AI and there was plenty of free food all weekend!
     time: October 2019
-    image: images/events/hack2017.jpg
+    image: images/events/hack2019.jpg 
   
   - title: Hacker Olympics 2.0
     description: Following popular demand, Hacker Olympics was our first event of the academic year! The event featured new, creative challenges like creating a program which only works 50% of the time!
@@ -16,7 +21,7 @@
   - title: Do You Have the GUTS? Hackathon
     description: Our 2018 hackathon was jam packed with challenges covering games, 25GB of data, and AI tanks.
     time: October 2018
-    image: images/events/hack2016.jpg
+    image: images/events/hack2018.jpg
 
   - title: Cyber Defence Exercise
     description: CDX 2018 featured a full story, with a theme of "State Sponsored Attacks". Students were put in charge of securing a nuclear reactor control panel, stock exchange, and the President's personal computer. There was also an escape room style side event!
