@@ -263,3 +263,9 @@ cyberpro:
   url: https://cyberpro.co.uk
   image: images/logos/cyberpro_white.png
   class: cyberpro-logo
+
+team-daedalus:
+  name: team-daedalus
+  url: 
+  image: images/logos/team_daedalus.png
+  class: team-daedalus-logo
