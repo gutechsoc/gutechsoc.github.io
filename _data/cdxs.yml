@@ -1,25 +1,39 @@
-- title: cdx2019
-  year: 2019
+- title: cdx2020
+  year: 2020
   date: 22-23 Feb
-  gallery: cdx_2019
+  gallery: cdx_2020
   gallery_size: 0
   gallery_button_url: https://www.facebook.com/pg/gutechsoc/photos
-  gallery_button_text: Photos will be available soon!
+  gallery_button_text: Photos will be available soon
   colour: rgb(128,128,0,1)
   sponsors:
        - jpm
        - cyberpro
        - team-daedalus
-  # buttons:
-       # - text: After-Movie
-         # url: https://www.youtube.com/watch?v=H-J8NreBmkA
+       - school
+       - guts
+
+- title: cdx2019
+  year: 2019
+  date: 9-10 Feb
+  gallery: cdx_2019
+  gallery_size: 110
+  gallery_button_url: https://www.facebook.com/pg/gutechsoc/photos/?tab=album&album_id=2145045712250506
+  gallery_button_text: View the full gallery on facebook
+  colour: rgb(75,0,130,1)
+  sponsors:
+      - secarma
+      - jpm
+      - milamber
+      - school
+      - guts
 
 - title: cdx2018
   year: 2018
   date: 17-18 Feb
   gallery: cdx_2018
   gallery_size: 132
-  colour: rgba(232,50,41,1)
+  colour: rgb(85,107,47,1)
   sponsors:
        - milamber
        - secarma
