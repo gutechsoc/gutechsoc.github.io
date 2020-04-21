@@ -39,7 +39,7 @@ header .intro-text {
 }
 
 .section-content {
-  margin-bottom: 50px;
+  margin: 50px;
 }
 
 #signup-form {
@@ -124,7 +124,6 @@ header .intro-text {
 }
 
 /*styles for the upcoming event section*/
-
 .event {
   display:inline-flex;
   clear:both;
