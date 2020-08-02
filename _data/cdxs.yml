@@ -85,7 +85,7 @@
       - school
       - guts
   buttons:
-      - text: After-Movie by Ed Bruce
+      - text: After-Movie
         url: https://vimeo.com/157250218
 
 - title: cdx2015
@@ -103,5 +103,5 @@
       - school
       - guts-old
   buttons:
-    - text: Watch The After-Movie
+    - text: After-Movie
       url: https://www.youtube.com/watch?v=h7Ve-3LxXvg
