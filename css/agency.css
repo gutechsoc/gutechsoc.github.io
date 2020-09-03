@@ -368,6 +368,7 @@ fieldset[disabled] .btn-ghost.active {
 
 .dropdown-menu > li > a:hover {
     background-color: #4AACD2;
+    color: #fff !important;
 }
 
 header {
