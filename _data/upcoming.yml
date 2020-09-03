@@ -2,32 +2,8 @@
 # Make sure they are in date order :)
 # Boyd Orr common room: 616
 
-# - title: Board Games
-#   link: facebook.com/events/1982258335319824
-#   date: 6th Dec
-#   location: Boyd Orr 616
-#   type: boardgames
-
-# - title: Hacker Olympics
-#   link: facebook.com/events/409431979711559
-#   date: 28th Sep
-#   location: Sir Alywn Williams Building
-#   type: hackathon
-
-# - title: Hackathon
-#   link: facebook.com/events/2108014776167341/
-#   date: 18th-20th Oct
-#   location: Western Infirmary Lecture Theatre
-#   type: hackathon
-
-# - title: Cyber Defence Exercise 2020
-#   link: facebook.com/events/3113267502230875/
-#   date: 22nd-23rd Feb
-#   location: Western Infirmary Lecture Theatre
-#   type: hackathon
-
-# - title: Spring Gala 2020
-#   link: facebook.com/events/694406751095779/
-#   date: 10th Mar
-#   location: Glasgow Marriott Hotel
-#   type: gala
+- title: Code Olympics
+  link: https://www.facebook.com/pg/gutechsoc/events
+  date: 10th Oct
+  location: Online Event
+  type: hackathon
