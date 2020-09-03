@@ -1,64 +1,14 @@
-  - title: Cyber Defence Exercise
-    description: CDX 2020 involved students securing and building servers, before fighting off Red Cells (a team of professional pentesters). There was also an escape room style side event!
+  - title: Spring Gala 
+    description: End of year celebration hosted in collaboration with the GU Psychology Society with food, drinks and entertainment!
+    time: March 2020
+    image: images/events/springgala2020.jpg
+
+  - title: Goldman Sachs and GUTS CV Clinic
+    description: This session included information regarding their application process and the opportunity to get to know what is it like to work for Goldman Sachs while enjoying some free pizza!
+    time: March 2020
+    image: images/events/gutsevent.jpg 
+
+  - title: Board Games Night 013
+    description: Relaxed evening playing board games. As always participants were invited to bring their own games. From Coup to Giant Jenga there is something for everyone!
     time: Feburary 2020
-    image: images/events/cdx2020.jpg
-  
-  - title: Do You Have the GUTS? Hackathon
-    description: The 2019 hackathon was awesome! Challenges included everything from big data to AI and there was plenty of free food all weekend!
-    time: October 2019
-    image: images/events/hack2019.jpg 
-  
-  - title: Hacker Olympics 2.0
-    description: Following popular demand, Hacker Olympics was our first event of the academic year! The event featured new, creative challenges like creating a program which only works 50% of the time!
-    time: September 2019
-    image: images/events/holympics20192.0.jpg
-  
-  - title: Cyber Defence Exercise
-    description: CDX 2019 involved students securing and building servers, before fighting off Red Cells (a team of professional pentesters). There was also multiple side-events!
-    time: Feburary 2019
-    image: images/events/cdx2019.jpg
-
-  - title: Hacker Olympics
-    description: Hacker Olympics was great! Students split into teams to solve a range of innovative programming and nonprogramming challenges!
-    time: January 2019
-    image: images/events/holympics2019.jpg
-
-  # - title: Do You Have the GUTS? Hackathon
-  #   description: Our 2018 hackathon was jam packed with challenges covering games, 25GB of data, and AI tanks.
-  #   time: October 2018
-  #   image: images/events/hack2018.jpg
-
-  # - title: Cyber Defence Exercise
-  #   description: CDX 2018 featured a full story, with a theme of "State Sponsored Attacks". Students were put in charge of securing a nuclear reactor control panel, stock exchange, and the President's personal computer. There was also an escape room style side event!
-  #   time: Feburary 2018
-  #   image: images/events/cdx2018.jpg
-
-  # - title: Do You Have The Guts Hackathon
-  #   description: The 2017 hackathon was amazing! Students from all over the UK worked on projects all weekend including asymmetric games, making applying for student loans easier, and RESTful DOOM.
-  #   time: October 2017
-  #   image: images/events/hack2017.jpg
-
-  # - title: Hacker Olympics
-  #   description: We ran our very first Hacker Olympics in September! Teams worked to complete small programming challenges, like making a program with a 42 second run time, and some fun ones, such as "make an Apple parody video".
-  #   time: September 2017
-  #   image: images/events/holympics2017.jpg
-
-  # - title: Cyber Defence Exercise
-  #   description: CDX this year featured a full story, with participants working for Blue Technologies Ltd. to patch security holes in outdated technologies. We also had some awesome side events, including a defusal challenge!
-  #   time: Feburary 2017
-  #   image: images/events/cdx2017.jpg
-
-  # - title: Do You Have The Guts Hackathon
-  #   description: The 2016 hackathon was great! We had tons of challenges using cool tech, like Xbox Kinect and alternate reality mobile games.
-  #   time: October 2016
-  #   image: images/events/hack2016.jpg
-
-  # - title: Cyber Defence Exercise
-  #   description: Description of CDX 2016
-  #   time: Feburary 2016
-  #   image: images/events/cdx2016.jpg
-
-  # - title: Do You Have The Guts Hackathon
-  #   description: It was awesome! Challenges included everything from big data to robotics to retro game-making, and there was loads of free food all weekend. Re-live the excitement by visiting the <a href="/hackathon">hackathon page</a>.
-  #   time: October 2015
-  #   image: images/events/hack2015.jpg
+    image: images/events/boardgamesnight.jpg 
