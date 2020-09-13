@@ -59,7 +59,6 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading">About Us</h2>
-        <!-- <h3 class="section-subheading text-muted">We make cool stuff happen.</h3> -->
       </div>
       <div class="col-xs-12">
         <p class="section-content">The Glasgow University Tech Society (GUTS) is the official student society for the School of Computing Science and aims to provide students with opportunities to socialise, develop their technical ability and connect with our industrial partners. From hackathons and workshops to pub crawls and black tie galas, the society is there for all students.
@@ -75,6 +74,146 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
         <span class="glyphicon glyphicon-play-circle" id="video-button" href="http://www.youtube.com/watch?v=toiWRANJzyI"></span> <br>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="team" class="bg-black">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Board 2020-2021</h2>
+      </div>
+      <div class="col-xs-12">
+        <ul class="team section-content">
+          <li>
+            <figure>
+              <img src="images/guts-logo.jpg">
+              <figcaption>
+                  <h3>Ross Boyd</h3>
+                  <span class="role">President</span>
+                  <div class="social">
+                    <a target="_blank" href="https://www.linkedin.com/in/rssb"><i class="fab fa-linkedin"></i></a>
+                  </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="images/guts-logo.jpg">
+              <figcaption>
+                  <h3>Artem Usov</h3>
+                  <span class="role">Vice President</span>
+                  <div class="social">
+                    <a target="_blank" href="https://www.linkedin.com/in/artem-usov-a5a938196/"><i class="fab fa-linkedin"></i></a>
+                  </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="images/guts-logo.jpg">
+              <figcaption>
+                  <h3>Sophie Boyle</h3>
+                  <span class="role">Secretary</span>
+                  <div class="social">
+                    <a target="_blank" href="https://www.linkedin.com/in/sophie-boyle-508b59182"><i class="fab fa-linkedin"></i></a>
+                  </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="images/guts-logo.jpg">
+              <figcaption>
+                  <h3>David Zacek</h3>
+                  <span class="role">Treasurer</span>
+                  <div class="social">
+                    <a target="_blank" href="https://www.linkedin.com/in/david-zacek"><i class="fab fa-linkedin"></i></a>
+                  </div>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="images/guts-logo.jpg">
+              <figcaption>
+                  <h3>Gloria Dhandapani</h3>
+                  <span class="role">General Board Member</span>
+                  <div class="social">
+                    <a target="_blank" href="https://www.linkedin.com/in/gloria-dhandapani"><i class="fab fa-linkedin"></i></a>
+                  </div>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-12 text-center">
+        <p class="section-content">And many more dedicated helpers!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming Events Section -->
+<section id="upcoming-events" class="bg-very-light-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Upcoming Events</h2>
+        {% if site.data.upcoming.size > 0 %}
+          <h3 class="section-subheading text-muted">Our upcoming events. Click the title for the facebook event and more information.</h3>
+          {% else %}
+          <h3 class="section-subheading text-muted text-center">We have no upcoming events at the moment. Check out our social media for other ways to get involved!</h3>
+        {% endif %}
+      </div>
+    </div>
+    {% if site.data.upcoming.size > 0 %}
+      <ul class="list-group" style="display:block">
+      {% for event in site.data.upcoming %}
+        <li class="list-group-item event">
+        {% if event.type == 'lan' %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-gamepad fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% elsif event.type == 'hackathon' %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-code fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% elsif event.type == 'boardgames' %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-dice fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% elsif event.type == 'gala' %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-music fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% else %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-terminal fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% endif %}
+          <div class="timeline-heading eventinfo">
+            <a href=https://{{event.link}} target="_blank">
+              <h2 class="eventTitle">{{event.title}}</h2>
+            </a>
+            <h2 class="eventDate">{{event.date}}</h2>
+            <br />
+            <p class="text-muted"><i>{{event.location}}, {{event.time}}</i></p>
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
   </div>
 </section>
 
@@ -115,69 +254,6 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
         </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Upcoming Events Section -->
-<section id="upcoming-events" class="bg-very-light-grey">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Upcoming Events</h2>
-        {% if site.data.upcoming.size > 0 %}
-          <h3 class="section-subheading text-muted">Our upcoming events. Click the title for the facebook event and more information.</h3>
-          {% else %}
-          <h3 class="section-subheading text-muted text-center">We have no upcoming events at the moment. Check out our social media for other ways to get involved!</h3>
-        {% endif %}
-      </div>
-    </div>
-    {% if site.data.upcoming.size > 0 %}
-      <ul class="list-group" style="display:block">
-      {% for event in site.data.upcoming %}
-        <li class="list-group-item event">
-        {% if event.type == 'lan' %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-gamepad fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% elsif event.type == 'hackathon' %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-code fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% elsif event.type == 'boardgames' %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-trophy fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% elsif event.type == 'gala' %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-music fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% else %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-terminal fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% endif %}
-          <div class="timeline-heading eventinfo">
-            <a href=https://{{event.link}} target="_blank">
-              <h2 class="eventTitle">{{event.title}}</h2>
-            </a>
-            <h2 class="eventDate">{{event.date}}</h2>
-            <br />
-            <p class="text-muted eventLocation"><i>{{event.location}}</i></p>
-          </div>
-        </li>
-      {% endfor %}
-      </ul>
-    {% endif %}
   </div>
 </section>
 
@@ -222,7 +298,7 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading">Contact Us</h2>
-        <h3 class="section-subheading text-white">If you have any enquires or feedback, shoot us an email at <a style="color:white" href="mailto:gutechsoc@gmail.com">gutechsoc@gmail.com</a> - we'd love to hear from you!</h3>
+        <h3 class="section-subheading">If you have any enquires or feedback, shoot us an email at <a style="color: inherit;" href="mailto:gutechsoc@gmail.com">gutechsoc@gmail.com</a> - we'd love to hear from you!</h3>
       </div>
     </div>
   </div>

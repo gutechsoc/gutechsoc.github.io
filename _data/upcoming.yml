@@ -2,8 +2,23 @@
 # Make sure they are in date order :)
 # Boyd Orr common room: 616
 
+- title: Freshers' Stall
+  link: https://www.facebook.com/pg/gutechsoc/events
+  date: 15th Sept
+  time: 9:00-18:00
+  location: East Quadrangle, University of Glasgow
+  type: social
+
+- title: Welcome Social
+  link: https://www.facebook.com/pg/gutechsoc/events
+  date: 16th Sept
+  time: Time TBA
+  location: Online Event
+  type: social
+
 - title: Code Olympics
   link: https://www.facebook.com/pg/gutechsoc/events
   date: 10th Oct
+  time: Time TBA
   location: Online Event
   type: hackathon

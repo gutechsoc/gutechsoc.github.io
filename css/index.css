@@ -71,10 +71,6 @@ header .intro-text {
   color: #111;
 }
 
-.bg-very-light-grey {
-  background-color: #eaeaea;
-}
-
 /* classes for the video popup */
 /* overlay at start */
 .mfp-fade.mfp-bg {
@@ -186,5 +182,89 @@ header .intro-text {
 
   .eventinfo h2 {
       font-size: 24px;
+  }
+}
+
+#about,
+#upcoming-events, 
+#contact {
+  background-color: #eaeaea;
+}
+
+#team,
+#past-events {
+  background-color: white;
+}
+
+.team {
+  list-style-type: none;
+  padding:0;
+  text-align: center;
+}
+
+.team h3 {
+  margin: 8px 0 0;
+}
+
+.team li {
+  margin: 15px 0;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+
+.team figure > img {
+  -webkit-clip-path: polygon(50% 0%, 93.75% 25%, 93.75% 75%, 50% 100%, 6.25% 75%, 6.25% 25%);
+  clip-path: polygon(50% 0%, 93.75% 25%, 93.75% 75%, 50% 100%, 6.25% 75%, 6.25% 25%);
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  float: left;
+}
+
+.team .role {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.team .social {
+  display: block;
+}
+
+.team .social a {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  outline: 0;
+  color: #222;
+  background: white;
+}
+
+.team .social a:hover,
+.team .social a:focus,
+.team .social a:active {
+    color: #4AACD2;
+}
+
+@media (min-width: 320px) {
+  .team li {
+    width: 49%;
+  }
+
+  .team figure > img {
+    float: none;
+    margin-right: 0;
+  }
+
+  .team li {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team li {
+    width: 30%;
   }
 }
