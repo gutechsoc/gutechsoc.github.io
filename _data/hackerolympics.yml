@@ -1,0 +1,37 @@
+- title: ho20192.0
+  year: 2019
+  date: 28 Sep
+  gallery: hackerolympics_20192.0
+  gallery_size: 42
+  gallery_button_url: https://www.facebook.com/pg/gutechsoc/photos/?tab=album&album_id=2466270863461321
+  gallery_button_text: View the full gallery on facebook
+  colour: rgb(0,0,0,1)
+  sponsors:
+      - guts
+      - school
+      - jpm
+
+- title: ho2019
+  year: 2019
+  date: 12 Jan
+  gallery: hackerolympics_2019
+  gallery_size: 97
+  gallery_button_url: https://www.facebook.com/pg/gutechsoc/photos/?tab=album&album_id=2029046917183720
+  gallery_button_text: View the full gallery on facebook
+  colour: rgb(251,177,50,1)
+  sponsors:
+        - guts
+        - school
+        - jpm
+
+- title: ho2017
+  year: 2017
+  date: 30 Sep
+  gallery: hackerolympics_2017
+  gallery_size: 52
+  gallery_button_url: https://www.facebook.com/pg/gutechsoc/photos/?tab=album&album_id=1464578136963937
+  gallery_button_text: View the full gallery on facebook
+  colour: rgb(8,133,194,1)
+  sponsors:
+        - guts
+        - school
