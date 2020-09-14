@@ -211,7 +211,7 @@ header .intro-text {
   width: 100%;
   display: inline-block;
   vertical-align: top;
-  text-align: left;
+  text-align: center;
 }
 
 .team figure > img {
@@ -230,13 +230,15 @@ header .intro-text {
 }
 
 .team .social {
-  display: block;
+  margin-bottom: 0;
 }
 
 .team .social a {
+  display: block;
+  margin: 0 auto;
   width: 20px;
   height: 20px;
-  margin-right: 2px;
+  font-size: 16px;
   outline: 0;
   color: #222;
   background: white;
@@ -257,13 +259,9 @@ header .intro-text {
     float: none;
     margin-right: 0;
   }
-
-  .team li {
-    text-align: center;
-  }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .team li {
     width: 30%;
   }
