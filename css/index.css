@@ -198,12 +198,9 @@ header .intro-text {
 
 .team {
   list-style-type: none;
-  padding:0;
+  padding: 0;
+  margin: 0;
   text-align: center;
-}
-
-.team h3 {
-  margin: 8px 0 0;
 }
 
 .team li {
@@ -222,6 +219,11 @@ header .intro-text {
   height: 80px;
   margin-right: 20px;
   float: left;
+}
+
+.team h3 {
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 .team .role {
