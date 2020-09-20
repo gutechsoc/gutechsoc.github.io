@@ -208,7 +208,11 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
             </a>
             <h2 class="eventDate">{{event.date}}</h2>
             <br />
-            <p class="text-muted"><i>{{event.location}}, {{event.time}}</i></p>
+            {% if event.time != null and event.time != '' %} 
+              <p class="text-muted"><i>{{event.location}}, {{event.time}}</i></p>
+            {% else %}
+              <p class="text-muted"><i>{{event.location}}</i></p>
+            {% endif %}
           </div>
         </li>
       {% endfor %}
