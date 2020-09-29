@@ -124,7 +124,7 @@ header .intro-text {
   display:inline-flex;
   clear:both;
   width:100%;
-  background-color:#eaeaea;
+  background-color: white;
   border:0;
 }
 
@@ -186,13 +186,15 @@ header .intro-text {
 }
 
 #about,
-#upcoming-events, 
-#contact {
+#past-events
+{
   background-color: #eaeaea;
 }
 
+#upcoming-events
 #team,
-#past-events {
+#contact
+ {
   background-color: white;
 }
 
