@@ -53,6 +53,73 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
   </div>
 </header>
 
+<!-- Upcoming Events Section -->
+<section id="upcoming-events" class="bg-very-light-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Upcoming Events</h2>
+        {% if site.data.upcoming.size > 0 %}
+          <h3 class="section-subheading text-muted">Our upcoming events. Click the title for the facebook event and more information.</h3>
+          {% else %}
+          <h3 class="section-subheading text-muted text-center">We have no upcoming events at the moment. Check out our social media for other ways to get involved!</h3>
+        {% endif %}
+      </div>
+    </div>
+    {% if site.data.upcoming.size > 0 %}
+      <ul class="list-group" style="display:block">
+      {% for event in site.data.upcoming %}
+        <li class="list-group-item event">
+        {% if event.type == 'lan' %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-gamepad fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% elsif event.type == 'hackathon' %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-code fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% elsif event.type == 'boardgames' %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-dice fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% elsif event.type == 'gala' %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-music fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% else %}
+          <div class="eventIcon">
+            <div style="display:flex; justify-content:center; align-items:center;">
+              <i class="fa fa-terminal fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
+            </div>
+          </div>
+        {% endif %}
+          <div class="timeline-heading eventinfo">
+            <a href=https://{{event.link}} target="_blank">
+              <h2 class="eventTitle">{{event.title}}</h2>
+            </a>
+            <h2 class="eventDate">{{event.date}}</h2>
+            <br />
+            {% if event.time != null and event.time != '' %} 
+              <p class="text-muted"><i>{{event.location}}, {{event.time}}</i></p>
+            {% else %}
+              <p class="text-muted"><i>{{event.location}}</i></p>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</section>
+
 <!-- About Section -->
 <section id="about" class="bg-very-light-grey">
   <div class="container">
@@ -148,76 +215,9 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
         </ul>
       </div>
       <div class="col-lg-12 text-center">
-        <p class="section-content">And many more dedicated helpers!</p>
+        <p class="section-content">And a much wider committee of dedicated helpers!</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Upcoming Events Section -->
-<section id="upcoming-events" class="bg-very-light-grey">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Upcoming Events</h2>
-        {% if site.data.upcoming.size > 0 %}
-          <h3 class="section-subheading text-muted">Our upcoming events. Click the title for the facebook event and more information.</h3>
-          {% else %}
-          <h3 class="section-subheading text-muted text-center">We have no upcoming events at the moment. Check out our social media for other ways to get involved!</h3>
-        {% endif %}
-      </div>
-    </div>
-    {% if site.data.upcoming.size > 0 %}
-      <ul class="list-group" style="display:block">
-      {% for event in site.data.upcoming %}
-        <li class="list-group-item event">
-        {% if event.type == 'lan' %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-gamepad fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% elsif event.type == 'hackathon' %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-code fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% elsif event.type == 'boardgames' %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-dice fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% elsif event.type == 'gala' %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-music fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% else %}
-          <div class="eventIcon">
-            <div style="display:flex; justify-content:center; align-items:center;">
-              <i class="fa fa-terminal fa-5x" aria-hidden="true" style="line-height: inherit;"></i>
-            </div>
-          </div>
-        {% endif %}
-          <div class="timeline-heading eventinfo">
-            <a href=https://{{event.link}} target="_blank">
-              <h2 class="eventTitle">{{event.title}}</h2>
-            </a>
-            <h2 class="eventDate">{{event.date}}</h2>
-            <br />
-            {% if event.time != null and event.time != '' %} 
-              <p class="text-muted"><i>{{event.location}}, {{event.time}}</i></p>
-            {% else %}
-              <p class="text-muted"><i>{{event.location}}</i></p>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-      </ul>
-    {% endif %}
   </div>
 </section>
 
