@@ -489,7 +489,8 @@ section h2.section-heading {
     font-size: 40px;
 }
 
-section h2.team-heading {
+section h3.team-heading {
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
