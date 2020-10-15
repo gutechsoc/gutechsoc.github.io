@@ -1,3 +1,8 @@
+  - title: Code Olympics
+    description: 24-hour online event with over 200 participants working in teams to solve bite-sized challenges created by GUTS and industry experts! Side events included Among Us and more!
+    time: October 2020
+    image: images/events/co2020.png
+
   - title: Spring Gala 
     description: End of year celebration hosted in collaboration with the GU Psychology Society with food, drinks and entertainment!
     time: March 2020
@@ -6,9 +11,9 @@
   - title: Goldman Sachs and GUTS CV Clinic
     description: This session included information regarding their application process and the opportunity to get to know what is it like to work for Goldman Sachs while enjoying some free pizza!
     time: March 2020
-    image: images/events/gutsevent.jpg 
+    image: images/guts-logo.png
 
-  - title: Board Games Night 013
-    description: Relaxed evening playing board games. As always participants were invited to bring their own games. From Coup to Giant Jenga there is something for everyone!
-    time: February 2020
-    image: images/events/boardgamesnight.jpg 
+  # - title: Board Games Night 013
+  #   description: Relaxed evening playing board games. As always participants were invited to bring their own games. From Coup to Giant Jenga there was something for everyone!
+  #   time: February 2020
+  #   image: images/events/boardgamesnight.jpg 
