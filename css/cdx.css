@@ -43,6 +43,9 @@ header .hack-intro {
 .cisco-logo, .cyberpro-logo {height: 46px;}
 .pwc-logo {height: 52px;}
 .team-daedalus-logo {height: 68px;}
+.guts-logo {
+  height: 60px;
+}
 
 #cdx2015 {
   background-color: rgba(232,50,41,1);
