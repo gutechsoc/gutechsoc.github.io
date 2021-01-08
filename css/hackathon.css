@@ -54,6 +54,10 @@ header .hack-intro {
   margin: 30px;
 } 
 
+.guts-logo {
+  height: 60px;
+}
+
 #hack2019 {
   background-color: rgb(85, 41, 110)
 }
