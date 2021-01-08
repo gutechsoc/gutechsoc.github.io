@@ -1,0 +1,15 @@
+- title: co2020
+  year: 2020
+  date: 10th-11th Oct
+  gallery:
+  gallery_size: 0
+  gallery_button_url: 
+  gallery_button_text: View the full gallery on facebook
+  colour: rgb(0,0,0,1)
+  sponsors:
+      - guts
+      - school
+      - ms
+      - verint
+      - twilio
+      - sas

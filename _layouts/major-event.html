@@ -34,7 +34,9 @@ custom_js: lightbox.min
         <div class="hack-intro">
           <div class="intro-lead-out">{{page.header_text}}</div>
           <div class="text-center">
-            <a href="{{page.ghost_link}}" class="page-scroll btn btn-xl btn-ghost header-button visible-sm-xl">{{page.ghost_text}}</a>
+            {% if page.ghost_link %}
+              <a href="{{page.ghost_link}}" class="page-scroll btn btn-xl btn-ghost header-button visible-sm-xl">{{page.ghost_text}}</a>
+            {% endif %}
             <a href="{{page.header_button_url}}" class="page-scroll btn btn-xl btn-excite header-button visible-sm-xl">{{page.header_button_text}}</a>
           </div>
         </div>
@@ -70,9 +72,9 @@ custom_js: lightbox.min
         {% endfor %}
         {% endif %}
       </div>
-      <div class="col-xs-12 col-md-12">
+      <!-- <div class="col-xs-12 col-md-12">
         <div class="gallery-container text-center">
-          {% for i in (1..event.gallery_size) %}
+          {% for i in (1..event.gallery_size) %} 
           {% assign thumb = site.base | append: 'images/galleries/' | append: event.gallery | append: '/t/' | append: i | append: '.jpg' %}
           {% assign image = site.base | append: 'images/galleries/' | append: event.gallery | append: '/i/' | append: i | append: '.jpg' %}
           <a href="{{image}}" data-lightbox="{{event.title}}">
@@ -81,7 +83,7 @@ custom_js: lightbox.min
           {% endfor %}
           {% if event.gallery_button_url %}<br><a href="{{event.gallery_button_url}}" target="_blank" class="page-scroll btn btn-xl btn-default header-button {{event.gallery_button_class}}">{{event.gallery_button_text}}</a>{% endif %}
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
