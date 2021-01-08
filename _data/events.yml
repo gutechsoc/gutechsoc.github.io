@@ -1,12 +1,12 @@
-  - title: Machine Learning From Square One
-    description: Series of weekly workshops for students to build, prototype, and get an intuitive understanding of the latest deep learning techniques.
-    time: October-December 2020
-    image: images/guts-logo.png
+- title: Machine Learning From Square One
+  description: Series of weekly workshops for students to build, prototype, and get an intuitive understanding of the latest deep learning techniques.
+  time: October-December 2020
+  image: images/guts-logo.png
   
-  - title: Code Olympics
-    description: 24-hour online event with over 200 participants working in teams to solve bite-sized challenges created by GUTS and industry experts. Side events included Among Us and more.
-    time: October 2020
-    image: images/events/co2020.png
+- title: Code Olympics
+  description: 24-hour online event with over 200 participants working in teams to solve bite-sized challenges created by GUTS and industry experts. Side events included Among Us and more.
+  time: October 2020
+  image: images/events/co2020.png
 
   # - title: Spring Gala 
   #   description: End of year celebration hosted in collaboration with the GU Psychology Society with food, drinks and entertainment!

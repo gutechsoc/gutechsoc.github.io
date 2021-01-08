@@ -229,7 +229,7 @@ opinew:
 guts:
   name: guts
   url: http://www.gutechsoc.com/
-  image: images/logo.png
+  image: images/logos/guts_white.png
   class: guts-logo
 
 skyscanner:
