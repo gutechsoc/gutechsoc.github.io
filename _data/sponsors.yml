@@ -1,271 +1,276 @@
 craneware:
   name: craneware
   url: https://public.craneware.com/
-  image: images/logos/craneware_white.png
-  class: images/logos/craneware_white.png
+  image: https://drive.google.com/file/d/1-DVcrQHKnu1PD5KxeyHWCJ13a_1OgbsY/view?usp=sharing
+  class: https://drive.google.com/file/d/1-DVcrQHKnu1PD5KxeyHWCJ13a_1OgbsY/view?usp=sharing
 
 goldmansachs:
   name: goldmansachs
   url: https://www.goldmansachs.com/
-  image: images/logos/goldmansachs_white.png
+  image: https://drive.google.com/file/d/18_m06rf2PVJhITQXPXdsH_eb0EaavL-Q/view?usp=sharing
   class: goldmansachs-logo
 
 secarma:
   name: secarma
   url: https://www.secarma.co.uk/
-  image: images/logos/secarma_white.png
-  class: images/logos/secarma_white.png
+  image: https://drive.google.com/file/d/1YwNEmiTtfybZUP2xlBYRIbjAlIYoESJb/view?usp=sharing
+  class: https://drive.google.com/file/d/1YwNEmiTtfybZUP2xlBYRIbjAlIYoESJb/view?usp=sharing
 
 ukfast:
   name: ukfast
   url: https://www.ukfast.co.uk/
-  image: images/logos/ukfast_white.png
-  class: images/logos/ukfast_white.png
+  image: https://drive.google.com/file/d/154ZQFuqr1RQ4wddfS7SLB-zvsOyr2sOa/view?usp=sharing
+  class: https://drive.google.com/file/d/154ZQFuqr1RQ4wddfS7SLB-zvsOyr2sOa/view?usp=sharing
 
 broadridge:
   name: broadridge
   url: https://www.broadridge.com/intl/
-  image: images/logos/broadridge_white.png
-  class: images/logos/broadridge_white.png
+  image: https://drive.google.com/file/d/1Mh_5Xd7tDHKBnhoSsXRya7V-9yYCpwCs/view?usp=sharing
+  class: https://drive.google.com/file/d/1Mh_5Xd7tDHKBnhoSsXRya7V-9yYCpwCs/view?usp=sharing
 
 milamber:
   name: milamber
   url: 
-  image: images/logos/milamber_white.png
-  class: images/logos/milamber_white.png
+  image: https://drive.google.com/file/d/14cDjjJiYd5pKzOODGnO3ArFblC-uaool/view?usp=sharing
+  class: https://drive.google.com/file/d/14cDjjJiYd5pKzOODGnO3ArFblC-uaool/view?usp=sharing
 
 wrld:
   name: wrld
   url: https://www.wrld3d.com/
-  image: images/logos/WRLD_white.png
-  class: images/logos/WRLD_white.png
+  image: https://drive.google.com/file/d/1SCAYhsaiO-tnkNTAWTXxBZNODNq2nKPs/view?usp=sharing
+  class: https://drive.google.com/file/d/1SCAYhsaiO-tnkNTAWTXxBZNODNq2nKPs/view?usp=sharing
 
 dotTech:
   name: dotTech
   url: http://get.tech/
-  image: images/logos/tech_white.png
-  class: images/logos/tech_white.png
+  image: https://drive.google.com/file/d/10_ltQbF3_ln_Ga_Y30Cw9l4l1HIFqC8Y/view?usp=sharing
+  class: https://drive.google.com/file/d/10_ltQbF3_ln_Ga_Y30Cw9l4l1HIFqC8Y/view?usp=sharing
 
 slc:
   name: slc
   url: https://www.slc.co.uk/
-  image: images/logos/slc_white.png
-  class: images/logos/slc_white.png
+  image: https://drive.google.com/file/d/1WJqOeWhNeXg7BRuZw7ZU_JZBkmv5XSSg/view?usp=sharing
+  class: https://drive.google.com/file/d/1WJqOeWhNeXg7BRuZw7ZU_JZBkmv5XSSg/view?usp=sharing
 
 realise:
   name: realise
   url: http://www.realise.com/
-  image: images/logos/realise_white.png
-  class: images/logos/realise_white.png
+  image: https://drive.google.com/file/d/1mEpYdZ94pOk332j_0rwyIzUTbkByRI2q/view?usp=sharing
+  class: https://drive.google.com/file/d/1mEpYdZ94pOk332j_0rwyIzUTbkByRI2q/view?usp=sharing
 
 sas:
   name: sas
   url: http://www.sas.com
-  image: images/logos/sas_white.png
-  class: images/logos/sas_white.png
+  image: https://drive.google.com/file/d/1b3hymr1IIr4XuChlmI6xA1q6e_dKh5ph/view?usp=sharing
+  class: https://drive.google.com/file/d/1b3hymr1IIr4XuChlmI6xA1q6e_dKh5ph/view?usp=sharing
 
 jpm:
   name: jpm
   url: http://www.jpm.com
-  image: images/logos/jpm_white.png
+  image: https://drive.google.com/file/d/1oeA7PzX72BgVGzAy3W2utd90alIQfkF-/view?usp=sharing
 
 guts-old:
   name: guts
   url: http://gutechsoc.com
-  image: images/logos/guts_old_white.png
+  image: https://drive.google.com/file/d/1m4UP4fYBTLEdr7rBoKKhwn_2xCKJ4J6h/view?usp=sharing
 
 school:
   name: school
   url: http://www.dcs.gla.ac.uk/
-  image: images/logos/uofg_white.png
+  image: https://drive.google.com/file/d/1T69DQ_p7y3-bpLyBg_iJizgMy8j1-uBd/view?usp=sharing
 
 sie:
   name: sie
   url: http://www.sie.ac.uk/
-  image: images/logos/sie_white.png
+  image: https://drive.google.com/file/d/1FWAjBRfz24Ahg_nrbRiYYcYlnO2WW6Sz/view?usp=sharing
 
 amazon:
   name: amazon
   url: http://www.amazondc.com/
-  image: images/logos/amazon_white.png
+  image: https://drive.google.com/file/d/1u0fdrBf2c8VzjlMjrB6V-u3NnjL0NIMq/view?usp=sharing
 
 amazon-dev-centre:
   name: amazon-dev-centre
   url: http://www.amazondc.com/
-  image: images/logos/amazon_devcentre_white.png
+  image: https://drive.google.com/file/d/1nKIJUspVcZ0d-uuTNJ_qvUIC9kKs6z0z/view?usp=sharing
 
 ms:
   name: ms
   url: http://www.morganstanley.com/
-  image: images/logos/morganstanley_white.png
+  image: https://drive.google.com/file/d/14OzQqcKjBCUvPnpmOqF7bfVCDl0u7wVj/view?usp=sharing
 
 kana:
   name: kana
   url: http://www.kana.com/
-  image: images/logos/kana_white.png
+  image: https://drive.google.com/file/d/1oqkiyhOZOZzF4uOGfdtquupDki4fzC8m/view?usp=sharing
 
 scotlandhacks:
   name: scotlandhacks
   url: http://www.scotlandhacks.org.uk/
-  image: images/logos/scotland_hacks_white.png
+  image: https://drive.google.com/file/d/1DpS_9v8YaYY5WNLWhrt7uYPAqbmdNrBe/view?usp=sharing
 
 gwob:
   name: gwob
   url: http://www.gwob.org/
-  image: images/logos/gwob_white.png
+  image: https://drive.google.com/file/d/1X_0-SYntCok1ZvpFAxRVQZ74tLGyH7EQ/view?usp=sharing
 
 mlh:
   name: mlh
   url: https://mlh.io/
-  image: images/logos/mlh_white.png
+  image: https://drive.google.com/file/d/1ZrwojI6zMJLqk-nADJtAaoNS9Jh2uOu5/view?usp=sharing
 
 github:
   name: github
   url: http://www.github.com/
-  image: images/logos/github_white.png
+  image: https://drive.google.com/file/d/1KDszQTFOawM9V2PQwOjlNbhNN-tgdTan/view?usp=sharing
 
 ef:
   name: ef
   url: http://www.joinef.com/
-  image: images/logos/ef_white.png
+  image: https://drive.google.com/file/d/10H0JdR6Dt_DmLiu4t0cR7AjLp3BIs_rb/view?usp=sharing
 
 bloomberg:
   name: bloomberg
   url: http://www.bloomberg.com/
-  image: images/logos/bloomberg_white.png
+  image: https://drive.google.com/file/d/1cUVR2kJN9gFR7P8yaFTfNMqR_vJu-F5o/view?usp=sharing
 
 dogfish:
   name: dogfish
   url: http://www.dogfi.sh/
-  image: images/logos/dogfish_white.png
+  image: https://drive.google.com/file/d/1GOdimV_9mLhxLidzL2o7WdzDLyLYh6uk/view?usp=sharing
 
 namecheap:
   name: namecheap
   url: http://www.namecheap.com/
-  image: images/logos/namecheap_white.png
+  image: https://drive.google.com/file/d/14cQHvPlANzM0pNXosPB4GlVnXxLkH9o-/view?usp=sharing
 
 sendgrid:
   name: sendgrid
   url: http://www.sendgrid.com/
-  image: images/logos/sendgrid_white.png
+  image: https://drive.google.com/file/d/1j-Hz_emqiqzBMAMZ0xUbr_7hvIKfsVgu/view?usp=sharing
 
 supernatural:
   name: supernatural
   url: http://www.drinksupernatural.com/
-  image: images/logos/supernatural_white.png
+  image: https://drive.google.com/file/d/1IY4xO5uaGDgsmt00LSVA2rxUAAhXuQTi/view?usp=sharing
 
 barclays:
   name: barclays
   url: http://www.barclays.co.uk/
-  image: images/logos/barclays_white.png
+  image: https://drive.google.com/file/d/1cTsFWo0HZwB3hHsPhnwiwUwvQvAvbyqG/view?usp=sharing
 
 metaswitch:
   name: metaswitch
   url: http://www.metaswitch.com/
-  image: images/logos/metaswitch_white.png
+  image: https://drive.google.com/file/d/1jD62-YuYZrmUSwWwpSpIilbXM16O76k_/view?usp=sharing
 
 dynamicallyloaded:
   name: dynamicallyloaded
   url: http://www.dynamicallyloaded.com/
-  image: images/logos/dynamicallyloaded_white.png
+  image: https://drive.google.com/file/d/1K3VDsFDhSgMVvPSDWegZ9VlNg1E85AOI/view?usp=sharing
 
 svc2uk:
   name: svc2uk
   url: http://www.svc2uk.com/
-  image: images/logos/svc2uk_white.png
+  image: https://drive.google.com/file/d/1wTvX0N_IJqxgYEuADiYqwl8ED2F56Ui8/view?usp=sharing
 
 informaticsventures:
   name: informaticsventures
   url: http://www.informatics-ventures.com/
-  image: images/logos/info_ventures_white.png
+  image: https://drive.google.com/file/d/1O-95S7egpoHeomo90iU0GKlKOnSAJFmA/view?usp=sharing
 
 dominos:
   name: dominos
   url: http://www.dominos.co.uk/
-  image: images/logos/dominos_white.png
+  image: https://drive.google.com/file/d/1t2j9t9g9gdjea8gJJuuTScyQxqtaXAVY/view?usp=sharing
 
 nakedsoup:
   name: nakedsoup
   url: http://www.nakedsoup.com/
-  image: images/logos/naked_soup_white.png
+  image: https://drive.google.com/file/d/1NuwtoxbRa-QTJoFNpPzlGXDr5yD7rPFA/view?usp=sharing
 
 compsoc:
   name: compsoc
   url: http://glasgowcompsoc.com/
-  image: images/logos/compsoc_white.png
+  image: https://drive.google.com/file/d/1MjpHKMMDfe_wnkMVk37AuRWb9kF-VVBJ/view?usp=sharing
 
 pentest:
   name: pentest
   url: http://www.pentest.co.uk/
-  image: images/logos/pentest_white.png
+  image: https://drive.google.com/file/d/12zdbvBcVELJ40c94Fbv6PdiGOuXJaaNN/view?usp=sharing
 
 cisco:
   name: cisco
   url: http://www.cisco.com/c/en_uk/index.html
-  image: images/logos/cisco_white.png
+  image: https://drive.google.com/file/d/1o8VLngmzL0VcsJQs3ZE0oA2SLEzdL6qq/view?usp=sharing
   class: cisco-logo
 
 pwc:
   name: pwc
   url: http://www.pwc.co.uk/
-  image: images/logos/pwc_white.png
+  image: https://drive.google.com/file/d/1T1h3zOFs1vRlOo-ufJPZQzErSYXKrh4f/view?usp=sharing
   class: pwc-logo
 
 verint:
   name: verint
   url: http://uk.verint.com/
-  image: images/logos/verint_white.png
+  image: https://drive.google.com/file/d/1RNu5SMi6J-9cLApfshP4Pu81-WYas8H0/view?usp=sharing
 
 cooper-software:
   name: cooper-software
   url: http://www.coopersoftware.co.uk
-  image: images/logos/cooper_software_white.png
+  image: https://drive.google.com/file/d/1D22RNyE_AO8akwoSLR-xLYQFLa5JRj5F/view?usp=sharing
 
 opinew:
   name: opinew
   url: http://www.opinew.com
-  image: images/logos/opinew_white.png
+  image: https://drive.google.com/file/d/1kHIvWZ4Rsn8mWXYr9izVkRg0pYCnk9_S/view?usp=sharing
 
 guts:
   name: guts
   url: http://www.gutechsoc.com/
+<<<<<<< Updated upstream
   image: images/logo-small.png
+=======
+  image: https://drive.google.com/file/d/1b4nLsIUk35rhSk_UZ7mbfGKaruTzF1DR/view?usp=sharing
+  class: guts-logo
+>>>>>>> Stashed changes
 
 skyscanner:
   name: skyscanner
   url: http://www.skyscanner.com/
-  image: images/logos/skyscanner_white.png
+  image: https://drive.google.com/file/d/1FFCGuIvkleg-s0fmmx-7ai2-oUvichKj/view?usp=sharing
 
 metix-medical:
   name: metix-medical
   url: https://www.metixmedical.co.uk
-  image: images/logos/metix-logo_white.png
+  image: https://drive.google.com/file/d/1kHPXSpdjC4a0-uZ5VJ0ba68mswbNWj4g/view?usp=sharing
 
 twilio:
   name: twilio 
   url: https://www.twilio.com
-  image: images/logos/twilio_white.png
+  image: https://drive.google.com/file/d/12W9FE2ujOceF-wd285_a4TBMU0FIyHK8/view?usp=sharing
   class: twilio-logo
 
 tennents:
   name: tennents
   url: http://tennents.com
-  image: images/logos/tennents_white.png
+  image: https://drive.google.com/file/d/1CE7H4bqMRC13HBnNEeearaP0hTIWYoYO/view?usp=sharing
 
 ibm:
   name: ibm
   url: https://www.ibm.com
-  image: images/logos/IBM_white.png
+  image: https://drive.google.com/file/d/1eM1gC7a8UydVW4lilo4_NURdSa-VwxO_/view?usp=sharing
   class: ibm-logo
 
 cyberpro:
   name: cyberpro
   url: https://cyberpro.co.uk
-  image: images/logos/cyberpro_white.png
+  image: https://drive.google.com/file/d/1o5_phUh3jKaaE5jbPL0zDiqsA6Y7j5_Z/view?usp=sharing
   class: cyberpro-logo
 
 team-daedalus:
   name: team-daedalus
   url: 
-  image: images/logos/team_daedalus.png
+  image: https://drive.google.com/file/d/1avCU7AKG_yfIhPSy1coarEytXred7LLh/view?usp=sharing
   class: team-daedalus-logo

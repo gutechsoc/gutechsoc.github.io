@@ -1,7 +1,19 @@
+<<<<<<< Updated upstream
   - title: Spring Gala 
     description: End of year celebration hosted in collaboration with the GU Psychology Society with food, drinks and entertainment!
     time: March 2020
     image: images/events/springgala2020.jpg
+=======
+  - title: Machine Learning From Square One
+    description: Series of weekly workshops for students to build, prototype, and get an intuitive understanding of the latest deep learning techniques.
+    time: October-December 2020
+    image: https://drive.google.com/file/d/1V1TcifM_AHynRggV8d1UdL6rwr2q-kzz/view?usp=sharing
+  
+  - title: Code Olympics
+    description: 24-hour online event with over 200 participants working in teams to solve bite-sized challenges created by GUTS and industry experts. Side events included Among Us and more.
+    time: October 2020
+    image: https://drive.google.com/file/d/1V1TcifM_AHynRggV8d1UdL6rwr2q-kzz/view?usp=sharing
+>>>>>>> Stashed changes
 
   - title: Goldman Sachs and GUTS CV Clinic
     description: This session included information regarding their application process and the opportunity to get to know what is it like to work for Goldman Sachs while enjoying some free pizza!
