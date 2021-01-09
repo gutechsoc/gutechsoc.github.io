@@ -11,7 +11,7 @@
        - cyberpro
        - team-daedalus
        - school
-       - guts
+       - guts-pre-2020
 
 - title: cdx2019
   year: 2019
@@ -26,7 +26,7 @@
       - jpm
       - milamber
       - school
-      - guts
+      - guts-pre-2020
 
 - title: cdx2018
   year: 2018
@@ -42,7 +42,7 @@
        - jpm
        - broadridge
        - school
-       - guts
+       - guts-pre-2020
   # buttons:
        # - text: After-Movie
          # url: https://www.youtube.com/watch?v=H-J8NreBmkA
@@ -61,7 +61,7 @@
     #   - gotham (image, anyone?)
        - amazon-dev-centre
        - school
-       - guts
+       - guts-pre-2020
   buttons:
        - text: After-Movie
          url: https://www.youtube.com/watch?v=H-J8NreBmkA # add this when it's made
@@ -83,7 +83,7 @@
       - verint
       - sie
       - school
-      - guts
+      - guts-pre-2020
   buttons:
       - text: After-Movie
         url: https://vimeo.com/157250218
@@ -101,7 +101,7 @@
       - ms
       - sie
       - school
-      - guts-old
+      - guts-pre-2015
   buttons:
     - text: After-Movie
       url: https://www.youtube.com/watch?v=h7Ve-3LxXvg

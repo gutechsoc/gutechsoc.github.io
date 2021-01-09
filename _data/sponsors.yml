@@ -69,10 +69,15 @@ jpm:
   url: http://www.jpm.com
   image: images/logos/jpm_white.png
 
-guts-old:
+guts-pre-2015:
   name: guts
   url: http://gutechsoc.com
-  image: images/logos/guts_old_white.png
+  image: images/logos/guts_pre_2015_white.png
+
+guts-pre-2020:
+  name: guts
+  url: http://gutechsoc.com
+  image: images/logos/guts_pre_2020_white.png
 
 school:
   name: school
