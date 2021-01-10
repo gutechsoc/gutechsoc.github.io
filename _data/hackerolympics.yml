@@ -7,7 +7,7 @@
   gallery_button_text: View the full gallery on facebook
   colour: rgb(0,0,0,1)
   sponsors:
-      - guts
+      - guts-pre-2020
       - school
       - jpm
 
@@ -20,7 +20,7 @@
   gallery_button_text: View the full gallery on facebook
   colour: rgb(251,177,50,1)
   sponsors:
-        - guts
+        - guts-pre-2020
         - school
         - jpm
 
@@ -33,5 +33,5 @@
   gallery_button_text: View the full gallery on facebook
   colour: rgb(8,133,194,1)
   sponsors:
-        - guts
+        - guts-pre-2020
         - school
