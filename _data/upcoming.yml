@@ -1,9 +1,19 @@
 # Supported types: lan, hackathon, boardgames, gala -> changes the icon
+# Unsupported types will show general icon
 # Make sure they are in date order :)
 # Boyd Orr common room: 616
 
-- title: Do You Have The GUTS? 2021
-  link: https://www.facebook.com/events/1583311885196946
-  date: 5th-7th Feb
-  location: Online 
+- title: Data Analytics Workshop 
+  date: March 4th
   type: hackathon
+  link: https://fb.me/e/4eicyjuwT
+
+- title: Games Night
+  date: March 6th 
+  type: boardgames
+  link: https://fb.me/e/13xrqlzzK
+
+- title: Annual General Meeting
+  date: March 15th
+  type: agm
+  link: https://fb.me/e/2xU65MQ4u

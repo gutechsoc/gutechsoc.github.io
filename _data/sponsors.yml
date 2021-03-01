@@ -79,6 +79,11 @@ guts-pre-2020:
   url: http://gutechsoc.com
   image: images/logos/guts_pre_2020_white.png
 
+guts:
+  name: guts
+  url: http://gutechsoc.com
+  image: images/logos/guts_white.png
+
 school:
   name: school
   url: http://www.dcs.gla.ac.uk/
