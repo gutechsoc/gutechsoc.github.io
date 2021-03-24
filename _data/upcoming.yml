@@ -1,9 +1,14 @@
 # Supported types: lan, hackathon, boardgames, gala -> changes the icon
 # Unsupported types will show general icon
 # Make sure they are in date order :)
-# Boyd Orr common room: 616
+# Boyd Orr common room: 616 
 
 - title: Games Night (Weekly Event)
-  date: March 20th 
+  date: March 27th 
   type: boardgames
-  link: https://fb.me/e/XP3Zuv1D
+  link: https://fb.me/e/2cyTNHUgm
+
+- title: "Error 403: Grad Ball Forbidden - End of Year Social"
+  date: April 10th 
+  type: gala
+  link: https://fb.me/e/QRESKTqk
