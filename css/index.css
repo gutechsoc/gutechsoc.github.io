@@ -121,22 +121,8 @@ header .intro-text {
 
 /*styles for the upcoming event section*/
 .event {
-  display:inline-flex;
-  clear:both;
-  width:100%;
-  background-color: #eaeaea;
-  border:0;
-}
-
-.eventinfo {
-  clear: both;
-  width: 80%;
-  margin: auto;
-}
-
-.eventinfo p {
-  padding-top: 5%;
-  margin-top: 1%
+  margin-right: 2.5%;
+  margin-left: 2.5%;
 }
 
 .eventTitle {
@@ -152,19 +138,14 @@ header .intro-text {
   width: 100px;
 }
 
-@media (max-width: 992px) {
-  .eventinfo p {
-    display: none;
-  }
-}
-
 @media (max-width: 835px) {
-  .eventTitle {
-    float: none;
+  .eventIcon {
+    display: none
   }
 
-  .eventDate {
-    float: none;
+  .event {
+    margin-right: 10%;
+    margin-left: 10%;
   }
 }
 
@@ -252,6 +233,17 @@ header .intro-text {
 .team .social a:focus,
 .team .social a:active {
     color: #4AACD2;
+}
+
+@media(max-width: 320px) {
+  .team li {
+    width: 60%;
+  }
+  
+  .team figure > img {
+    float: none;
+    margin-right: 0;
+  }
 }
 
 @media (min-width: 320px) {
