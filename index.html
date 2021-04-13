@@ -67,9 +67,9 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
       </div>
     </div>
     {% if site.data.upcoming.size > 0 %}
-      <ul class="list-group" style="display:block">
       {% for event in site.data.upcoming %}
-        <li class="list-group-item event">
+      <div class="row event">
+        <div class="col-sm-3">
         {% if event.type == 'lan' %}
           <div class="eventIcon">
             <div style="display:flex; justify-content:center; align-items:center;">
@@ -101,25 +101,21 @@ ghost_link: https://www.facebook.com/events/3113267502230875/
             </div>
           </div>
         {% endif %}
-          <div class="timeline-heading eventinfo">
-            {% if event.link != null and event.time != '' %} 
-              <a href={{event.link}} target="_blank">
-                <h2 class="eventTitle">{{event.title}}</h2>
-              </a>
-            {% else %}
-              <h2 class="eventTitle">{{event.title}}</h2> 
-            {% endif %}
-            <h2 class="eventDate">{{event.date}}</h2>
-            <br />
-            {% if event.time != null and event.time != '' %} 
-              <p class="text-muted"><i>{{event.location}}, {{event.time}}</i></p>
-            {% else %}
-              <p class="text-muted"><i>{{event.location}}</i></p>
-            {% endif %}
-          </div>
-        </li>
+        </div>
+        <div class="col-sm-6">
+        {% if event.link != null %} 
+          <a href={{event.link}} target="_blank">
+            <h2 class="eventTitle">{{event.title}}</h2>
+          </a>
+        {% else %}
+          <h2 class="eventTitle">{{event.title}}</h2> 
+        {% endif %}
+        </div>
+        <div class="col-sm-3">
+          <h2 class="eventDate">{{event.date}}</h2>
+        </div>
+      </div>
       {% endfor %}
-      </ul>
     {% endif %}
   </div>
 </section>
