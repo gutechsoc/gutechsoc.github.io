@@ -1,3 +1,13 @@
+- title: "Error 403: Grad Ball Forbidden - End of Year Social"
+  description: No balls this year, but we had an evening of fun and games!
+  time: April 2021
+  image: images/guts-logo.png
+
+- title: Games Night
+  description: "Weekly event hosted on Discord every Saturday at 7PM Glasgow-time. Games chosen by popular demand including JackBoxes, as well as all the other online classics."
+  time: November 2020-April 2021
+  image: images/events/boardgamesnight.jpg
+
 - title: Data Analytics Workshop 
   description: Held in collaboration with the Glasgow University Consulting Society, this event offered an introductory level workshop in Data Analysis using Python, NumPy and Pandas, based on the material delivered by the University of Edinburgh's EdIntelligence Society.
   time: March 2021

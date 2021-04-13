@@ -2,13 +2,13 @@
 # Unsupported types will show general icon
 # Make sure they are in date order :)
 # Boyd Orr common room: 616 
+# Examples
+# - title: Games Night (Weekly Event)
+#   date: April 3rd
+#   type: boardgames
+#   link: https://fb.me/e/1hQe8dWwj
 
-- title: Games Night (Weekly Event)
-  date: April 3rd
-  type: boardgames
-  link: https://fb.me/e/1hQe8dWwj
-
-- title: "Error 403: Grad Ball Forbidden - End of Year Social"
-  date: April 10th 
-  type: gala
-  link: https://fb.me/e/QRESKTqk
+# - title: "Error 403: Grad Ball Forbidden - End of Year Social"
+#   date: April 10th 
+#   type: gala
+#   link: https://fb.me/e/QRESKTqk
