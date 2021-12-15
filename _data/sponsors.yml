@@ -280,3 +280,9 @@ team-daedalus:
   url: 
   image: images/logos/team_daedalus.png
   class: team-daedalus-logo
+
+
+natwest:
+  name: natwest
+  url: https://www.natwest.com/
+  image: images/logos/natwest.png
