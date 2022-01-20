@@ -127,7 +127,7 @@ gwob:
 mlh:
   name: mlh
   url: https://mlh.io/
-  image: images/logos/mlh-white.png
+  image: images/logos/mlh_white.png
 
 github:
   name: github
