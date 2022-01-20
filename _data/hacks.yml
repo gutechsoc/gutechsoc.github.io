@@ -1,14 +1,17 @@
 - title: hack2022
   year: 2022
   date: 11-13 Feb
-  colour: rgb(50,205,50,1)
+  colour: rgb(171,9,86,1)
   sponsors:
        - guts
        - jpm
        - ms
+       - sas
        - verint
        - natwest
+       - mlh
        - school
+
 
 
 - title: hack2021
