@@ -288,3 +288,10 @@ natwest:
   image: images/logos/natwest.png
 
 
+assemblyai:
+  name: assemblyai
+  url: https://www.assemblyai.com/
+  image: images/logos/AssemblyAI_white.png
+  class: assemblyAI-logo
+
+
