@@ -294,4 +294,9 @@ assemblyai:
   image: images/logos/AssemblyAI_white.png
   class: assemblyAI-logo
 
+guss:
+  name: guss
+  url : https://www.gla.ac.uk/schools/computing/industry/glasgowuniversitysoftwareserviceguss/
+  image: images/logos/guss_logo_white.png
+
 
