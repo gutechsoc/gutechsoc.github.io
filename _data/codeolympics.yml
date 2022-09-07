@@ -1,3 +1,18 @@
+ title: co2021
+  year: 2021
+  date: 30th-31st Oct
+  gallery:
+  gallery_size: 0
+  gallery_button_url:
+  gallery_button_text: View the full gallery on facebook
+  colour: rgba(254,233,2,255)
+  sponsors:
+      - guts
+      - school
+      - jpm
+      - ms
+      - verint
+      - sas
 - title: co2020
   year: 2020
   date: 10th-11th Oct
