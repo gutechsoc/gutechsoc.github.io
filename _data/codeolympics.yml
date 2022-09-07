@@ -5,14 +5,13 @@
   gallery_size: 0
   gallery_button_url:
   gallery_button_text: View the full gallery on facebook
-  colour: rgba(254,233,2,255)
+  colour: rgb(254,221,2,255)
   sponsors:
       - guts
       - jpm
       - ms
       - verint
       - sas
-      -
 - title: co2020
   year: 2020
   date: 10th-11th Oct
