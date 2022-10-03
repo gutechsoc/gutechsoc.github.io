@@ -1,7 +1,7 @@
 - title: hack2022v2
   year: 2022
   date: 14-16 Oct
-  colour: rgb(165,35,117,1)
+  colour: rgb(125,160,208,1)
   sponsors:
        - guts
        - jpm
@@ -24,8 +24,6 @@
        - guss
        - mlh
        - school
-
-
 
 - title: hack2021
   year: 2021
