@@ -69,6 +69,11 @@ jpm:
   url: http://www.jpm.com
   image: images/logos/jpm_white.png
 
+guitarguitar:
+  name: guitarguitar
+  url: https://www.guitarguitar.co.uk/
+  image: images/logos/gg_white.png
+
 guts-pre-2015:
   name: guts
   url: http://gutechsoc.com
