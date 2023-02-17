@@ -247,6 +247,11 @@ guts:
   image: images/logos/guts_white.png
   class: guts-logo
 
+showcode:
+  name: showcode
+  url: http://showcode.io
+  image: images/logos/showcode.png
+
 skyscanner:
   name: skyscanner
   url: http://www.skyscanner.com/
