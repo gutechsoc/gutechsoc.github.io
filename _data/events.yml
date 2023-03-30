@@ -1,3 +1,8 @@
+- title: "Psych x Tech Gala Ball"
+  description: A beautiful fantasy themed end of year ball, in collaboration with the Psychology Society
+  time: March 2023
+  image: images/guts-logo.png
+
 - title: "Code Olympics 2023"
   description: 24-hour in person event with over 250 participants working in teams to solve bite sized challenges set by GUTS, SoCS and industry experts.
   time: February 2023
@@ -28,10 +33,10 @@
   time: September 2021
   image: images/events/bootcamp.png
 
-- title: "Error 403: Grad Ball Forbidden - End of Year Social"
-  description: No balls this year, but we had an evening of fun and games!
-  time: April 2021
-  image: images/guts-logo.png
+#- title: "Error 403: Grad Ball Forbidden - End of Year Social"
+#  description: No balls this year, but we had an evening of fun and games!
+#  time: April 2021
+#  image: images/guts-logo.png
 
 #- title: Games Night
 #  description: "Weekly event hosted on Discord every Saturday at 7PM Glasgow-time. Games chosen by popular demand including JackBoxes, as well as all the other online classics."
