@@ -1,7 +1,2 @@
-_site/
-.sass-cache/
-.jekyll-metadata
-Gemfile
-Gemfile.lock
-.DS_Store
-.idea/git_toolbox_prj.xml
+.idea/*
+.idea
