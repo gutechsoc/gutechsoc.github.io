@@ -2,6 +2,15 @@
 The official website for the GU Tech Society. Hosted at www.gutechsoc.com
 
 ## Development
-* Uses Jekyll
-* To view locally, run `jekyll serve` in the root of the repo
-* You can use `jekyll serve --host=0.0.0.0` to serve on your local network (e.g. to test from a smartphone)
+* Static site
+* Pushes get deployed to GitHub/Cloudflare pages (undecided)
+
+## Plan
+1. Design
+- Get ideas into figma
+- Get Ahmed + Jacksons input
+- Finalise design
+2. Folder structure
+3. Development
+4. ...
+5. Done
