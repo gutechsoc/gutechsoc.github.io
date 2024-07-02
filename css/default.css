@@ -1,0 +1,96 @@
+:root {
+    --background-colour: #181818;
+    --blue : #49B3FF
+}
+
+body {
+    background: var(--background-colour);
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 14em;
+    color: white;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+    width: 14em;
+}
+
+nav a {
+    position: relative;
+
+}
+
+.nav-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-group a {
+    position: relative;
+    width: fit-content;
+    background-image: url("/images/nav/hexagon_blue.svg");
+    background-size: 7em;
+    background-repeat: no-repeat;
+}
+.nav-group a:hover img {
+    opacity: 0;
+}
+
+.nav-group a:hover h2 {
+    color: #49B3FF;
+}
+.nav-group a h2 {
+    font-size: 0.85em;
+    position: absolute;
+    color: white;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+}
+
+
+.nav-group a img {
+    width: 7em;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.nav-left {
+    transform: translate(0%, -20%);
+}
+
+.nav-right {
+    transform: translate(50%, -20%);
+}
+
+.nav-last-item {
+    transform: translate(0%, -60%);
+}
+
+.cursor-glow-top{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(rgb(73, 179, 255) 1%, rgb(73, 179, 255, 0) 100%);
+    box-shadow: 0px 0px 30px rgb(73, 179, 255, 1);
+    position: absolute;
+}
+
+.cursor-glow-bottom {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(rgb(77, 177, 177, .5) 10%, rgb(173, 179, 255, .1) 90%);
+    box-shadow: 0px 0px 20px #4DB1B17F;
+    position: absolute;
+}
