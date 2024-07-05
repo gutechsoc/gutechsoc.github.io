@@ -16,29 +16,28 @@ body {
 
 nav {
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    margin-left: 1em;
-    width: 14em;
-}
-
-nav a {
-    position: relative;
-
 }
 
 .nav-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: 2em;
+    margin-left: 2em
 }
 
 .nav-group a {
     position: relative;
+    margin-bottom: -2em;
     width: fit-content;
     background-image: url("/images/nav/hexagon_blue.svg");
     background-size: 7em;
     background-repeat: no-repeat;
 }
+
+.nav-group a.offset{
+    margin-left: 3.5em;
+}
+
 .nav-group a:hover img {
     opacity: 0;
 }
@@ -46,6 +45,7 @@ nav a {
 .nav-group a:hover h2 {
     color: #49B3FF;
 }
+
 .nav-group a h2 {
     font-size: 0.85em;
     position: absolute;
@@ -58,23 +58,10 @@ nav a {
     transition: color 0.3s ease-in-out;
 }
 
-
 .nav-group a img {
     width: 7em;
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
-}
-
-.nav-left {
-    transform: translate(0%, -20%);
-}
-
-.nav-right {
-    transform: translate(50%, -20%);
-}
-
-.nav-last-item {
-    transform: translate(0%, -60%);
 }
 
 .cursor-glow-top{
