@@ -34,6 +34,10 @@ nav {
     background-repeat: no-repeat;
 }
 
+#guts-logo {
+    background-image: url("/images/nav/logo_blue.svg");
+}
+
 .nav-group a.offset{
     margin-left: 3.5em;
 }

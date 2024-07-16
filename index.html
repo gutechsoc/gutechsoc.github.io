@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <title>GUTS</title>
     <link rel="stylesheet" href="css/default.css" type="text/css"/>
+    <script src="js/addPastEventSectionEventListeners.js"></script>
     <script src="js/eventLoader.js"></script>
-    <script src="js/pastEventsSection.js"></script>
 </head>
-<body onload="eventLoader(this)">
-<!--<div class="cursor-glow-bottom"></div>
-<div class="cursor-glow-top"></div>-->
-<script src="js/showPastEvents.js"></script>
+<body onload="addPastEventSectionEventListeners(); eventLoader()">
 <nav>
     <div class="nav-group">
-        <a href="https://gutechsoc.com">
-            <img class="hex" src="images/nav/logo.svg" alt="hex"/>
+        <a id="guts-logo" href="https://gutechsoc.com">
+            <img class="logo" src="images/nav/logo_white.svg" alt="logo"/>
         </a>
         <a class="offset" href="#events">
             <img class="hex" src="images/nav/hexagon_white.svg" alt="hex"/>
