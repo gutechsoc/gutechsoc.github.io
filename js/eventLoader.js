@@ -74,10 +74,10 @@ function toggleEventDetails(element) {
     // Toggle the colour and visibility of events
     if (element.nextElementSibling.style.display !== "flex") { // If not visible, make visible
         element.nextElementSibling.style.display = "flex";
-        element.style.background = "var(--selected-background-colour)";
+        element.parentElement.style.background = "var(--selected-background-colour)";
     } else { // If visible. make hidden
         element.nextElementSibling.style.display = "none";
-        element.style.background = "var(--card-background-colour)";
+        element.parentElement.style.background = "var(--card-background-colour)";
     }
 }
 

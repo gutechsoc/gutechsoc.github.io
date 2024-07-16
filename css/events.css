@@ -10,7 +10,9 @@
     width: 39em;
     margin: auto;
     padding: 0.5em;
-}
+    border: 2px solid var(--card-background-colour);
+    border-radius: 1em;
+    box-shadow: 0 0 17px 6px rgba(24,24,24,0.46);}
 
 .event-details {
     display: grid;
