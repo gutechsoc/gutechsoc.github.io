@@ -14,11 +14,6 @@ body {
     color: white;
 }
 
-.centre{
-    display: flex;
-    justify-content: center;
-}
-
 nav {
     position: fixed;
 }
@@ -69,34 +64,51 @@ nav {
     opacity: 1;
 }
 
-#major-past-events{
+.centre{
     display: flex;
-    flex-direction: column;
-    width: fit-content;
-}
-
-.tab-list{
-    display: flex;
-}
-.tab-list .tab-option{
-    display: flex;
-    flex-direction: column;
-    width: 10em;
-    height: 5em;
     align-items: center;
     justify-content: center;
-    background: white;
-    color: #181818;
+}
+#past-events-section{
+    display: flex;
+    flex-direction: column;
 }
 
-.tab-list .tab-option h2{
+.tab-option-list{
+    display: grid;
+    grid-template-columns: []20em []20em ;
+    grid-template-rows: []5em;
+    grid-column-gap: 2em ;
+}
+
+.tab-option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: black;
+}
+
+.tab-option:hover{
+    cursor: pointer;
+}
+.tab-option h2{
+    text-wrap: wrap;
     margin: 0;
 }
-/*ik this is stupid but it works exactly how I want it to so there */
-.tab-list .gap{
-    width: 1.5em;
+
+.tab-content{
+    padding-bottom: 2em ;
+    background: white;
 }
 
+#minor-past-events-section{
+    margin-top: 2em;
+}
+
+#minor-past-events-section .tab-option{
+    height: 5em;
+}
 .cursor-glow-top{
     width: 30px;
     height: 30px;
