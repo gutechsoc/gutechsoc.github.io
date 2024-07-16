@@ -5,18 +5,6 @@ let other = {"targetElement": null, "numEventsAdded": 0, "id": "other"};
 
 let eventsList = null;
 
-// Called on page load to setup the global variables and display 3 of each event
-async function eventLoader() {
-    // Setup global variables
-    await setup();
-
-    // Load three events of each category
-    addEvents(dyhtguts, 3);
-    addEvents(codeolympics, 3);
-    addEvents(other, 3);
-
-}
-
 // Add X amounts of events to a section
 async function addEvents(eventSection, amount) {
     let startIndex = eventSection["numEventsAdded"];
@@ -74,6 +62,11 @@ async function setup() {
     codeolympics["targetElement"] = document.getElementById('codeolympics-events-list');
     dyhtguts["targetElement"] = document.getElementById('dyhtguts-events-list');
     other["targetElement"] = document.getElementById('minor-past-events-content');
+
+    // Load three events of each category
+    addEvents(dyhtguts, 3);
+    addEvents(codeolympics, 3);
+    addEvents(other, 3);
 }
 
 function toggleEventDetails(element) {
