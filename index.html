@@ -5,6 +5,7 @@
     <title>GUTS</title>
     <link rel="stylesheet" href="css/default.css" type="text/css"/>
     <script src="js/eventLoader.js"></script>
+    <script src="js/pastEventsSection.js"></script>
 </head>
 <body onload="eventLoader(this)">
 <!--<div class="cursor-glow-bottom"></div>
@@ -45,28 +46,34 @@
             </div>
         </div>
 
-        <div id="major-past-events">
+        <div id="past-events">
             <h1>Past Events</h1>
-            <div class ="centre">
-                <div class="tab-list">
-                    <div class="tab-option">
-                        <h2>CODE</h2>
-                        <h2>OLYMPICS</h2>
+            <div class="centre">
+                <div id="past-events-section">
+                    <div id="major-past-events-tab-list">
+                        <div class="tab-option-list" >
+                            <div class="tab-option" id="code-olympics-tab-option">
+                                <h2>CODE OLYMPICS</h2>
+                            </div>
+                            <div class="tab-option" id="dyhtg-tab-option">
+                                <h2>DYHTH</h2>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="major-past-events-tab-content">
+                        </div>
                     </div>
-                    <div class="gap"></div>
-                    <div class="tab-option">
-                        <h2>DYHTH</h2>
+                    <div id="minor-past-events-section">
+                        <div class="tab-option" id="minor-past-events-tab-option">
+                            <h2>OTHER PAST EVENTS</h2>
+                        </div>
+                        <div id="minor-past-events-content">
+                        </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
 
-
-        <div id = "minor-past-events">
-            <button id = "btn-minor-past-events"></button>
-            <div class = "events-list"></div>
-        </div>
         <p>
 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc justo ipsum, ultrices sit amet congue id, hendrerit non mauris. Donec molestie lorem quis velit dictum porttitor. Praesent nulla libero, mattis eget tellus non, consectetur sagittis felis. Nulla volutpat urna laoreet mi malesuada, a tincidunt mauris vestibulum. Cras vitae lacus ac lorem euismod aliquet. Sed eleifend ornare eros, eu fermentum diam ullamcorper non. Sed sagittis elementum augue, sit amet hendrerit metus rutrum eu. Donec finibus eu tortor eleifend elementum. Morbi mattis sodales placerat. Suspendisse vitae orci quis lorem blandit consequat quis quis lectus. Etiam a massa laoreet, dapibus erat quis, porta odio.
