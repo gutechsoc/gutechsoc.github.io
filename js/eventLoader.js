@@ -70,14 +70,22 @@ async function setup() {
 }
 
 function toggleEventDetails(element) {
-
     // Toggle the colour and visibility of events
-    if (element.nextElementSibling.style.display !== "flex") { // If not visible, make visible
-        element.nextElementSibling.style.display = "flex";
-        element.parentElement.style.background = "var(--selected-background-colour)";
-    } else { // If visible. make hidden
-        element.nextElementSibling.style.display = "none";
-        element.parentElement.style.background = "var(--card-background-colour)";
+    // if (element.nextElementSibling.style.display !== "flex") { // If not visible, make visible
+    //     element.nextElementSibling.style.display = "flex";
+    //     element.parentElement.style.background = "var(--selected-background-colour)";
+    // } else { // If visible. make hidden
+    //     element.nextElementSibling.style.display = "none";
+    //     element.parentElement.style.background = "var(--card-background-colour)";
+    // }
+
+    let eventSib = element.nextElementSibling;
+    if(eventSib.className === "event-content"){
+        eventSib.classList.add("selected");
+        eventSib.style.maxHeight = eventSib.scrollHeight + "px"
+    }else{
+        eventSib.className = "event-content"
+        eventSib.style.maxHeight =  "0px"
     }
 }
 

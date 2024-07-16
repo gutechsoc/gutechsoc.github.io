@@ -107,7 +107,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    background: #232323;
 }
 
 .tab-option:hover{

@@ -62,6 +62,22 @@
     text-align: end;
 }
 
-.event-content {
-    display: none;
+.event-content{
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition:  max-height .1s, opacity .1s;
 }
+
+.event-content.selected{
+    overflow: visible;
+    opacity: 100%;
+    transition: max-height .3s, opacity .3s;
+
+}
+
+.event-content p{
+    margin: 0;
+}
+
