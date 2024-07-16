@@ -42,8 +42,7 @@
 
         <div id="upcoming-events">
             <h1>Upcoming Events</h1>
-            <div class="events-list">
-                <h2>Insert events here</h2>
+            <div id="upcoming-events-list" class="events-list">
             </div>
         </div>
 
@@ -53,14 +52,16 @@
                 <div id="past-events-section">
                     <div id="major-past-events-tab-list">
                         <div class="tab-option-list" >
-                            <div class="tab-option" id="code-olympics-tab-option">
+                            <div class="tab-option" id="codeolympics-tab-option" onclick="toggleEventGroup(this, 'codeolympics-events-list', 'dyhtguts')">
                                 <h2>CODE OLYMPICS</h2>
                             </div>
-                            <div class="tab-option" id="dyhtg-tab-option">
-                                <h2>DYHTH</h2>
+                            <div class="tab-option" id="dyhtguts-tab-option" onclick="toggleEventGroup(this, 'dyhtguts-events-list', 'codeolympics')">
+                                <h2>DYHTGUTS</h2>
                             </div>
                         </div>
-                        <div class="tab-content" id="major-past-events-tab-content">
+                        <div class="tab-content" id="codeolympics-events-list">
+                        </div>
+                        <div class="tab-content" id="dyhtguts-events-list">
                         </div>
                     </div>
                     <div id="minor-past-events-section">
@@ -119,4 +120,5 @@
     </section>
 </section>
 </body>
+
 </html>

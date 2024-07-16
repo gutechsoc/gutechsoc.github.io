@@ -1,3 +1,4 @@
+let upcoming = {"targetElement": null, "numEventsAdded": 0, "id": "upcoming"};
 let codeolympics = {"targetElement": null, "numEventsAdded": 0, "id": "codeolympics"};
 let dyhtguts = {"targetElement": null, "numEventsAdded": 0, "id": "dyhtguts"};
 let other = {"targetElement": null, "numEventsAdded": 0, "id": "other"};
@@ -41,10 +42,11 @@ async function addEvents(eventSection, amount) {
         eventSection["numEventsAdded"] += 1
     }
 
+    // Update the event list
     eventSection["targetElement"].innerHTML = content;
 }
 
-// Get requester, returns the content of the request, handles errors
+// Generic get requester, returns the content of the request, handles (some) errors
 async function getRequest(url) {
     try {
         const response = await fetch(url);
@@ -65,16 +67,43 @@ async function getRequest(url) {
 }
 
 async function setup() {
+
+    // Get a list of all events, get elements from the DOM
     eventsList = await getRequest(window.location.origin + '/events/eventsList.json');
-    codeolympics["targetElement"] = document.getElementById('upcoming-events');
-    dyhtguts["targetElement"] = document.getElementById('minor-past-events');
-    other["targetElement"] = document.getElementById('major-past-events');
+    upcoming["targetElement"] = document.getElementById('upcoming-events-list');
+    codeolympics["targetElement"] = document.getElementById('codeolympics-events-list');
+    dyhtguts["targetElement"] = document.getElementById('dyhtguts-events-list');
+    other["targetElement"] = document.getElementById('minor-past-events-content');
 }
 
 function toggleEventDetails(element) {
-    if (element.nextElementSibling.style.display !== "flex") {
+
+    // Toggle the colour and visibility of events
+    if (element.nextElementSibling.style.display !== "flex") { // If not visible, make visible
         element.nextElementSibling.style.display = "flex";
-    } else {
+        element.style.background = "var(--selected-background-colour)";
+    } else { // If visible. make hidden
         element.nextElementSibling.style.display = "none";
+        element.style.background = "var(--card-background-colour)";
+    }
+}
+
+// Show CodeOlympics, hide DYHTGUTS: toggleEventGroup(this, 'codeolympics-events-list', 'dyhtguts')
+function toggleEventGroup(element, group, disable) {
+    groupElement = document.getElementById(group);
+
+    // Toggle sected colours and vidibility of event group
+    if (groupElement.style.display !== "block") { // If not visible, make visible
+        groupElement.style.display = "block";
+        element.style.background = "var(--selected-background-colour)";
+    } else { // If visible, make hidden
+        groupElement.style.display = "none";
+        element.style.background = "var(--card-background-colour)";
+    }
+
+    // If codeolypics is clicked, ensure dyhtguts is hidden and vice versa, N/A for other events
+    if (disable !== null) {
+        document.getElementById(`${disable}-tab-option`).style.background = "var(--card-background-colour)";
+        document.getElementById(`${disable}-events-list`).style.display = "none";
     }
 }
