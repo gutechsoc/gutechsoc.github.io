@@ -8,7 +8,8 @@
     flex-direction: column;
     background: var(--card-background-colour);
     width: 39em;
-    margin: auto;
+    margin-bottom: 3em;
+    margin-left: 1em;
     padding: 0.5em;
     border: 2px solid var(--card-background-colour);
     border-radius: 1em;
@@ -31,6 +32,8 @@
 }
 
 .event-title {
+    max-width: 12em;
+    text-wrap: stable;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;

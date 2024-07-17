@@ -78,14 +78,17 @@ function toggleEventDetails(element) {
     //     element.nextElementSibling.style.display = "none";
     //     element.parentElement.style.background = "var(--card-background-colour)";
     // }
-
+    let eventPar = element.parentElement;
     let eventSib = element.nextElementSibling;
     if(eventSib.className === "event-content"){
+        eventPar.style.background="var(--selected-background-colour)"
         eventSib.classList.add("selected");
         eventSib.style.maxHeight = eventSib.scrollHeight + "px"
     }else{
+        eventPar.style.background="var(--card-background-colour)"
         eventSib.className = "event-content"
         eventSib.style.maxHeight =  "0px"
+
     }
 }
 
