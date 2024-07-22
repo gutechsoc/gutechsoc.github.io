@@ -120,6 +120,9 @@ nav {
 
 .tab-content{
     display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s;
     padding-top: 2em;
     padding-bottom: 2em ;
     background: var(--selected-background-colour);

@@ -16,7 +16,6 @@
     box-shadow: 0 0 17px 6px rgba(24,24,24,0.46);
 }
 
-
 .event-details {
     display: grid;
     grid-gap: 0.1em;
@@ -65,7 +64,7 @@
     text-align: end;
 }
 
-.event-content{
+.event-card .event-content{
     display: flex;
     overflow: hidden;
     opacity: 0;
@@ -73,7 +72,7 @@
     transition:  max-height .1s, opacity .1s;
 }
 
-.event-content.selected{
+.event-card.selected .event-content{
     overflow: visible;
     opacity: 100%;
     transition: max-height .3s, opacity .3s;

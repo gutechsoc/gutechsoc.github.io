@@ -70,44 +70,43 @@ async function setup() {
 }
 
 function toggleEventDetails(element) {
-    // Toggle the colour and visibility of events
-    // if (element.nextElementSibling.style.display !== "flex") { // If not visible, make visible
-    //     element.nextElementSibling.style.display = "flex";
-    //     element.parentElement.style.background = "var(--selected-background-colour)";
-    // } else { // If visible. make hidden
-    //     element.nextElementSibling.style.display = "none";
-    //     element.parentElement.style.background = "var(--card-background-colour)";
-    // }
     let eventPar = element.parentElement;
     let eventSib = element.nextElementSibling;
-    if(eventSib.className === "event-content"){
+    if(!eventPar.classList.contains("selected")){
         eventPar.style.background="var(--selected-background-colour)"
-        eventSib.classList.add("selected");
+        eventPar.classList.add("selected");
         eventSib.style.maxHeight = eventSib.scrollHeight + "px"
     }else{
         eventPar.style.background="var(--card-background-colour)"
-        eventSib.className = "event-content"
-        eventSib.style.maxHeight =  "0px"
-
+        eventSib.style.maxHeight = "0"
+        eventPar.classList.remove("selected")
     }
 }
 
 // Show CodeOlympics, hide DYHTGUTS: toggleEventGroup(this, 'codeolympics-events-list', 'dyhtguts')
 function toggleEventGroup(element, group, disable) {
     groupElement = document.getElementById(group);
-
     // Toggle sected colours and vidibility of event group
-    if (groupElement.style.display !== "block") { // If not visible, make visible
+    if (groupElement.style.display !== 'block') { // If not visible, make visible
+        groupElement.style.maxHeight = 0
         groupElement.style.display = "block";
-        element.style.background = "var(--selected-background-colour)";
-    } else { // If visible, make hidden
-        groupElement.style.display = "none";
-        element.style.background = "var(--card-background-colour)";
+        element.style.background = "var(--selected-background-colour)"
+        groupElement.style.maxHeight = groupElement.scrollHeight + "px"
+    }
+    else{
+        groupElement.style.display= null;
+        element.style.background = "var(--card-background-colour)"
     }
 
     // If codeolypics is clicked, ensure dyhtguts is hidden and vice versa, N/A for other events
     if (disable !== null) {
         document.getElementById(`${disable}-tab-option`).style.background = "var(--card-background-colour)";
-        document.getElementById(`${disable}-events-list`).style.display = "none";
+        let disabledEventList = document.getElementById(`${disable}-events-list`);
+        for(let child of disabledEventList.children){
+            if(child.classList.contains("selected")){
+                toggleEventDetails(child.firstElementChild)
+            }
+        }
+        disabledEventList.style.display = null
     }
 }
