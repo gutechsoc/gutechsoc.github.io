@@ -3,7 +3,7 @@ let codeolympics = {"targetElement": null, "numEventsAdded": 0, "id": "codeolymp
 let dyhtguts = {"targetElement": null, "numEventsAdded": 0, "id": "dyhtguts"};
 let other = {"targetElement": null, "numEventsAdded": 0, "id": "other"};
 
-let eventsList = null;
+let eventsList = { "upcoming": [], "codeolympics": [], "dyhtguts": [], "other": [] };
 
 // Add X amounts of events to a section
 async function addEvents(eventSection, amount) {
@@ -26,7 +26,7 @@ async function addEvents(eventSection, amount) {
 
     // Append the requested number of events
     for (let i = startIndex ; i < startIndex + amount; i++) {
-        content += await getRequest(window.location.origin + '/events/' + eventsList[eventSection["id"]][i]);
+        content += await getRequest(window.location.origin + '/events/' + eventsList[eventSection["id"]][i]["html"]);
         eventSection["numEventsAdded"] += 1
     }
 
@@ -56,8 +56,10 @@ async function getRequest(url) {
 
 async function setup() {
 
-    // Get a list of all events, get elements from the DOM
-    eventsList = await getRequest(window.location.origin + '/events/eventsList.json');
+    // Get a list of all events
+    addEventToList((await getRequest(window.location.origin + '/events/eventsList.json')));
+
+    // Get elements from the DOM
     upcoming["targetElement"] = document.getElementById('upcoming-events-list');
     codeolympics["targetElement"] = document.getElementById('codeolympics-events-list');
     dyhtguts["targetElement"] = document.getElementById('dyhtguts-events-list');
@@ -69,7 +71,29 @@ async function setup() {
     addEvents(other, 3);
 }
 
+function addEventToList(events) {
+    // Format date to filter out upcoming events
+    let tempDate = new Date().toISOString();
+    let currentDate = `${tempDate.slice(0, 4)}${tempDate.slice(5, 7)}${tempDate.slice(8, 10)}`;
+    console.log((new Date()).toUTCString())
+    // Sort events into their lists and filter out upcoming events
+    for (let key of Object.keys(events)) {
+        for (let event of events[key]) {
+            if (event["date"] > currentDate) { // Upcoming event
+
+                eventsList['upcoming'].push(event)
+
+            } else { // Past event
+
+                eventsList[key].push(event);
+
+            }
+        }
+    }
+}
+
 function toggleEventDetails(element) {
+    // Toggle the colour and visibility of events
     let eventPar = element.parentElement;
     let eventSib = element.nextElementSibling;
     if(!eventPar.classList.contains("selected")){

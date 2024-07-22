@@ -96,14 +96,14 @@ nav {
     flex-direction: column;
 }
 
-.tab-option-list{
+.tab-option-list {
     display: grid;
     grid-template-columns: []20em []20em ;
     grid-template-rows: []5em;
     grid-column-gap: 2em ;
 }
 
-.tab-option{
+.tab-option {
     display: flex;
     justify-content: center;
     align-items: center;
