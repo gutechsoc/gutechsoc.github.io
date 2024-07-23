@@ -30,7 +30,7 @@ async function addEvents(eventSection, amount) {
     let sponsorSection;
     let newEvent;
     for (let i = startIndex; i < startIndex + amount; i++) {
-        newEvent = await getRequest(window.location.origin + '/events/' + eventsList[eventSection["id"]][i]["html"]);
+        newEvent = await getRequest('events/html/' + eventsList[eventSection["id"]][i]["html"]);
 
         content += newEvent;
         eventSection["numEventsAdded"] += 1
@@ -63,6 +63,7 @@ function setupSponsors() {
 // Generic get requester, returns the content of the request, handles (some) errors
 async function getRequest(url) {
     try {
+        console.log(url)
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
@@ -83,10 +84,10 @@ async function getRequest(url) {
 async function setup() {
 
     // Get a list of all events
-    addEventToList((await getRequest(window.location.origin + '/events/eventsList.json')));
+    addEventToList((await getRequest('events/eventsList.json')));
 
     // Get a list of all sponsors
-    sponsors = await getRequest(window.location.origin + '/sponsors/sponsors.json');
+    sponsors = await getRequest('sponsors/sponsors.json');
 
     // Get elements from the DOM
     upcoming["targetElement"] = document.getElementById('upcoming-events-list');
@@ -105,6 +106,7 @@ function addEventToList(events) {
     let tempDate = new Date().toISOString();
     let currentDate = `${tempDate.slice(0, 4)}${tempDate.slice(5, 7)}${tempDate.slice(8, 10)}`;
     console.log((new Date()).toUTCString())
+    console.log(events)
     // Sort events into their lists and filter out upcoming events
     for (let key of Object.keys(events)) {
         for (let event of events[key]) {

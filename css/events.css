@@ -47,7 +47,7 @@
 }
 
 .event-card.selected .event-content{
-    overflow: visible;
+    /*overflow: visible; if you look closely the text appears before the box has finished expanding */
     opacity: 100%;
     transition: max-height .3s, opacity .3s;
 }
