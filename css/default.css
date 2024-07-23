@@ -25,6 +25,10 @@ body {
     color: white;
 }
 
+#content > section{
+    margin-bottom: 5em;
+}
+
 #content {
     display: flex;
     flex-direction: column;
@@ -87,6 +91,7 @@ nav {
 }
 
 .centre{
+    padding-right: 14em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,4 +156,10 @@ nav {
     background: linear-gradient(rgb(77, 177, 177, .5) 10%, rgb(173, 179, 255, .1) 90%);
     box-shadow: 0 0 20px #4DB1B17F;
     position: absolute;
+}
+
+@media screen and (max-width: 1140px) {
+    .centre{
+        padding-right: 0;
+    }
 }
