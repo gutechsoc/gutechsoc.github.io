@@ -46,7 +46,7 @@ function setupSponsors() {
     // Add sponsors to events
     // Loop for each event that hasnt had sponsors setup
     for (let sponsorSection of document.getElementsByClassName("event-sponsors-presetup")) {
-        let content = ``;
+        let content = `<marquee behavior="scroll" direction="left">`;
         sponsorSection.classList.remove("event-sponsors-presetup")
 
         for (let classItem of sponsorSection.classList) {
@@ -55,6 +55,7 @@ function setupSponsors() {
             content += `<img src='sponsors/logos/${sponsors[classItem]['logo']}' alt='${sponsors[classItem]["name"]}'/>`;
             content += `</a>`;
         }
+        content += `</marquee>`;
         sponsorSection.innerHTML = content
         sponsorSection.classList.add("event-sponsors");
     }

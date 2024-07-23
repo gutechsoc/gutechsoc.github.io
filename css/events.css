@@ -40,6 +40,7 @@
 
 .event-card .event-content{
     display: flex;
+    flex-direction: column;
     overflow: hidden;
     opacity: 0;
     max-height: 0;
@@ -81,4 +82,20 @@
     grid-row-end: 3;
     width: 60%;
     transform: translate(0, -20%);
+}
+
+.event-sponsors {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.event-sponsors a {
+    align-items: center;
+}
+
+.event-sponsors a img {
+    max-height: 2.5em;
+    margin-right: 1em;
 }
