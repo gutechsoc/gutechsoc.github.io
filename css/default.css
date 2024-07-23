@@ -127,7 +127,7 @@ nav {
     display: none;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 1s;
+    transition: max-height 1s ease-in-out;
     padding-top: 2em;
     padding-bottom: 2em ;
     background: var(--selected-background-colour);
