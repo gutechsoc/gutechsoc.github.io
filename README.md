@@ -1,6 +1,12 @@
 # gutechsoc.github.io
 The official website for the GU Tech Society. Hosted at www.gutechsoc.com
 
+# Adding Events
+See events/README.md
+
+# Adding Sponsors
+See sponsors/README.md
+
 ## Development
 * Static site
 * Pushes get deployed to GitHub/Cloudflare pages (undecided)
@@ -14,6 +20,3 @@ The official website for the GU Tech Society. Hosted at www.gutechsoc.com
 3. Development
 4. ...
 5. Done
-
-## Sponsors
-For events, have a section/div that has all the event sponsors as classes, have a json file with all the sponsors (links to sponsors website, sponsor imcage, sponsor name), have a js script that grabs the sponsor div/section then looks up all the classes from the json file to fill our the details

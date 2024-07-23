@@ -5,6 +5,8 @@ let other = {"targetElement": null, "numEventsAdded": 0, "id": "other"};
 
 let eventsList = { "upcoming": [], "codeolympics": [], "dyhtguts": [], "other": [] };
 
+let sponsors = [];
+
 // Add X amounts of events to a section
 async function addEvents(eventSection, amount) {
     let startIndex = eventSection["numEventsAdded"];
@@ -21,17 +23,41 @@ async function addEvents(eventSection, amount) {
     }
 
     // Grab the old list of events to append to
-    content = ``;
+    let content = ``;
     content += eventSection["targetElement"].innerHTML;
 
     // Append the requested number of events
-    for (let i = startIndex ; i < startIndex + amount; i++) {
-        content += await getRequest(window.location.origin + '/events/' + eventsList[eventSection["id"]][i]["html"]);
+    let sponsorSection;
+    let newEvent;
+    for (let i = startIndex; i < startIndex + amount; i++) {
+        newEvent = await getRequest(window.location.origin + '/events/' + eventsList[eventSection["id"]][i]["html"]);
+
+        content += newEvent;
         eventSection["numEventsAdded"] += 1
     }
 
     // Update the event list
     eventSection["targetElement"].innerHTML = content;
+
+    setupSponsors();
+}
+
+function setupSponsors() {
+    // Add sponsors to events
+    // Loop for each event that hasnt had sponsors setup
+    for (let sponsorSection of document.getElementsByClassName("event-sponsors-presetup")) {
+        let content = ``;
+        sponsorSection.classList.remove("event-sponsors-presetup")
+
+        for (let classItem of sponsorSection.classList) {
+            console.log(classItem);
+            content += `<a href='${sponsors[classItem]["url"]}'>`;
+            content += `<img src='sponsors/logos/${sponsors[classItem]['logo']}' alt='${sponsors[classItem]["name"]}'/>`;
+            content += `</a>`;
+        }
+        sponsorSection.innerHTML = content
+        sponsorSection.classList.add("event-sponsors");
+    }
 }
 
 // Generic get requester, returns the content of the request, handles (some) errors
@@ -58,6 +84,9 @@ async function setup() {
 
     // Get a list of all events
     addEventToList((await getRequest(window.location.origin + '/events/eventsList.json')));
+
+    // Get a list of all sponsors
+    sponsors = await getRequest(window.location.origin + '/sponsors/sponsors.json');
 
     // Get elements from the DOM
     upcoming["targetElement"] = document.getElementById('upcoming-events-list');

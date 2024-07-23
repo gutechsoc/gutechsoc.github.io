@@ -1,0 +1,12 @@
+{
+  "amzn": {
+    "name": "Amazon",
+    "logo": "amazon_white.png",
+    "url": "https://amazon.co.uk"
+  },
+  "amzndc": {
+    "name": "Amazon Dev Centre",
+    "logo": "amazon_devcentre_white.png",
+    "url": "https://amazondc.com"
+  }
+}
