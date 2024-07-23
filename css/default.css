@@ -140,6 +140,14 @@ nav {
 #minor-past-events-section .tab-option{
     height: 5em;
 }
+.cursor-glow-top{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(rgb(73, 179, 255) 1%, rgb(73, 179, 255, 0) 100%);
+    box-shadow: 0 0 30px rgb(73, 179, 255, 1);
+    position: absolute;
+}
 
 /*.cursor-glow-top{*/
 /*    width: 30px;*/

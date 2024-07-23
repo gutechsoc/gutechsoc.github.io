@@ -27,48 +27,60 @@ async function addEvents(eventSection, amount) {
     content += eventSection["targetElement"].innerHTML;
 
     // Append the requested number of events
-    let sponsorSection;
-    let newEvent;
     for (let i = startIndex; i < startIndex + amount; i++) {
-        newEvent = await getRequest('events/html/' + eventsList[eventSection["id"]][i]["html"]);
-
-        content += newEvent;
+        content += await getRequest('events/html/' + eventsList[eventSection["id"]][i]["html"]);;
         eventSection["numEventsAdded"] += 1
     }
 
     // Update the event list
     eventSection["targetElement"].innerHTML = content;
 
+    // The events have to be in the DOM before we can add the sponsors
     setupSponsors();
 }
 
 function setupSponsors() {
     // Add sponsors to events
     // Loop for each event that hasnt had sponsors setup
-    for (let sponsorSection of document.getElementsByClassName("event-sponsors-presetup")) {
-        let content = `<marquee behavior="scroll" direction="left">`;
+    let sponsorSections
+
+    // It wouldnt let us iterate over getElementsByClassName so this is a little hacky
+    while ((sponsorSections = document.getElementsByClassName("event-sponsors-presetup")).length > 0) {
+        // Select the first section
+        let sponsorSection = sponsorSections.item(0);
+
+        // Remove the temporary class
         sponsorSection.classList.remove("event-sponsors-presetup")
 
+        // Setup scrolling for sponsors
+        let content = `<marquee behavior="scroll" direction="left">`;
+
+        // Add each sponsor
         for (let classItem of sponsorSection.classList) {
-            console.log(classItem);
-            content += `<a href='${sponsors[classItem]["url"]}'>`;
-            content += `<img src='sponsors/logos/${sponsors[classItem]['logo']}' alt='${sponsors[classItem]["name"]}'/>`;
-            content += `</a>`;
+            content += `<a href='${sponsors[classItem]["url"]}'>`; // Link open
+            content += `<img src='sponsors/logos/${sponsors[classItem]['logo']}' alt='${sponsors[classItem]["name"]}'/>`; // Image
+            content += `</a>`; // Link close
         }
+
+        // Close the scrolling tag
         content += `</marquee>`;
-        sponsorSection.innerHTML = content
+
+        // Add the permanent class
         sponsorSection.classList.add("event-sponsors");
+        sponsorSection.innerHTML = content
     }
 }
+
 
 // Generic get requester, returns the content of the request, handles (some) errors
 async function getRequest(url) {
     try {
-        console.log(url)
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
+
+        // Process and return data based on the response header
         switch (response.headers.get("content-type")) {
             case "text/html":
                 return await response.text();
@@ -103,11 +115,12 @@ async function setup() {
 }
 
 function addEventToList(events) {
+    // Process all events while filtering out upcoming events from appearing in the past events section
+
     // Format date to filter out upcoming events
     let tempDate = new Date().toISOString();
     let currentDate = `${tempDate.slice(0, 4)}${tempDate.slice(5, 7)}${tempDate.slice(8, 10)}`;
-    console.log((new Date()).toUTCString())
-    console.log(events)
+
     // Sort events into their lists and filter out upcoming events
     for (let key of Object.keys(events)) {
         for (let event of events[key]) {
