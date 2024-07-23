@@ -123,14 +123,14 @@ nav {
     margin: 0;
 }
 
+#major-past-events-tab-content{
+    height: 0;
+    overflow: hidden;
+    background: var(--selected-background-colour);
+    transition: all .7s ease-in-out ;
+}
 .tab-content{
     display: none;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 1s;
-    padding-top: 2em;
-    padding-bottom: 2em ;
-    background: var(--selected-background-colour);
 }
 
 #minor-past-events-section{
@@ -140,23 +140,24 @@ nav {
 #minor-past-events-section .tab-option{
     height: 5em;
 }
-.cursor-glow-top{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: radial-gradient(rgb(73, 179, 255) 1%, rgb(73, 179, 255, 0) 100%);
-    box-shadow: 0 0 30px rgb(73, 179, 255, 1);
-    position: absolute;
-}
 
-.cursor-glow-bottom {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: linear-gradient(rgb(77, 177, 177, .5) 10%, rgb(173, 179, 255, .1) 90%);
-    box-shadow: 0 0 20px #4DB1B17F;
-    position: absolute;
-}
+/*.cursor-glow-top{*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    border-radius: 50%;*/
+/*    background: radial-gradient(rgb(73, 179, 255) 1%, rgb(73, 179, 255, 0) 100%);*/
+/*    box-shadow: 0 0 30px rgb(73, 179, 255, 1);*/
+/*    position: absolute;*/
+/*}*/
+
+/*.cursor-glow-bottom {*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    border-radius: 50%;*/
+/*    background: linear-gradient(rgb(77, 177, 177, .5) 10%, rgb(173, 179, 255, .1) 90%);*/
+/*    box-shadow: 0 0 20px #4DB1B17F;*/
+/*    position: absolute;*/
+/*}*/
 
 @media screen and (max-width: 1140px) {
     .centre{

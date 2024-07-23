@@ -141,28 +141,32 @@ function toggleEventDetails(element) {
 
 // Show CodeOlympics, hide DYHTGUTS: toggleEventGroup(this, 'codeolympics-events-list', 'dyhtguts')
 function toggleEventGroup(element, group, disable) {
-    groupElement = document.getElementById(group);
-    // Toggle sected colours and vidibility of event group
-    if (groupElement.style.display !== 'block') { // If not visible, make visible
-        groupElement.style.maxHeight = 0
-        groupElement.style.display = "block";
+
+    let currentGroupElement = document.getElementById(group);
+    let disableElement = document.getElementById(disable +"-tab-option")
+    let boundaryElement = document.getElementById("major-past-events-content-boundary")
+    let displayElement= document.getElementById("major-past-events-tab-content")
+
+    //If the user clicks the same tab option twice
+    if(element.classList.contains("selected")){
+        //Deselect tab option and close everything
+        element.classList.remove("selected")
+        element.style.background="var(--card-background-colour)"
+        boundaryElement.style.maxHeight= displayElement.style.height = displayElement.style.paddingTop =
+            displayElement.style.paddingBottom = "0"
+    }else{
+        //Change tab options
+        disableElement.style.background = "var(--card-background-colour)"
+        disableElement.classList.remove("selected")
+        //Resize content
+        boundaryElement.innerHTML = currentGroupElement.innerHTML
+        displayElement.style.paddingTop = "4em"
+        displayElement.style.paddingBottom= "2em"
+        element.classList.add("selected")
         element.style.background = "var(--selected-background-colour)"
-        groupElement.style.maxHeight = groupElement.scrollHeight + "px"
-    }
-    else{
-        groupElement.style.display= null;
-        element.style.background = "var(--card-background-colour)"
+        boundaryElement.style.maxHeight = displayElement.style.height = boundaryElement.scrollHeight + "px"
+
     }
 
-    // If codeolypics is clicked, ensure dyhtguts is hidden and vice versa, N/A for other events
-    if (disable !== null) {
-        document.getElementById(`${disable}-tab-option`).style.background = "var(--card-background-colour)";
-        let disabledEventList = document.getElementById(`${disable}-events-list`);
-        for(let child of disabledEventList.children){
-            if(child.classList.contains("selected")){
-                toggleEventDetails(child.firstElementChild)
-            }
-        }
-        disabledEventList.style.display = null
-    }
+
 }

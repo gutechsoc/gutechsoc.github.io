@@ -8,5 +8,12 @@
     "name": "Amazon Dev Centre",
     "logo": "amazon_devcentre_white.png",
     "url": "https://amazondc.com"
-  }
+  },
+  "assemblyai":{
+    "name": "Assembly AI",
+    "logo" : "AssemblyAI_white.png",
+    "url": "https://www.assemblyai.com/"
+}
+
+
 }
