@@ -7,9 +7,6 @@ let eventsList = { "upcoming": [], "codeolympics": [], "dyhtguts": [], "other": 
 
 let sponsors = [];
 
-let boundaryElement = document.getElementById("major-past-events-content-boundary");
-let displayElement= document.getElementById("major-past-events-tab-content")
-
 // Add X amounts of events to a section
 async function addEvents(eventSection, amount) {
     let startIndex = eventSection["numEventsAdded"];
@@ -98,8 +95,6 @@ async function getRequest(url) {
 }
 
 async function setup() {
-    boundaryElement = document.getElementById("major-past-events-content-boundary");
-    displayElement= document.getElementById("major-past-events-tab-content")
 
     // Get a list of all events
     addEventToList((await getRequest('events/eventsList.json')));
@@ -111,7 +106,7 @@ async function setup() {
     upcoming["targetElement"] = document.getElementById('upcoming-events-list');
     codeolympics["targetElement"] = document.getElementById('codeolympics-events-list');
     dyhtguts["targetElement"] = document.getElementById('dyhtguts-events-list');
-    other["targetElement"] = document.getElementById('minor-past-events-content');
+    other["targetElement"] = document.getElementById('minor-past-events-content-boundary');
 
     // Load three events of each category
     addEvents(dyhtguts, 3);
@@ -146,17 +141,20 @@ function toggleEventDetails(element) {
     // Toggle the colour and visibility of events
     let eventPar = element.parentElement;
     let eventSib = element.nextElementSibling;
+    let eventContainerBoundary = eventPar.parentElement
+    let eventContainerDisplay = eventContainerBoundary.parentElement
+
 
     if (!eventPar.classList.contains("selected")) {
         eventPar.style.background="var(--selected-background-colour)"
         eventPar.classList.add("selected");
         eventSib.style.maxHeight = eventSib.scrollHeight + "px"
-        changeMajorPastEventContentHeight(eventSib.scrollHeight);
+        eventContainerBoundary.style.maxHeight = eventContainerDisplay.style.height = (eventContainerBoundary.scrollHeight + eventSib.scrollHeight) + "px"
     } else {
-        changeMajorPastEventContentHeight(-eventSib.scrollHeight);
         eventPar.style.background="var(--card-background-colour)"
         eventSib.style.maxHeight = "0"
         eventPar.classList.remove("selected")
+        eventContainerBoundary.style.height = eventContainerDisplay.style.height = (eventContainerBoundary.scrollHeight - eventSib.scrollHeight) + "px"
     }
 }
 
@@ -165,30 +163,39 @@ function toggleEventGroup(element, group, disable) {
 
     let currentGroupElement = document.getElementById(group);
     let disableElement = document.getElementById(disable +"-tab-option")
+    let displayElement = document.getElementById("major-past-events-tab-content")
+    let boundaryElement = document.getElementById("major-past-events-content-boundary")
 
     //If the user clicks the same tab option twice
     if (element.classList.contains("selected")) {
         //Deselect tab option and close everything
         element.classList.remove("selected")
-        element.style.background="var(--card-background-colour)"
         boundaryElement.style.maxHeight = displayElement.style.height = displayElement.style.paddingTop =
             displayElement.style.paddingBottom = "0"
     } else {
         //Change tab options
-        disableElement.style.background = "var(--card-background-colour)"
         disableElement.classList.remove("selected")
         //Resize content
         boundaryElement.innerHTML = currentGroupElement.innerHTML
         displayElement.style.paddingTop = "4em"
         displayElement.style.paddingBottom= "2em"
         element.classList.add("selected")
-        element.style.background = "var(--selected-background-colour)"
-        changeMajorPastEventContentHeight(0)
-
+        boundaryElement.style.maxHeight = displayElement.style.height = boundaryElement.scrollHeight + "px"
     }
 
 }
 
-function changeMajorPastEventContentHeight(increaseAmount) {
-    boundaryElement.style.maxHeight = displayElement.style.height = boundaryElement.scrollHeight + increaseAmount + "px"
+function toggleOtherPastEvents(element, display, boundary){
+    let displayElement = document.getElementById(display);
+    let boundaryElement = document.getElementById(boundary)
+
+    if(element.classList.contains("selected")){
+        element.classList.remove("selected")
+        displayElement.style.height= displayElement.style.paddingTop = boundaryElement.style.maxHeight= displayElement.style.paddingBottom = "0"
+    }else{
+        element.classList.add("selected")
+        displayElement.style.height = boundaryElement.style.maxHeight = boundaryElement.scrollHeight + "px"
+        displayElement.style.paddingTop = "4em"
+        displayElement.style.paddingBottom = "2em"
+    }
 }

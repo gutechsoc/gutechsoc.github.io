@@ -115,6 +115,10 @@ nav {
     background: #232323;
 }
 
+.tab-option.selected{
+    background: var(--selected-background-colour);
+}
+
 .tab-option:hover{
     cursor: pointer;
 }
@@ -140,6 +144,14 @@ nav {
 #minor-past-events-section .tab-option{
     height: 5em;
 }
+
+#minor-past-events-content{
+    height: 0;
+    overflow: hidden;
+    background: var(--selected-background-colour);
+    transition: all .7s ease-in-out ;
+}
+
 .cursor-glow-top{
     width: 30px;
     height: 30px;
