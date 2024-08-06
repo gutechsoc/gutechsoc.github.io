@@ -7,6 +7,9 @@ let eventsList = { "upcoming": [], "codeolympics": [], "dyhtguts": [], "other": 
 
 let sponsors = [];
 
+let boundaryElement = document.getElementById("major-past-events-content-boundary");
+let displayElement= document.getElementById("major-past-events-tab-content")
+
 // Add X amounts of events to a section
 async function addEvents(eventSection, amount) {
     let startIndex = eventSection["numEventsAdded"];
@@ -95,6 +98,8 @@ async function getRequest(url) {
 }
 
 async function setup() {
+    boundaryElement = document.getElementById("major-past-events-content-boundary");
+    displayElement= document.getElementById("major-past-events-tab-content")
 
     // Get a list of all events
     addEventToList((await getRequest('events/eventsList.json')));
@@ -141,11 +146,14 @@ function toggleEventDetails(element) {
     // Toggle the colour and visibility of events
     let eventPar = element.parentElement;
     let eventSib = element.nextElementSibling;
-    if(!eventPar.classList.contains("selected")){
+
+    if (!eventPar.classList.contains("selected")) {
         eventPar.style.background="var(--selected-background-colour)"
         eventPar.classList.add("selected");
         eventSib.style.maxHeight = eventSib.scrollHeight + "px"
-    }else{
+        changeMajorPastEventContentHeight(eventSib.scrollHeight);
+    } else {
+        changeMajorPastEventContentHeight(-eventSib.scrollHeight);
         eventPar.style.background="var(--card-background-colour)"
         eventSib.style.maxHeight = "0"
         eventPar.classList.remove("selected")
@@ -157,17 +165,15 @@ function toggleEventGroup(element, group, disable) {
 
     let currentGroupElement = document.getElementById(group);
     let disableElement = document.getElementById(disable +"-tab-option")
-    let boundaryElement = document.getElementById("major-past-events-content-boundary")
-    let displayElement= document.getElementById("major-past-events-tab-content")
 
     //If the user clicks the same tab option twice
-    if(element.classList.contains("selected")){
+    if (element.classList.contains("selected")) {
         //Deselect tab option and close everything
         element.classList.remove("selected")
         element.style.background="var(--card-background-colour)"
-        boundaryElement.style.maxHeight= displayElement.style.height = displayElement.style.paddingTop =
+        boundaryElement.style.maxHeight = displayElement.style.height = displayElement.style.paddingTop =
             displayElement.style.paddingBottom = "0"
-    }else{
+    } else {
         //Change tab options
         disableElement.style.background = "var(--card-background-colour)"
         disableElement.classList.remove("selected")
@@ -177,9 +183,12 @@ function toggleEventGroup(element, group, disable) {
         displayElement.style.paddingBottom= "2em"
         element.classList.add("selected")
         element.style.background = "var(--selected-background-colour)"
-        boundaryElement.style.maxHeight = displayElement.style.height = boundaryElement.scrollHeight + "px"
+        changeMajorPastEventContentHeight(0)
 
     }
 
+}
 
+function changeMajorPastEventContentHeight(increaseAmount) {
+    boundaryElement.style.maxHeight = displayElement.style.height = boundaryElement.scrollHeight + increaseAmount + "px"
 }
