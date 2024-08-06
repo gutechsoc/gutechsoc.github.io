@@ -1,7 +1,4 @@
-:root {
-    --selected-background-colour: #4A4A4A;
-    --card-background-colour: #232323;
-}
+@import "vars.css";
 
 .event-card {
     display: flex;
@@ -44,13 +41,13 @@
     overflow: hidden;
     opacity: 0;
     max-height: 0;
-    transition:  max-height .1s, opacity .1s;
+    transition:  max-height var(--card-animation-time) ease-in-out;
 }
 
 .event-card.selected .event-content{
     /*overflow: visible; if you look closely the text appears before the box has finished expanding */
     opacity: 100%;
-    transition: max-height .3s, opacity .3s;
+    transition: max-height var(--card-animation-time) ease-in-out;
 }
 
 .event-content p{
