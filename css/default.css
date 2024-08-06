@@ -1,9 +1,4 @@
-:root {
-    --background-colour: #181818;
-    --blue : #49B3FF;
-    --selected-background-colour: #4A4A4A;
-    --card-background-colour: #232323;
-}
+@import "vars.css";
 
 @font-face {
     font-family: 'GoogleMontserrat';
@@ -131,7 +126,7 @@ nav {
     height: 0;
     overflow: hidden;
     background: var(--selected-background-colour);
-    transition: all .7s ease-in-out ;
+    transition: all var(--card-animation-time) ease-in-out ;
 }
 .tab-content{
     display: none;
