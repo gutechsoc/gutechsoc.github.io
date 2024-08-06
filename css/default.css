@@ -144,17 +144,50 @@ nav {
     height: 0;
     overflow: hidden;
     background: var(--selected-background-colour);
-    transition: all .7s ease-in-out ;
+    transition: all .3s ease-in-out ;
 }
 
-.cursor-glow-top{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: radial-gradient(rgb(73, 179, 255) 1%, rgb(73, 179, 255, 0) 100%);
-    box-shadow: 0 0 30px rgb(73, 179, 255, 1);
-    position: absolute;
+.gen-drop{
+    display: flex;
+    flex-direction: column;
 }
+.gen-drop-toggle:hover{
+    cursor: pointer;
+}
+
+.gen-drop-toggle{
+    display: flex;
+    width: 50em;
+    height: 5em;
+    background: var(--card-background-colour);
+    justify-content: center;
+    align-items: center;
+    transition: background .3s ease;
+    transition-delay: .3s;
+}
+
+.gen-drop-toggle.selected{
+    transition-delay: 0s;
+    transition: none;
+    background: var(--selected-background-colour);
+}
+
+.gen-drop-content{
+    display: flex;
+    width : 50em;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--selected-background-colour);
+    transition: all .3s ease-in-out ;
+}
+/*.cursor-glow-top{*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    border-radius: 50%;*/
+/*    background: radial-gradient(rgb(73, 179, 255) 1%, rgb(73, 179, 255, 0) 100%);*/
+/*    box-shadow: 0 0 30px rgb(73, 179, 255, 1);*/
+/*    position: absolute;*/
+/*}*/
 
 /*.cursor-glow-top{*/
 /*    width: 30px;*/
