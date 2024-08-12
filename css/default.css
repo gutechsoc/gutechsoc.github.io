@@ -183,6 +183,28 @@ nav {
     transition: all var(--card-animation-time) ease-in-out ;
 }
 
+#board-members .gen-drop-content{
+    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board-members .gen-drop-container{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+}
+
+#board-members .gen-drop-container .gen-drop-toggle{
+    width: 50em;
+}
+
+
+#board-members .gen-drop-container .gen-drop-toggle.selected{
+    width:100%;
+}
+
 .board-members{
     display: flex;
     flex-direction: row;
@@ -191,6 +213,7 @@ nav {
     display: flex;
     flex-direction: row;
     height: 10em;
+    padding: 1em
 }
 
 .member .mugshot{
