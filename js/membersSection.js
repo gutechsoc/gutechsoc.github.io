@@ -1,6 +1,6 @@
 function membersDropdown(element){
+    // Gets list of currently selected members and deselects them before calling dropdown
     let selectedMembers = document.querySelectorAll(".member.selected .mugshot")
-    console.log(selectedMembers)
     if(selectedMembers.length > 0){
         Array.from(selectedMembers).forEach(member => {
             expandMember(member)
@@ -11,6 +11,7 @@ function membersDropdown(element){
 }
 
 function expandMember(element){
+    // Expands and retracts board member info
     let member = element.parentElement
     let memberInfo = element.nextElementSibling
     if(member.classList.contains("selected")){
