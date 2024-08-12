@@ -152,19 +152,21 @@ nav {
     display: flex;
     flex-direction: column;
 }
+.gen-drop-container{
+    width: 50em;
+    transition: width var(--card-animation-time) ease-in-out ;
+}
 .gen-drop-toggle:hover{
     cursor: pointer;
 }
 
 .gen-drop-toggle{
     display: flex;
-    width: 50em;
     height: 5em;
     background: var(--card-background-colour);
     justify-content: center;
     align-items: center;
-    transition: background var(--card-animation-time) ease;
-    transition-delay: var(--card-animation-time);
+    transition: background-color var(--card-animation-time) ease var(--card-animation-time);
 }
 
 .gen-drop-toggle.selected{
@@ -175,11 +177,10 @@ nav {
 
 .gen-drop-content{
     display: flex;
-    width : 50em;
     max-height: 0;
     overflow: hidden;
     background: var(--selected-background-colour);
-    transition: all .3s ease-in-out ;
+    transition: all var(--card-animation-time) ease-in-out ;
 }
 /*.cursor-glow-top{*/
 /*    width: 30px;*/
