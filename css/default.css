@@ -68,7 +68,7 @@ nav {
 }
 
 .nav-group a h2 {
-    font-size: 0.85em;
+    font-size: .85em;
     position: absolute;
     color: white;
     top: 38%;
@@ -108,6 +108,7 @@ nav {
     justify-content: center;
     align-items: center;
     background: #232323;
+    transition: all var(--card-animation-time) ease;
 }
 
 .tab-option.selected{
@@ -144,7 +145,7 @@ nav {
     height: 0;
     overflow: hidden;
     background: var(--selected-background-colour);
-    transition: all .3s ease-in-out ;
+    transition: all var(--card-animation-time) ease-in-out ;
 }
 
 .gen-drop{
@@ -162,8 +163,8 @@ nav {
     background: var(--card-background-colour);
     justify-content: center;
     align-items: center;
-    transition: background .3s ease;
-    transition-delay: .3s;
+    transition: background var(--card-animation-time) ease;
+    transition-delay: var(--card-animation-time);
 }
 
 .gen-drop-toggle.selected{
