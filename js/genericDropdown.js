@@ -3,7 +3,6 @@ function dropdown(toggleElement){
     let expandedElementLimit = 200
 
     if(toggleElement.classList.contains("selected")){
-        console.log("here")
         toggleElement.classList.remove("selected")
         if(toggleElement.parentElement.parentElement.classList.contains("expandable")){
             expand(toggleElement.parentElement, -expandedElementLimit)

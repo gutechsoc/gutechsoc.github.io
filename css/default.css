@@ -182,6 +182,49 @@ nav {
     background: var(--selected-background-colour);
     transition: all var(--card-animation-time) ease-in-out ;
 }
+
+.board-members{
+    display: flex;
+    flex-direction: row;
+}
+.member{
+    display: flex;
+    flex-direction: row;
+    height: 10em;
+}
+
+.member .mugshot{
+    width: 10em;
+    background-color: red;
+    border-radius: 10%;
+    transition: border-radius var(--card-animation-time) ease-out var(--card-animation-time);
+}
+
+.member .mugshot .img{
+    object-fit: contain;
+}
+
+.member.selected .mugshot{
+    border-radius: 10% 0 0 10%;
+    transition: none;
+}
+
+.member .mugshot:hover{
+    cursor: pointer;
+}
+
+.member .info{
+    max-width: 0;
+    overflow: hidden;
+    text-wrap: nowrap;
+    border-radius: 0 10% 10% 0;
+    background-color: var(--blue);
+    transition: max-width var(--card-animation-time) ease-in-out;
+}
+
+.member .info .role{
+    font-weight: bold;
+}
 /*.cursor-glow-top{*/
 /*    width: 30px;*/
 /*    height: 30px;*/
