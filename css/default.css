@@ -91,6 +91,12 @@ nav {
     align-items: center;
     justify-content: center;
 }
+
+#upcoming-events-list {
+    display: flex;
+    flex-direction: column;
+}
+
 #past-events-section{
     display: flex;
     flex-direction: column;
@@ -124,13 +130,16 @@ nav {
 }
 
 #major-past-events-tab-content{
-    height: 0;
+    height: auto;
+    max-height: 0;
     overflow: hidden;
     background: var(--selected-background-colour);
     transition: all var(--card-animation-time) ease-in-out ;
 }
 .tab-content{
-    display: none;
+    display: flex;
+    flex-direction: column;
+
 }
 
 #minor-past-events-section{
