@@ -54,6 +54,21 @@
     margin: 0;
 }
 
+.load-events-button {
+    width: 10em;
+    height: 3em;
+    margin: auto auto 2em auto;
+    background-color: var(--card-background-colour);
+    font-size: medium;
+    color: white;
+    border: none;
+}
+
+.load-events-button:hover {
+    background-color: var(--selected-background-colour);
+    border: 2px solid var(--card-background-colour);
+}
+
 /* Event grid positioning */
 
 .event-title {

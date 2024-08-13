@@ -67,7 +67,7 @@ async function addEvents(eventSection, amount) {
     // Add the load more button if there is more events not displayed
     if (! (eventSection["numEventsAdded"] === eventsList[eventSection["id"]].length)) {
         console.log("adding load more button" + eventSection["id"]);
-        eventSection["targetElement"].innerHTML += `<button class="load-events-button" onclick="loadMoreEvents('${eventSection["id"]}', 2)">More...</button>`
+        eventSection["targetElement"].innerHTML += `<button class="load-events-button" onclick="loadMoreEvents('${eventSection["id"]}', 2)">Load More</button>`
     }
 }
 

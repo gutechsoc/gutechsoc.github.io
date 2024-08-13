@@ -217,12 +217,16 @@ nav {
 .board-members{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 55em;
 }
 .member{
     display: flex;
     flex-direction: row;
     height: 10em;
-    padding: 1em
+    padding: 1em;
+    margin: 1em;
 }
 
 .member .mugshot{
@@ -230,28 +234,36 @@ nav {
     background-color: red;
     border-radius: 10%;
     transition: border-radius var(--card-animation-time) ease-out var(--card-animation-time);
+    z-index: 101;
 }
 
 .member .mugshot .img{
     object-fit: contain;
 }
 
-.member.selected .mugshot{
-    border-radius: 10% 0 0 10%;
-    transition: none;
-}
+/*.member.selected .mugshot{*/
+/*    transition: none;*/
+/*}*/
 
 .member .mugshot:hover{
     cursor: pointer;
 }
 
 .member .info{
-    max-width: 0;
     overflow: hidden;
+    max-width: 0;
     text-wrap: nowrap;
     border-radius: 0 10% 10% 0;
     background-color: var(--blue);
-    transition: max-width var(--card-animation-time) ease-in-out;
+    transform: translate(-10%, 0);
+    padding-left: 0;
+    transition: all var(--card-animation-time) ease-in-out;
+    z-index: 100;
+}
+
+.member.selected .info {
+    max-width: 20em;
+    padding-left: 6%;
 }
 
 .member .info .role{
