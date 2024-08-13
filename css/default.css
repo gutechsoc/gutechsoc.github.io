@@ -68,7 +68,7 @@ nav {
 }
 
 .nav-group a h2 {
-    font-size: 0.85em;
+    font-size: .85em;
     position: absolute;
     color: white;
     top: 38%;
@@ -108,6 +108,7 @@ nav {
     justify-content: center;
     align-items: center;
     background: #232323;
+    transition: all var(--card-animation-time) ease;
 }
 
 .tab-option.selected{
@@ -144,12 +145,16 @@ nav {
     height: 0;
     overflow: hidden;
     background: var(--selected-background-colour);
-    transition: all .3s ease-in-out ;
+    transition: all var(--card-animation-time) ease-in-out ;
 }
 
 .gen-drop{
     display: flex;
     flex-direction: column;
+}
+.gen-drop-container{
+    width: 50em;
+    transition: width var(--card-animation-time) ease-in-out ;
 }
 .gen-drop-toggle:hover{
     cursor: pointer;
@@ -157,13 +162,11 @@ nav {
 
 .gen-drop-toggle{
     display: flex;
-    width: 50em;
     height: 5em;
     background: var(--card-background-colour);
     justify-content: center;
     align-items: center;
-    transition: background .3s ease;
-    transition-delay: .3s;
+    transition: background-color var(--card-animation-time) ease var(--card-animation-time);
 }
 
 .gen-drop-toggle.selected{
@@ -174,11 +177,76 @@ nav {
 
 .gen-drop-content{
     display: flex;
-    width : 50em;
     max-height: 0;
     overflow: hidden;
     background: var(--selected-background-colour);
-    transition: all .3s ease-in-out ;
+    transition: all var(--card-animation-time) ease-in-out ;
+}
+
+#board-members .gen-drop-content{
+    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board-members .gen-drop-container{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+}
+
+#board-members .gen-drop-container .gen-drop-toggle{
+    width: 50em;
+}
+
+
+#board-members .gen-drop-container .gen-drop-toggle.selected{
+    width:100%;
+}
+
+.board-members{
+    display: flex;
+    flex-direction: row;
+}
+.member{
+    display: flex;
+    flex-direction: row;
+    height: 10em;
+    padding: 1em
+}
+
+.member .mugshot{
+    width: 10em;
+    background-color: red;
+    border-radius: 10%;
+    transition: border-radius var(--card-animation-time) ease-out var(--card-animation-time);
+}
+
+.member .mugshot .img{
+    object-fit: contain;
+}
+
+.member.selected .mugshot{
+    border-radius: 10% 0 0 10%;
+    transition: none;
+}
+
+.member .mugshot:hover{
+    cursor: pointer;
+}
+
+.member .info{
+    max-width: 0;
+    overflow: hidden;
+    text-wrap: nowrap;
+    border-radius: 0 10% 10% 0;
+    background-color: var(--blue);
+    transition: max-width var(--card-animation-time) ease-in-out;
+}
+
+.member .info .role{
+    font-weight: bold;
 }
 /*.cursor-glow-top{*/
 /*    width: 30px;*/
