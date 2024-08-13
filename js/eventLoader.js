@@ -30,6 +30,52 @@ async function loadMoreEvents(section, amount) {
     }
 }
 
+// Forms a clickable sponsors image that displays logo and links to website
+function makeSponsorImage(sponsorName){
+    let newImage = `<a href="${sponsors[sponsorName]["url"]}">`
+    // If sponsor image not found then display error message
+    newImage += `<img src="sponsors/logos/${sponsors[sponsorName]["logo"]}" alt="${sponsors[sponsorName]["name"]||`${sponsorName} not found!`}">`
+    newImage += '</a>'
+    return newImage
+}
+
+// Adds the sponsors to the scrolling marquees in the Sponsor Us Section
+function loadSponsorUsSection(){
+
+    let topMarqueeOne = ``
+    let topMarqueeTwo = ``
+    let bottomMarqueeOne = ``
+    let bottomMarqueeTwo = ``
+    let topMarqueeElementOne = document.getElementById("sponsors-top-marquee-one")
+    let topMarqueeElementTwo = document.getElementById("sponsors-top-marquee-two")
+    let bottomMarqueeElementOne = document.getElementById("sponsors-bottom-marquee-one")
+    let bottomMarqueeElementTwo= document.getElementById("sponsors-bottom-marquee-two")
+    // The number of sponsors chosen related to achieving the infinite marquee effect
+    for(let i=0; i<12;i++){
+        let sponsorValue = Object.keys(sponsors).at(i)
+        switch(i%4){
+            case 0:
+                topMarqueeOne += makeSponsorImage(sponsorValue)
+                break;
+            case 1:
+                topMarqueeTwo += makeSponsorImage(sponsorValue)
+                break;
+            case 2:
+                bottomMarqueeOne += makeSponsorImage(sponsorValue)
+                break;
+            case 3:
+                bottomMarqueeTwo += makeSponsorImage(sponsorValue)
+                break;
+            default:
+                break;
+        }
+    }
+    topMarqueeElementOne.innerHTML = topMarqueeOne
+    topMarqueeElementTwo.innerHTML = topMarqueeTwo
+    bottomMarqueeElementOne.innerHTML = bottomMarqueeOne
+    bottomMarqueeElementTwo.innerHTML = bottomMarqueeTwo
+}
+
 // Add X amounts of events to a section
 async function addEvents(eventSection, amount) {
     // Remove the load more button to prevent duplicate buttons
@@ -89,9 +135,7 @@ function setupSponsors() {
 
         // Add each sponsor
         for (let classItem of sponsorSection.classList) {
-            content += `<a href='${sponsors[classItem]["url"]}'>`; // Link open
-            content += `<img src='sponsors/logos/${sponsors[classItem]['logo']}' alt='${sponsors[classItem]["name"]}'/>`; // Image
-            content += `</a>`; // Link close
+            content += makeSponsorImage(classItem)
         }
 
         // Close the scrolling tag
@@ -134,6 +178,8 @@ async function setup() {
     // Get a list of all sponsors
     sponsors = await getRequest('sponsors/sponsors.json');
 
+    loadSponsorUsSection();
+
     // Get elements from the DOM
     upcoming["targetElement"] = document.getElementById('upcoming-events-list');
     codeolympics["targetElement"] = document.getElementById('codeolympics-events-list');
@@ -145,6 +191,8 @@ async function setup() {
     addEvents(dyhtguts, 3);
     addEvents(codeolympics, 3);
     addEvents(other, 3);
+
+
 }
 
 function addEventToList(events) {

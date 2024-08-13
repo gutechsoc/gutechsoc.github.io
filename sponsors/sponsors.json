@@ -13,7 +13,84 @@
     "name": "Assembly AI",
     "logo" : "AssemblyAI_white.png",
     "url": "https://www.assemblyai.com/"
-}
+  },
+  "barclays":{
+    "name" : "Barclays",
+    "logo" : "barclays_white.png",
+    "url" : "https://www.barclays.co.uk/"
+  },
+  "bloomberg" : {
+    "name" : "Bloomberg",
+    "logo" : "bloomberg_white.png",
+    "url" : "https://www.bloomberg.com/uk"
+  },
+  "broadridge" : {
+    "name" : "Broadridge",
+    "logo" : "broadridge_white.png",
+    "url" : "https://www.broadridge.com/"
+  },
+  "cisco" : {
+    "name" : "Cisco",
+    "logo" : "cisco_white.png",
+    "url" : "https://www.cisco.com/site/uk/en/index.html"
+  },
+  "compsoc" : {
+    "name" : "CompSoc",
+    "logo" : "compsoc_white.png",
+    "url" : "https://comp-soc.com/"
+  },
+  "cooper_software" : {
+    "name": "Cooper Software",
+    "logo": "cooper_software_white.png",
+    "url" : "https://www.coopersoftware.com/"
+  },
+  "craneware" : {
+    "name" : "Craneware Group",
+    "logo" : "craneware_white.png",
+    "url" :"https://www.thecranewaregroup.com/"
+  },
+  "cyberpro" : {
+    "name" : "Cyber PRO",
+    "logo" : "cyberpro_white.png",
+    "url" : "https://cyberpro.co.uk/"
+  },
 
-
+  "dogfish" : {
+    "notice" : "OUTDATED: Renamed to Vidatec",
+    "name" : "Dogfish Mobile",
+    "logo" : "dogfish_white.png",
+    "url" : "https://vidatec.com/blog/dogfish-mobile-relaunches-as-vidatec/"
+  },
+  "dominos":{
+    "name" : "Domino's",
+    "logo": "dominos_white.png",
+    "url" : "https://www.dominos.co.uk/"
+  },
+  "dsg" : {
+    "name" : "Duck Sauce Games",
+    "logo" : "dsg_white.png",
+    "url" : "https://www.ducksauce.games/"
+  },
+  "dynamicallyloaded": {
+    "notice" : "OUTDATED: company dissolved feb 2018",
+    "name" : "Dynamically Loaded",
+    "logo" : "dynamicallyloaded_white.png",
+    "url" : "https://google.com"
+  },
+  "ef": {
+    "notice" : "OUTDATED: logo change",
+    "name": "Entrepreneur First",
+    "logo": "ef_white.png",
+    "url" : "https://www.joinef.com/"
+  },
+  "gg" : {
+    "name" : "Guitar Guitar",
+    "logo" : "gg_white.png",
+    "url" : "https://www.guitarguitar.co.uk/"
+  },
+  "github" : {
+    "name": "Github",
+    "logo" : "github_white.png",
+    "url" : "https://github.com/"
+  }
 }
