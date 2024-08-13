@@ -4,11 +4,37 @@ let dyhtguts = {"targetElement": null, "numEventsAdded": 0, "id": "dyhtguts"};
 let other = {"targetElement": null, "numEventsAdded": 0, "id": "other"};
 
 let eventsList = { "upcoming": [], "codeolympics": [], "dyhtguts": [], "other": [] };
-
 let sponsors = [];
+
+
+async function loadMoreEvents(section, amount) {
+    switch (section) {
+        case "upcoming":
+            return await addEvents(upcoming, amount)
+
+        default:
+            return;
+
+        case "codeolympics":
+            await addEvents(codeolympics, amount)
+            return refreshEventGroupHeight(codeolympics["targetElement"])
+
+        case "dyhtguts":
+            await addEvents(dyhtguts, amount);
+            return refreshEventGroupHeight(dyhtguts["targetElement"])
+
+        case "other":
+            await addEvents(other, amount)
+            return refreshEventGroupHeight(other["targetElement"])
+
+    }
+}
 
 // Add X amounts of events to a section
 async function addEvents(eventSection, amount) {
+    // Remove the load more button to prevent duplicate buttons
+    eventSection["targetElement"].innerHTML =  eventSection["targetElement"].innerHTML.replace(/<button.*button>/gi, "")
+
     let startIndex = eventSection["numEventsAdded"];
 
     // Dont add more events if we've exhausted them all
@@ -28,7 +54,7 @@ async function addEvents(eventSection, amount) {
 
     // Append the requested number of events
     for (let i = startIndex; i < startIndex + amount; i++) {
-        content += await getRequest('events/html/' + eventsList[eventSection["id"]][i]["html"]);;
+        content += await getRequest('events/html/' + eventsList[eventSection["id"]][i]["html"]);
         eventSection["numEventsAdded"] += 1
     }
 
@@ -37,6 +63,12 @@ async function addEvents(eventSection, amount) {
 
     // The events have to be in the DOM before we can add the sponsors
     setupSponsors();
+
+    // Add the load more button if there is more events not displayed
+    if (! (eventSection["numEventsAdded"] === eventsList[eventSection["id"]].length)) {
+        console.log("adding load more button" + eventSection["id"]);
+        eventSection["targetElement"].innerHTML += `<button class="load-events-button" onclick="loadMoreEvents('${eventSection["id"]}', 2)">Load More</button>`
+    }
 }
 
 function setupSponsors() {
@@ -109,6 +141,7 @@ async function setup() {
     other["targetElement"] = document.getElementById('minor-past-events-content-boundary');
 
     // Load three events of each category
+    addEvents(upcoming, 3)
     addEvents(dyhtguts, 3);
     addEvents(codeolympics, 3);
     addEvents(other, 3);
@@ -137,52 +170,75 @@ function addEventToList(events) {
     }
 }
 
-function toggleEventDetails(element) {
+function toggleEventDetails(eventOverview) {
     // Toggle the colour and visibility of events
-    let eventPar = element.parentElement;
-    let eventSib = element.nextElementSibling;
-    let eventContainerBoundary = eventPar.parentElement
-    let eventContainerDisplay = eventContainerBoundary.parentElement
+    let eventContainer = eventOverview.parentElement;
+    let eventDetails = eventOverview.nextElementSibling;
+    let selected = false;
 
+    // Expand/collapse the event card
+    if (!eventContainer.classList.contains("selected")) { // Expand
+        eventContainer.style.background = "var(--selected-background-colour)"
+        eventContainer.classList.add("selected");
+        eventDetails.style.maxHeight = eventDetails.scrollHeight + "px"
+        selected = true;
+    } else { // Collapse
+        eventContainer.style.background = "var(--card-background-colour)"
+        eventDetails.style.maxHeight = "0"
+        eventContainer.classList.remove("selected")
+    }
 
-    if (!eventPar.classList.contains("selected")) {
-        eventPar.style.background="var(--selected-background-colour)"
-        eventPar.classList.add("selected");
-        eventSib.style.maxHeight = eventSib.scrollHeight + "px"
-        eventContainerBoundary.style.maxHeight = eventContainerDisplay.style.height = (eventContainerBoundary.scrollHeight + eventSib.scrollHeight) + "px"
-    } else {
-        eventPar.style.background="var(--card-background-colour)"
-        eventSib.style.maxHeight = "0"
-        eventPar.classList.remove("selected")
-        eventContainerBoundary.style.height = eventContainerDisplay.style.height = (eventContainerBoundary.scrollHeight - eventSib.scrollHeight) + "px"
+    // If its not an upcoming event, expand the event list container
+    if (eventContainer.parentElement.id !== "upcoming-events-list") {
+        if (selected) {
+            refreshEventGroupHeight(eventContainer.parentElement, eventDetails.scrollHeight);
+        } else {
+            refreshEventGroupHeight(eventContainer.parentElement, -eventDetails.scrollHeight);
+
+        }
     }
 }
 
 // Show CodeOlympics, hide DYHTGUTS: toggleEventGroup(this, 'codeolympics-events-list', 'dyhtguts')
 function toggleEventGroup(element, group, disable) {
 
-    let currentGroupElement = document.getElementById(group);
+    let currentContent = document.getElementById(group);
+    let disableContent = document.getElementById(disable + "-events-list")
     let disableElement = document.getElementById(disable +"-tab-option")
     let displayElement = document.getElementById("major-past-events-tab-content")
-    let boundaryElement = document.getElementById("major-past-events-content-boundary")
 
     //If the user clicks the same tab option twice
     if (element.classList.contains("selected")) {
         //Deselect tab option and close everything
         element.classList.remove("selected")
-        boundaryElement.style.maxHeight = displayElement.style.height = displayElement.style.paddingTop =
-            displayElement.style.paddingBottom = "0"
+        displayElement.style.maxHeight = displayElement.style.paddingTop = "0"
+
     } else {
         //Change tab options
         disableElement.classList.remove("selected")
+        disableContent.style.display = "none"
         //Resize content
-        boundaryElement.innerHTML = currentGroupElement.innerHTML
+        currentContent.style.display = "flex"
         displayElement.style.paddingTop = "4em"
-        displayElement.style.paddingBottom= "2em"
         element.classList.add("selected")
-        boundaryElement.style.maxHeight = displayElement.style.height = boundaryElement.scrollHeight + "px"
+        refreshEventGroupHeight(currentContent)
     }
+}
 
+function refreshEventGroupHeight(eventGroup, eventCardAddition = 0) {
+    let displayElement = null;
+    let current = eventGroup;
+
+    do {
+        if (current.classList.contains("event-group")) {
+            displayElement = current;
+        } else {
+            current = current.parentElement;
+        }
+    } while (displayElement == null)
+
+    displayElement.style.maxHeight = (eventGroup.scrollHeight + eventCardAddition) + "px"
+    displayElement.style.height = (eventGroup.scrollHeight + eventCardAddition) + "px"
 }
 
 function toggleOtherPastEvents(element, display, boundary){
