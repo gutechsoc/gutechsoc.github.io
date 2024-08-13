@@ -33,6 +33,7 @@ body {
 
 nav {
     position: fixed;
+    width: 13em;
 }
 
 .nav-group {
@@ -82,6 +83,32 @@ nav {
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
 }
+
+#nav-socials {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 1em;
+}
+
+#nav-socials a {
+    margin:0.25em;
+    justify-content: center;
+    align-content: center;
+}
+
+#nav-socials a:hover {
+    cursor: pointer;
+}
+
+#nav-socials a svg {
+    fill: currentColor;
+    color: white;
+    width: 3em;
+    max-height: 2em;
+}
+
 
 .centre{
     padding-right: 14em;
