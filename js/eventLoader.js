@@ -138,7 +138,7 @@ async function setup() {
     upcoming["targetElement"] = document.getElementById('upcoming-events-list');
     codeolympics["targetElement"] = document.getElementById('codeolympics-events-list');
     dyhtguts["targetElement"] = document.getElementById('dyhtguts-events-list');
-    other["targetElement"] = document.getElementById('minor-past-events-content-boundary');
+    other["targetElement"] = document.getElementById('other-events-list');
 
     // Load three events of each category
     addEvents(upcoming, 3)
@@ -247,11 +247,10 @@ function toggleOtherPastEvents(element, display, boundary){
 
     if(element.classList.contains("selected")){
         element.classList.remove("selected")
-        displayElement.style.height= displayElement.style.paddingTop = boundaryElement.style.maxHeight= displayElement.style.paddingBottom = "0"
+        displayElement.style.height= displayElement.style.paddingTop = displayElement.style.paddingBottom = "0"
     }else{
         element.classList.add("selected")
-        displayElement.style.height = boundaryElement.style.maxHeight = boundaryElement.scrollHeight + "px"
+        displayElement.style.height = boundaryElement.scrollHeight + "px"
         displayElement.style.paddingTop = "4em"
-        displayElement.style.paddingBottom = "2em"
     }
 }

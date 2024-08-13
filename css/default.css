@@ -184,6 +184,11 @@ nav {
     transition: all var(--card-animation-time) ease-in-out ;
 }
 
+#minor-past-events-content-boundary{
+    display: flex;
+    flex-direction: column;
+}
+
 .gen-drop{
     display: flex;
     flex-direction: column;
