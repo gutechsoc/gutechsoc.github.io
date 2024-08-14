@@ -13,6 +13,11 @@
     box-shadow: 0 0 17px 6px rgba(24,24,24,0.46);
 }
 
+.event-card:hover{
+    border: 1px solid var(--blue);
+    box-shadow: 0 0 10px  var(--blue);
+}
+
 .event-details {
     display: grid;
     grid-gap: 0.1em;

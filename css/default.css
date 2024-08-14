@@ -142,6 +142,10 @@ nav {
     transition: all var(--card-animation-time) ease;
 }
 
+.tab-option:hover{
+    background: var(--selected-background-colour);
+}
+
 .tab-option.selected{
     background: var(--selected-background-colour);
 }
@@ -205,7 +209,12 @@ nav {
     background: var(--card-background-colour);
     justify-content: center;
     align-items: center;
-    transition: background-color var(--card-animation-time) ease var(--card-animation-time);
+    transition: background-color var(--card-animation-time) ease;
+}
+
+.gen-drop-toggle:hover{
+
+    background: var(--selected-background-colour);
 }
 
 .gen-drop-toggle.selected{
@@ -277,6 +286,7 @@ nav {
 
 .member .mugshot:hover{
     cursor: pointer;
+    border: 1px solid var(--blue)
 }
 
 .member .info{
