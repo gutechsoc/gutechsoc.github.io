@@ -39,6 +39,7 @@ nav {
 .nav-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: 2em;
 }
 
 .nav-group a {
@@ -84,12 +85,16 @@ nav {
     opacity: 1;
 }
 
+#nav-socials-container {
+    display: flex;
+}
+
 #nav-socials {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding-left: 1em;
+    width: 10.5em;
 }
 
 #nav-socials a {
@@ -107,6 +112,11 @@ nav {
     color: white;
     width: 3em;
     max-height: 2em;
+    transition: color var(--card-animation-time) ease-in-out  ;
+}
+
+#nav-socials a:hover svg {
+    color: var(--blue)
 }
 
 
