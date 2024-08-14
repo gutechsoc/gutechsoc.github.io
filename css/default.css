@@ -39,8 +39,6 @@ nav {
 .nav-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2em;
-    margin-left: 2em
 }
 
 .nav-group a {
@@ -300,6 +298,69 @@ nav {
 
 .member .info .role{
     font-weight: bold;
+}
+
+#sponsor-us-content{
+    display: flex;
+    flex-direction: column;
+}
+
+#sponsor-us .sponsors-wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    z-index: 3;
+
+}
+#sponsor-us .sponsors-marquee{
+    display: flex;
+    flex-direction: row;
+    margin: 2em 0;
+    justify-items: center;
+    animation-fill-mode: backwards;
+}
+
+#sponsors-top-marquee-one{
+    position: absolute;
+    animation: marquee 15s infinite linear 0s;
+}
+#sponsors-top-marquee-two{
+    z-index: 1;
+    animation: marquee 15s infinite linear 7.5s;
+}
+
+#sponsors-bottom-marquee-one{
+    position: absolute;
+    animation: marquee 15s infinite linear 0s;
+    animation-direction: reverse;
+}
+
+#sponsors-bottom-marquee-two{
+    z-index: 1;
+    animation: marquee 15s infinite linear 7.5s;
+    animation-direction: reverse;
+}
+
+
+#sponsor-us .sponsors-marquee a{
+    display: flex;
+    width: 7em;
+    height: 2em;
+    margin: 0 4em;
+}
+
+#sponsor-us .sponsors-marquee a img{
+    object-fit: contain;
+}
+
+@keyframes marquee{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
 }
 /*.cursor-glow-top{*/
 /*    width: 30px;*/
