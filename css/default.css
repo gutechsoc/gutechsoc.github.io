@@ -305,39 +305,55 @@ nav {
     flex-direction: column;
 }
 
+#sponsor-us .sponsor-us-info{
+    flex-direction: row;
+}
+
 #sponsor-us .sponsors-wrapper{
     position: relative;
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    z-index: 3;
+    width : 50em;
+}
 
+#sponsor-us .gradient{
+    position: absolute;
+    z-index: 3;
+    width: 50em;
+    height: 5em;
+    background: linear-gradient(90deg, var(--background-colour) 0%, transparent 20%, transparent 80%,var(--background-colour) 100%);
 }
 #sponsor-us .sponsors-marquee{
+    position: relative;
     display: flex;
     flex-direction: row;
     margin: 2em 0;
     justify-items: center;
     animation-fill-mode: backwards;
+    z-index: 1;
 }
 
 #sponsors-top-marquee-one{
-    position: absolute;
+    z-index: 1;
     animation: marquee 15s infinite linear 0s;
 }
 #sponsors-top-marquee-two{
-    z-index: 1;
+    z-index: 2;
+    translate: -100%;
+    position: relative;
     animation: marquee 15s infinite linear 7.5s;
 }
 
 #sponsors-bottom-marquee-one{
-    position: absolute;
+    z-index: 1;
     animation: marquee 15s infinite linear 0s;
     animation-direction: reverse;
 }
 
 #sponsors-bottom-marquee-two{
-    z-index: 1;
+    z-index: 2;
+    translate: -100%;
     animation: marquee 15s infinite linear 7.5s;
     animation-direction: reverse;
 }
@@ -347,7 +363,7 @@ nav {
     display: flex;
     width: 7em;
     height: 2em;
-    margin: 0 4em;
+    margin: 0 5em;
 }
 
 #sponsor-us .sponsors-marquee a img{
