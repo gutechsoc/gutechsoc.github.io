@@ -32,10 +32,16 @@ async function loadMoreEvents(section, amount) {
 
 // Forms a clickable sponsors image that displays logo and links to website
 function makeSponsorImage(sponsorName){
-    let newImage = `<a href="${sponsors[sponsorName]["url"]}">`
-    // If sponsor image not found then display error message
-    newImage += `<img src="sponsors/logos/${sponsors[sponsorName]["logo"]}" alt="${sponsors[sponsorName]["name"]||`${sponsorName} not found!`}">`
-    newImage += '</a>'
+    let newImage= ``
+    if(!sponsors[sponsorName]){
+        console.log(`Sponsor image not found for "${sponsorName}\"`)
+        newImage = `asset not found`
+    }else{
+        newImage = `<a href="${sponsors[sponsorName]["url"]}">`
+        // If sponsor image not found then display error message
+        newImage += `<img src="sponsors/logos/${sponsors[sponsorName]["logo"]}" alt="${sponsors[sponsorName]["name"]||`${sponsorName} not found!`}">`
+        newImage += '</a>'
+    }
     return newImage
 }
 
@@ -50,9 +56,10 @@ function loadSponsorUsSection(){
     let topMarqueeElementTwo = document.getElementById("sponsors-top-marquee-two")
     let bottomMarqueeElementOne = document.getElementById("sponsors-bottom-marquee-one")
     let bottomMarqueeElementTwo= document.getElementById("sponsors-bottom-marquee-two")
+    let chosenSponsors = getMarqueeSponsors()
     // The number of sponsors chosen related to achieving the infinite marquee effect
     for(let i=0; i<12;i++){
-        let sponsorValue = Object.keys(sponsors).at(i)
+        let sponsorValue = chosenSponsors[i]
         switch(i%4){
             case 0:
                 topMarqueeOne += makeSponsorImage(sponsorValue)
