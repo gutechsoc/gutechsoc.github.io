@@ -316,7 +316,15 @@ nav {
 }
 
 #sponsor-us .sponsor-us-info{
+    align-items: center;
+    display: flex;
     flex-direction: row;
+    width: 50em;
+}
+
+#sponsor-us .sponsor-us-info .msg{
+    width: 20em;
+    padding-right: 10em;
 }
 
 #sponsor-us .sponsors-wrapper{
