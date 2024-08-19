@@ -18,5 +18,6 @@ function expandMember(element){
         member.classList.remove("selected")
     }else{
         member.classList.add("selected")
+        refreshEventGroupHeight(member)
     }
 }
