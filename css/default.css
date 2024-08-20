@@ -10,6 +10,10 @@
     src: url('../fonts/JetBrainsMono/fonts/ttf/JetBrainsMono-Regular.ttf');
 }
 
+hr {
+    display: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'GoogleMontserrat', sans-serif;
 }
@@ -55,15 +59,23 @@ nav {
     background-repeat: no-repeat;
 }
 
-#guts-logo {
-    background-image: url("/images/nav/logo_blue.svg");
+.hex {
+    content: url("/images/nav/hexagon_white.svg");
+}
+
+.hex-secondary {
+    display: none;
+}
+
+.guts-logo {
+    background-image: url("/images/nav/logo_white.svg");
 }
 
 .nav-group a.offset{
     margin-left: 3.5em;
 }
 
-.nav-group a:hover img {
+.nav-group a:hover .hex {
     opacity: 0;
 }
 
@@ -83,14 +95,10 @@ nav {
     transition: color 0.3s ease-in-out;
 }
 
-.nav-group a img {
+.hex, .logo{
     width: 7em;
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
-}
-
-#nav-socials-container {
-    display: flex;
 }
 
 #nav-socials {
@@ -122,7 +130,6 @@ nav {
 #nav-socials a:hover svg {
     color: var(--blue)
 }
-
 
 .centre{
     padding-right: 14em;
@@ -182,6 +189,7 @@ nav {
 .tab-content{
     display: flex;
     flex-direction: column;
+    align-items: center;
 
 }
 
@@ -464,12 +472,167 @@ nav {
     }
 }
 
+/* Mobile */
+/* TODO: adjust max-width to more appropriate threshold) */
 @media screen and (max-width: 1140px) {
-    .centre{
+    .centre {
         padding-right: 0;
     }
 
-    #content{
+    p {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: x-large;
+    }
+
+    hr {
+        display: block;
+        position: absolute;
+        transform: rotate(0deg) translate(3.5em, 7.2em);
+        width: 23em;
+        color: white;
+        border: 1px solid white;
+        z-index: 200;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-group a {
+        position: relative;
+    }
+
+    .hex, .hex-secondary {
+        height: 1.5em;
+        display: block;
+        position: absolute;
+    }
+
+    .hex {
+        transition: opacity var(--card-animation-time) ease-in-out;
+        content: url("/images/nav/hexagon_fill.svg");
+        opacity: 1;
+        z-index: 202;
+        transform: rotate(45deg) translate(-1.8em, 4.2em);
+    }
+
+    .hex-secondary {
+        content: url("/images/nav/hexagon_fill_blue.svg");
+        opacity: 1;
+        z-index: 201;
+        transform: rotate(45deg) translate(0.2em, 2.2em);
+    }
+
+    .nav-group a:hover .hex {
+        opacity: 0;
+    }
+
+    nav {
+        padding: 1em;
+        width: 100%;
+        top: 0;
+        background: linear-gradient(var(--background-colour) 0%, var(--background-colour) 80%, transparent 100%);
+        z-index: 200;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav-group {
+        flex-direction: row;
+    }
+
+    .nav-group a {
+        position: relative;
+        background-image: unset;
+        width: 6em;
+        height: 4em;
+        transform: rotate(-45deg) translate(-1.5em, 2.5em);
+        z-index: 202;
+    }
+
+    .nav-group #guts-logo {
+        transform: unset;
+        width: unset;
+        height: unset;
+        margin: 0;
+    }
+
+    .nav-group a h2 {
+        top: unset;
+        left: unset;
+        transform: unset;
+        width: unset;
+        text-align: center;
+    }
+
+    #nav-socials {
+        margin-left: auto;
+        width: 30em;
+    }
+
+    #nav-socials a svg {
+        width: 3em;
+        max-height: 2em;
+    }
+
+    #guts-logo {
+        margin-right: 1em;
+    }
+
+    .nav-group a.offset {
         margin-left: 0;
     }
+
+    #content {
+        margin-top: 10em;
+        margin-left: 0;
+    }
+
+    .section-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #events .section-title {
+        padding-bottom: 2em;
+    }
+
+    .centre {
+        padding-right: 0;
+    }
+
+    #join-us-content {
+        max-width: 60vw;
+    }
+
+    #sponsor-us .sponsor-us-info {
+        align-items: center;
+        justify-content: center;
+    }
+
+    #sponsor-us .sponsor-us-info .msg {
+        padding-right: 2em;
+    }
+
+    .tab-option-list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .tab-option {
+        width: 22em;
+        height: 7em;
+    }
+
+    #minor-past-events-section .tab-option {
+        width: 100%;
+        height: 7em;
+    }
+
+
 }

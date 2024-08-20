@@ -6,7 +6,6 @@
     background: var(--card-background-colour);
     width: 39em;
     margin-bottom: 3em;
-    margin-left: 1em;
     padding: 0.5em;
     border: 2px solid var(--card-background-colour);
     border-radius: 1em;
@@ -115,4 +114,11 @@
 .event-sponsors a img {
     max-height: 2.5em;
     margin-right: 1em;
+}
+
+/* Mobile */
+@media screen and (max-width: 1140px) {
+    .event-card {
+        width: 70vw;
+    }
 }
