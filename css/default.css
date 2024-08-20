@@ -53,42 +53,39 @@ nav {
 .nav-group a {
     position: relative;
     display: flex;
-    margin-bottom: -2em;
+    margin-bottom: -1.7em;
     width: fit-content;
-    background-image: url("/images/nav/hexagon_blue.svg");
-    background-size: 7em;
-    background-repeat: no-repeat;
-}
-
-.hex {
-    content: url("/images/nav/hexagon_white.svg");
 }
 
 .hex-secondary {
     display: none;
 }
 
-.guts-logo {
-    background-image: url("/images/nav/logo_white.svg");
+.logo, .hex{
+    fill: currentColor;
+    color: white;
+    transition: color var(--card-animation-time) ease-in-out;
+    width: 7em;
 }
+
 
 .nav-group a.offset{
-    margin-left: 3.5em;
+    margin-left: 3.6em;
 }
 
-.nav-group a:hover .hex {
-    opacity: 0;
+.nav-group a:hover .hex, .nav-group a:hover .logo {
+    color: var(--blue)
 }
 
 .nav-group a:hover h2 {
-    color: #49B3FF;
+    color: var(--blue);
 }
 
 .nav-group a h2 {
     font-size: .85em;
     position: absolute;
     color: white;
-    top: 38%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
@@ -96,10 +93,8 @@ nav {
     transition: color 0.3s ease-in-out;
 }
 
-.hex, .logo{
-    width: 7em;
-    transition: opacity 0.3s ease-in-out;
-    opacity: 1;
+#nav-socials-hamburger {
+    display: none;
 }
 
 #nav-socials {
@@ -121,6 +116,7 @@ nav {
 }
 
 #nav-socials a svg {
+    display: flex;
     fill: currentColor;
     color: white;
     width: 3em;
@@ -140,6 +136,7 @@ nav {
 }
 
 #upcoming-events-list {
+    padding-top: 1em;
     display: flex;
     flex-direction: column;
 }
@@ -303,10 +300,6 @@ nav {
     object-fit: contain;
 }
 
-/*.member.selected .mugshot{*/
-/*    transition: none;*/
-/*}*/
-
 .member .mugshot:hover{
     cursor: pointer;
     border: 1px solid var(--blue)
@@ -458,6 +451,7 @@ nav {
     margin: auto;
 }
 
+
 @keyframes marquee{
     0%{
         transform: translateX(100%);
@@ -486,10 +480,17 @@ nav {
         display: block;
         position: absolute;
         transform: rotate(0deg) translate(3.5em, 7.2em);
-        width: 23em;
+        width: 30em;
         color: white;
         border: 1px solid white;
         z-index: 200;
+        transition: all var(--card-animation-time) ease-in-out;
+    }
+
+    #guts-logo:hover ~ #mobile-nav-line {
+        color: var(--blue);
+        border: 1px solid var(--blue);
+
     }
 
     body {
@@ -497,55 +498,31 @@ nav {
         flex-direction: column;
     }
 
-    .nav-group a {
-        position: relative;
-    }
-
-    .hex, .hex-secondary {
-        height: 1.5em;
-        display: block;
-        position: absolute;
-    }
-
-    .hex {
-        transition: opacity var(--card-animation-time) ease-in-out;
-        content: url("/images/nav/hexagon_fill.svg");
-        opacity: 1;
-        z-index: 202;
-        transform: rotate(45deg) translate(-1.8em, 4.2em);
-    }
-
-    .hex-secondary {
-        content: url("/images/nav/hexagon_fill_blue.svg");
-        opacity: 1;
-        z-index: 201;
-        transform: rotate(45deg) translate(0.2em, 2.2em);
-    }
-
-    .nav-group a:hover .hex {
-        opacity: 0;
-    }
-
     nav {
-        padding: 1em;
+        position: fixed;
         width: 100%;
         top: 0;
-        background: linear-gradient(var(--background-colour) 0%, var(--background-colour) 80%, transparent 100%);
-        z-index: 200;
         display: flex;
         flex-direction: row;
+        background: linear-gradient(var(--background-colour) 0%, var(--background-colour) 80%, transparent 100%);
+        z-index: 200;
     }
 
     .nav-group {
         flex-direction: row;
+        position: relative;
+        z-index: 200;
+        width: 100%;
+        padding: 1em;
+        background: linear-gradient(var(--background-colour) 0%, var(--background-colour) 80%, transparent 100%);
     }
 
     .nav-group a {
         position: relative;
         background-image: unset;
-        width: 6em;
+        width: 8em;
         height: 4em;
-        transform: rotate(-45deg) translate(-1.5em, 2.5em);
+        transform: rotate(-55deg) translate(-0.5em, 2em);
         z-index: 202;
     }
 
@@ -556,7 +533,30 @@ nav {
         margin: 0;
     }
 
+    .hex {
+        display: none;
+    }
+
+    .nav-group a {
+        position: relative;
+    }
+
+    .hex-secondary {
+        height: 1.5em;
+        display: block;
+        position: absolute;
+        color: white;
+        fill: currentColor;
+        transform: rotate(55deg) translate(0.2em, 2.2em);
+        transition: color var(--card-animation-time) ease-in-out;
+    }
+
+    .nav-group a:hover .hex-secondary {
+        color: var(--blue)
+    }
+
     .nav-group a h2 {
+        font-size: 1em;
         top: unset;
         left: unset;
         transform: unset;
@@ -564,14 +564,48 @@ nav {
         text-align: center;
     }
 
+    #nav-socials-hamburger {
+        margin: auto 6em auto auto;
+        display: block;
+        width: 3em;
+        color: white;
+        fill: currentColor;
+        transition: color var(--card-animation-time) ease-in-out;
+    }
+
+    #nav-socials-hamburger:hover {
+        cursor: pointer;
+        color: var(--blue);
+    }
+
     #nav-socials {
+        display: flex;
+        position: absolute;
         margin-left: auto;
-        width: 30em;
+        width: 15em;
+        padding: 2em;
+        padding-top: 4em;
+        transform: translate(40em, -6em);
+        transition: transform var(--card-animation-time) ease-in-out;
+        background-color: var(--background-colour);
+        box-shadow: 0 0 10px 0 var(--background-colour);
+        border-radius: 0 0 1em 1em;
+        z-index: 199;
+    }
+
+    #nav-socials.selected {
+        transform: translate(40em, 8em);
+    }
+
+    #nav-socials a {
+        z-index: inherit;
+        padding: 0.5em;
     }
 
     #nav-socials a svg {
         width: 3em;
         max-height: 2em;
+        z-index: inherit;
     }
 
     #guts-logo {
@@ -628,6 +662,4 @@ nav {
         width: 100%;
         height: 7em;
     }
-
-
 }
