@@ -278,8 +278,8 @@ nav {
     display: flex;
     flex-direction: row;
     height: 10em;
-    padding: 1em;
     margin: 1em;
+    padding: 1em;
 }
 
 .member .mugshot{
@@ -315,6 +315,12 @@ nav {
     z-index: 100;
 }
 
+.member.selected{
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
 .member.selected .info {
     max-width: 20em;
     padding-left: 6%;
