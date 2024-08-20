@@ -52,6 +52,7 @@ nav {
 
 .nav-group a {
     position: relative;
+    display: flex;
     margin-bottom: -2em;
     width: fit-content;
     background-image: url("/images/nav/hexagon_blue.svg");
