@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     background: var(--card-background-colour);
-    width: 39em;
+    width: 45em;
     margin-bottom: 3em;
     padding: 0.5em;
     border: 2px solid var(--card-background-colour);
@@ -122,6 +122,35 @@
 @media screen and (max-width: 1140px) {
     .event-card {
         width: 70vw;
+        font-size: 1.7em;
     }
+
+    .event-title, .event-location, .event-date{
+        margin: .2em 0 ;
+    }
+
+    .event-location{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        text-align: start;
+    }
+
+    .event-img{
+        grid-column-start: 2;
+        grid-column-end : 3;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+
+    .event-content h3{
+        margin-bottom: 0;
+    }
+
+    .event-content p{
+        margin-top: 1em;
+    }
+
 
 }
