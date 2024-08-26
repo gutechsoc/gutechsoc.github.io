@@ -22,6 +22,7 @@ See sponsors/README.md
 5. Done
 
 # TODO
+- Make more things bigger on mobile
 - Mobile performance
   - transitions make lag on mobile
   - disable transitions on mobile
