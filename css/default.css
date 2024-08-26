@@ -10,10 +10,6 @@
     src: url('../fonts/JetBrainsMono/fonts/ttf/JetBrainsMono-Regular.ttf');
 }
 
-hr {
-    display: none;
-}
-
 #test-lines #hr1 {
     display: block;
     position: absolute;
@@ -77,17 +73,32 @@ nav {
     width: fit-content;
 }
 
+svg {
+    overflow: visible;
+}
+
 .hex-secondary {
     display: none;
 }
 
 .logo, .hex{
+    display: flex;
     fill: currentColor;
     color: white;
     transition: color var(--card-animation-time) ease-in-out;
     width: 7em;
 }
 
+.logo #svg1 {
+    opacity: 0;
+    transition: opacity var(--card-animation-time) linear;
+    color: var(--blue);
+}
+
+.logo.logo-top #svg1 {
+    opacity: 1;
+    color: var(--blue);
+}
 
 .nav-group a.offset{
     margin-left: 3.6em;
@@ -521,6 +532,10 @@ nav {
         color: var(--blue);
         border: 1px solid var(--blue);
 
+    }
+
+    .logo #svg1 {
+        display: none;
     }
 
     body {

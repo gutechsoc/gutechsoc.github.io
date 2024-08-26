@@ -16,6 +16,7 @@ function scrollSetup() {
     addEventListener("orientationchange", navHighlights)
     addEventListener("transitionend", navHighlights)
     addEventListener("transitioncancel", navHighlights)
+    navHighlights()
 
 }
 
@@ -50,6 +51,12 @@ function navHighlights() {
             section[1].classList.remove("highlight")
         }
     })
+
+    if (window.scrollY === 0) {
+        document.getElementsByClassName("logo")[0].classList.add("logo-top")
+    } else {
+        document.getElementsByClassName("logo")[0].classList.remove("logo-top")
+    }
     // console.log("test");
     // scrollHeight = window.scrollY;
     // // bottomScrollHeight = scrollHeight + window.innerHeight;
