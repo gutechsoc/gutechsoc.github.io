@@ -303,11 +303,11 @@ function toggleOtherPastEvents(element, display, boundary){
     let boundaryElement = document.getElementById(boundary)
 
     if(element.classList.contains("selected")){
-        element.classList.remove("selected")
         displayElement.style.height= displayElement.style.paddingTop = displayElement.style.paddingBottom = "0"
+        element.classList.remove("selected")
     }else{
-        element.classList.add("selected")
         displayElement.style.height = boundaryElement.scrollHeight + "px"
         displayElement.style.paddingTop = "4em"
+        element.classList.add("selected")
     }
 }

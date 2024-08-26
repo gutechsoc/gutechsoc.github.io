@@ -20,3 +20,11 @@ See sponsors/README.md
 3. Development
 4. ...
 5. Done
+
+# TODO
+- Mobile performance
+  - transitions make lag on mobile
+  - disable transitions on mobile
+    - makes codeolympics, gyhtgs, and other events buggy
+    - solution:
+      - when on mobile dont expand with js, use "height: auto"

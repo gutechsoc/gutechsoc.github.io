@@ -716,8 +716,4 @@ svg {
         width: 20em;
     }
 
-    * {
-        transition: none !important;
-    }
-
 }
