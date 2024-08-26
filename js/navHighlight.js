@@ -24,7 +24,7 @@ function scrollSetup() {
         if(window.scrollY < documentHeightExtreme){
             topCutOff = 0
             bottomCutOff = windowHeight/2
-        }else if((windowHeight + window.scrollY) - documentHeight < documentHeightExtreme && (windowHeight + window.scrollY) - documentHeight > 0){
+        }else if((windowHeight + window.scrollY) - documentHeight > 0){
             topCutOff = windowHeight/2
             bottomCutOff = documentHeight
         }else{
