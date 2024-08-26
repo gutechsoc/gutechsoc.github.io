@@ -505,6 +505,7 @@ svg {
 /* Mobile */
 /* TODO: adjust max-width to more appropriate threshold) */
 @media screen and (max-width: 1140px) {
+
     .centre {
         padding-right: 0;
     }
@@ -714,4 +715,9 @@ svg {
     .member .info{
         width: 20em;
     }
+
+    * {
+        transition: none !important;
+    }
+
 }
