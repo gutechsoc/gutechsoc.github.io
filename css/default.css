@@ -14,6 +14,26 @@ hr {
     display: none;
 }
 
+#test-lines #hr1 {
+    display: block;
+    position: absolute;
+    top: 0;
+    transform: translate(0, 25vh);
+    color: white;
+    border: 0.5px solid white;
+    width: 100vw
+}
+
+#test-lines #hr2 {
+    display: block;
+    position: absolute;
+    top: 0;
+    transform: translate(0, 75vh);
+    color: white;
+    border: 1px solid white;
+    width: 100vw
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'GoogleMontserrat', sans-serif;
 }
@@ -93,6 +113,10 @@ nav {
     transition: color 0.3s ease-in-out;
 }
 
+.highlight svg{
+    color: var(--blue);
+}
+
 #nav-socials-hamburger {
     display: none;
 }
@@ -133,6 +157,10 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#upcoming-events .section-title {
+    margin-bottom: 2em;
 }
 
 #upcoming-events-list {

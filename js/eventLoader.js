@@ -179,6 +179,8 @@ async function getRequest(url) {
 
 async function setup() {
 
+    scrollSetup()
+
     // Get a list of all events
     addEventToList((await getRequest('events/eventsList.json')));
 
