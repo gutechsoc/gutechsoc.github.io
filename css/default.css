@@ -175,14 +175,15 @@ nav {
 }
 
 .tab-option-list {
-    display: grid;
-    grid-template-columns: []20em []20em ;
-    grid-template-rows: []5em;
-    grid-column-gap: 2em ;
+        display: flex;
+        justify-content: space-between;
 }
+
 
 .tab-option {
     display: flex;
+    width: 20em;
+    height: 5em;
     justify-content: center;
     align-items: center;
     background: #232323;
@@ -225,6 +226,7 @@ nav {
 
 #minor-past-events-section .tab-option{
     height: 5em;
+    width: 100%;
 }
 
 #minor-past-events-content{
@@ -674,11 +676,6 @@ nav {
 
     #sponsor-us .sponsor-us-info .msg {
         padding-right: 2em;
-    }
-
-    .tab-option-list {
-        display: flex;
-        justify-content: space-between;
     }
 
     .tab-option {

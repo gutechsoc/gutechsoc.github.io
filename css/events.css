@@ -5,7 +5,7 @@
     flex-direction: column;
     background: var(--card-background-colour);
     width: 45em;
-    margin-bottom: 3em;
+    margin: 0 2em 3em;
     padding: 0.5em;
     border: 2px solid var(--card-background-colour);
     border-radius: 1em;
@@ -123,6 +123,7 @@
     .event-card {
         width: 70vw;
         font-size: 1.7em;
+        margin: 0 0 1em
     }
 
     .event-title, .event-location, .event-date{
