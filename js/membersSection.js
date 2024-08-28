@@ -6,8 +6,9 @@ function membersDropdown(element){
     dropdown(element);
 }
 
+// Expands the info section of a selected member
 function expandMember(element) {
-    // Expands and retracts board member info
+
     // One board member expanded at a time
     // Adds delay to allow other elements to collapse to avoid card jumping between lines
     let timeDelay = 0;
@@ -26,7 +27,7 @@ function expandMember(element) {
     }},timeDelay)
 }
 
-
+// Collapses the info section of any selected members
 function collapseAllMembers(){
     let selectedMembers = document.querySelectorAll(".member.selected .mugshot")
     if(selectedMembers.length > 0){

@@ -1,3 +1,4 @@
+// Toggles the 'selected' class attribute on 'nav-social'
 function expandNavSocials() {
     let menu = document.getElementById("nav-socials");
     if (menu.classList.contains("selected")) {

@@ -1,22 +1,26 @@
 {
   "dyhtguts": [
-    {"html": "guts.html", "date":  "20240917", "time":  "19:00"},
-    {"html": "ball.html", "date":  "20230917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"}
+    {"html": "guts.html", "date":  20241017, "time":  1900},
+    {"html": "ball.html", "date":  20230917, "time":  1900},
+    {"html": "guts.html", "date":  20220917, "time":  1900}
   ],
   "codeolympics": [
-    {"html": "guts.html", "date":  "20240917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20230917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"}
+    {"html": "guts.html", "date":  20240917, "time":  1900},
+    {"html": "guts.html", "date":  20230917, "time":  1900},
+    {"html": "guts.html", "date":  20220917, "time":  1900},
+    {"html": "guts.html", "date":  20220917, "time":  1900},
+    {"html": "guts.html", "date":  20220917, "time":  1900},
+    {"html": "guts.html", "date":  20220917, "time":  1900},
+    {"html": "guts.html", "date":  20220917, "time":  1900}
   ],
   "other": [
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"}
+    {"html": "guts.html", "date":  20220817, "time":  1300},
+    {"html": "guts.html", "date":  20220817, "time":  1900},
+    {"html": "guts.html", "date":  20220417, "time":  1900},
+    {"html": "guts.html", "date":  20220917, "time":  1900},
+    {"html": "guts.html", "date":  20220817, "time":  1300},
+    {"html": "guts.html", "date":  20220817, "time":  1900},
+    {"html": "guts.html", "date":  20220417, "time":  1900},
+    {"html": "guts.html", "date":  20220917, "time":  1900}
   ]
 }
