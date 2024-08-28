@@ -1,0 +1,27 @@
+name: Convert Images To WebP
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: |
+        apt install webp
+    - name: Convert images
+      run: |
+        find . -regextype egrep -regex '.*\.(png|jpg|jpeg)' | xargs -I {} .github-actions-scripts/convert.sh {}
+    - name: Regex replace .png/.jpeg/etc to .webp
+      run: |
+        find . -regextype egrep -regex '.*\.(json|html|css|js)' | xargs -I {} sed -i -E 's/\.(png|jpg|jpeg)/\.webp/' {}
