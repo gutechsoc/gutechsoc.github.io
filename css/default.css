@@ -10,26 +10,6 @@
     src: url('../fonts/JetBrainsMono/fonts/ttf/JetBrainsMono-Regular.ttf');
 }
 
-#test-lines #hr1 {
-    display: block;
-    position: absolute;
-    top: 0;
-    transform: translate(0, 25vh);
-    color: white;
-    border: 0.5px solid white;
-    width: 100vw
-}
-
-#test-lines #hr2 {
-    display: block;
-    position: absolute;
-    top: 0;
-    transform: translate(0, 75vh);
-    color: white;
-    border: 1px solid white;
-    width: 100vw
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: 'GoogleMontserrat', sans-serif;
 }

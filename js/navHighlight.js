@@ -1,8 +1,7 @@
 
 let sections;
-let highlighted = [];
 
-
+// Sets up the event listeners for the dynamic highlighting on the nav bar
 function scrollSetup() {
 
     sections = [
@@ -42,6 +41,7 @@ function navHighlights() {
         }
 
 
+    // Selects which section is going to be highlighted according to the cut-offs currently active
     sections.forEach(section => {
         boundingBox = section[0].getBoundingClientRect()
 
@@ -52,33 +52,11 @@ function navHighlights() {
         }
     })
 
+    // Allows the full society logo to be displayed when scrolled to the top
     if (window.scrollY === 0) {
         document.getElementsByClassName("logo")[0].classList.add("logo-top")
     } else {
         document.getElementsByClassName("logo")[0].classList.remove("logo-top")
     }
-    // console.log("test");
-    // scrollHeight = window.scrollY;
-    // // bottomScrollHeight = scrollHeight + window.innerHeight;
-    // sections.forEach(section => {
-    //     boundingBox = section[0].getBoundingClientRect()
-    //     section[0].scroll
-    //     if (boundingBox.top < 0 && boundingBox.bottom > 0) {
-    //         console.log("highlighting: " + section[1].id)
-    //         highlighted.forEach(highlight => {
-    //             console.log("clearing: " + highlight.id)
-    //             highlight.classList.remove("highlight");
-    //             highlighted.pop()
-    //         })
-    //         section[1].classList.add("highlight");
-    //         highlighted.push(section[1])
-    //     } else {
-    //         section[0]
-    //     }
-    // })
-    //
-    // if (scrollHeight === 0) {
-    //
-    // }
 
 }

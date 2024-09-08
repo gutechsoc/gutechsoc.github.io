@@ -39,3 +39,40 @@ Finally, we would put their logo in the logos folder, and add the name of the fi
         "url": "https://amazon.co.uk",
         "logo": "amazon_logo.png"
     }
+
+## Editing Sponsors Marquee
+The sponsors marquee achieves the infinite scrolling effect by splitting a specific number of sponsors into two groups
+and then having these groups of sponsor logos scroll by with a specific delay.
+
+To change the sponsors that appear in the marquee, enter the sponsor logo **CLASS NAME** into the array in `sponsorsSection.js`
+inside the `getMarqueeSponsors()` function. Bellow is an example:
+
+    function getMarqueeSponsors(){
+        return ["amzn","barclays","broadridge","compsoc","craneware","cyberpro","dogfish","dsg","ef","github","dominos","cooper_software"]
+    }
+
+
+## Adding Sponsors to the Marque
+Sponsors need to be in multiples of 4 so equal numbers of sponsors are distributed across all marquee subsections equally.
+This allows all marquee subsections to have equal(ish) length. This is important for maintaining the seamless nature of the infinite marquee.
+
+If you change the length of the sponsors selected, then you may wish to change the speed at which the marquee scrolls.
+This can be done within  `default.css`. For each secondary sub section of top or bottom marquee, there should be a delay that
+is half the animation speed of the marquee scroll animation chosen.
+
+Notice the delay on `sponsors-top-marquee-two` (7.5s) is half the animation time (15s).
+
+
+    #sponsors-top-marquee-one{
+        z-index: 1;
+        animation: marquee 15s infinite linear 0s;
+    }
+    
+    #sponsors-top-marquee-two{
+        z-index: 2;
+        translate: -100%;
+        position: relative;
+        animation: marquee 15s infinite linear 7.5s;
+    }
+
+The same applies to both top and bottom marquees.
