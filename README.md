@@ -1,10 +1,11 @@
 # gutechsoc.github.io
 The official website for the GU Tech Society. Hosted at www.gutechsoc.com
 
-# Adding Events
+# Editing The Site
+## Adding Events
 See events/README.md
 
-# Adding Sponsors
+## Adding Sponsors
 See sponsors/README.md
 
 # Embedding Videos
@@ -19,7 +20,16 @@ Embedding videos would be done by manually editing `index.html`. Styling for emb
     </div>
 Notice the `.disbale` tag on the outer div; this just sets the `display` value to `none`, effectively toggling the element.
 
-## Development
+## About Us
+### Who Are We
+Search the index.html for the phrase `whoarewesection` this will take you to the correct section in the html file.
+A few lines 
+### What Events Do We Host
+
+### Board Members
+
+
+# Development
 * Static site
 * Pushes get deployed to GitHub/Cloudflare pages (undecided)
 
