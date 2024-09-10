@@ -1,96 +1,96 @@
 {
   "amzn": {
     "name": "Amazon",
-    "logo": "amazon_white.png",
+    "logo": "amazon_white.webp",
     "url": "https://amazon.co.uk"
   },
   "amzndc": {
     "name": "Amazon Dev Centre",
-    "logo": "amazon_devcentre_white.png",
+    "logo": "amazon_devcentre_white.webp",
     "url": "https://amazondc.com"
   },
   "assemblyai":{
     "name": "Assembly AI",
-    "logo" : "AssemblyAI_white.png",
+    "logo" : "AssemblyAI_white.webp",
     "url": "https://www.assemblyai.com/"
   },
   "barclays":{
     "name" : "Barclays",
-    "logo" : "barclays_white.png",
+    "logo" : "barclays_white.webp",
     "url" : "https://www.barclays.co.uk/"
   },
   "bloomberg" : {
     "name" : "Bloomberg",
-    "logo" : "bloomberg_white.png",
+    "logo" : "bloomberg_white.webp",
     "url" : "https://www.bloomberg.com/uk"
   },
   "broadridge" : {
     "name" : "Broadridge",
-    "logo" : "broadridge_white.png",
+    "logo" : "broadridge_white.webp",
     "url" : "https://www.broadridge.com/"
   },
   "cisco" : {
     "name" : "Cisco",
-    "logo" : "cisco_white.png",
+    "logo" : "cisco_white.webp",
     "url" : "https://www.cisco.com/site/uk/en/index.html"
   },
   "compsoc" : {
     "name" : "CompSoc",
-    "logo" : "compsoc_white.png",
+    "logo" : "compsoc_white.webp",
     "url" : "https://comp-soc.com/"
   },
   "cooper_software" : {
     "name": "Cooper Software",
-    "logo": "cooper_software_white.png",
+    "logo": "cooper_software_white.webp",
     "url" : "https://www.coopersoftware.com/"
   },
   "craneware" : {
     "name" : "Craneware Group",
-    "logo" : "craneware_white.png",
+    "logo" : "craneware_white.webp",
     "url" :"https://www.thecranewaregroup.com/"
   },
   "cyberpro" : {
     "name" : "Cyber PRO",
-    "logo" : "cyberpro_white.png",
+    "logo" : "cyberpro_white.webp",
     "url" : "https://cyberpro.co.uk/"
   },
 
   "dogfish" : {
     "notice" : "OUTDATED: Renamed to Vidatec",
     "name" : "Dogfish Mobile",
-    "logo" : "dogfish_white.png",
+    "logo" : "dogfish_white.webp",
     "url" : "https://vidatec.com/blog/dogfish-mobile-relaunches-as-vidatec/"
   },
   "dominos":{
     "name" : "Domino's",
-    "logo": "dominos_white.png",
+    "logo": "dominos_white.webp",
     "url" : "https://www.dominos.co.uk/"
   },
   "dsg" : {
     "name" : "Duck Sauce Games",
-    "logo" : "dsg_white.png",
+    "logo" : "dsg_white.webp",
     "url" : "https://www.ducksauce.games/"
   },
   "dynamicallyloaded": {
     "notice" : "OUTDATED: company dissolved feb 2018",
     "name" : "Dynamically Loaded",
-    "logo" : "dynamicallyloaded_white.png",
+    "logo" : "dynamicallyloaded_white.webp",
     "url" : "https://google.com"
   },
   "ef": {
     "notice" : "OUTDATED: logo change",
     "name": "Entrepreneur First",
-    "logo": "ef_white.png",
+    "logo": "ef_white.webp",
     "url" : "https://www.joinef.com/"
   },
   "gg" : {
     "name" : "Guitar Guitar",
-    "logo" : "gg_white.png",
+    "logo" : "gg_white.webp",
     "url" : "https://www.guitarguitar.co.uk/"
   },
   "github" : {
     "name": "Github",
-    "logo" : "github_white.png",
+    "logo" : "github_white.webp",
     "url" : "https://github.com/"
   }
 }

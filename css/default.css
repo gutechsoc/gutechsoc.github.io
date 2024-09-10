@@ -150,6 +150,19 @@ svg {
     justify-content: center;
 }
 
+.video-embed{
+    padding-bottom: 6em;
+}
+
+.disable{
+    display:none;
+}
+
+.video-embed iframe{
+    border: none;
+    width: 40em;
+    height: 20em;
+}
 #upcoming-events .section-title {
     margin-bottom: 2em;
 }
