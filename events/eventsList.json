@@ -1,10 +1,7 @@
 {
   "dyhtguts": [
-    {"html": "guts2.html", "date":  "20250917", "time":  "19:00"},
-    {"html": "guts3.html", "date":  "20250917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20240917", "time":  "19:00"},
-    {"html": "ball.html", "date":  "20230917", "time":  "19:00"},
-    {"html": "guts.html", "date":  "20220917", "time":  "19:00"}
+    {"html": "guts2.html", "date":  20250917, "time":  1900},
+    {"html": "guts3.html", "date":  20250917, "time":  1900},
     {"html": "guts.html", "date":  20241017, "time":  1900},
     {"html": "ball.html", "date":  20230917, "time":  1900},
     {"html": "guts.html", "date":  20220917, "time":  1900}
