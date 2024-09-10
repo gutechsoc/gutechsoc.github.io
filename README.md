@@ -27,7 +27,30 @@ A few lines
 ### What Events Do We Host
 
 ### Board Members
+Search the index.html for the phrase `[boardmembers]`.
 
+Editing board members required editing the different `members` elements. bellow is an example:
+    
+    <div class="board-members">
+      <!--edit here-->
+      <div class="member">
+          <div class="mugshot" onclick="expandmember(this)">
+              <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+          </div>
+          <div class="info">
+              <p class="role">general assistant</p>
+              <p class="name"> john smith</p>
+              <a class="linked-in" href="https://www.linkedin.com">linkedin</a>
+          </div>
+      </div>
+    </div>
+
+to change the:
+ * Profile picture (mugshot) of the board member: change the source for the `<img>` element inside of the `mugshot` class element.
+ * Role: change the text inside the `<p>` element with the `role` class tag to the role of the board member.
+ * Name displayed for the board member: change the text inside the `<p>` element with the `name` class tag to the name of the board member.
+ * LinkedIn link destination: Change the `href` value of the `<a>` element with the `linked-in` class tag to the link pointing to the LinkedIn profile of the board member.
+   * If you change the destination of the link to something other than LinkedIn, remember to edit the text stating the destination between the `<a>` element to reflect this change.
 
 # Development
 * Static site
