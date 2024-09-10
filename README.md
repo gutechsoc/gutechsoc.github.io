@@ -7,6 +7,18 @@ See events/README.md
 # Adding Sponsors
 See sponsors/README.md
 
+# Embedding Videos
+Embedding videos would be done by manually editing `index.html`. Styling for embedded videos is handled using the `.video-embed` class with an `<iframe>` inside. Bellow is an example:
+
+    <div class="centre disable">
+        <div `class="video-embed">
+            <iframe
+            src="https://www.youtube.com/embed/oip-4Q2Pk0k?si=Cnq6GjO3K59oOSn_">
+            </iframe>
+        </div>
+    </div>
+Notice the `.disbale` tag one the element; this just sets the `display` value to `none`, effectively toggling the element.
+
 ## Development
 * Static site
 * Pushes get deployed to GitHub/Cloudflare pages (undecided)
