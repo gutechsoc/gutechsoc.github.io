@@ -17,7 +17,7 @@ Embedding videos would be done by manually editing `index.html`. Styling for emb
             </iframe>
         </div>
     </div>
-Notice the `.disbale` tag one the element; this just sets the `display` value to `none`, effectively toggling the element.
+Notice the `.disbale` tag on the outer div; this just sets the `display` value to `none`, effectively toggling the element.
 
 ## Development
 * Static site
