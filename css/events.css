@@ -129,6 +129,10 @@
         margin: .2em 0 ;
     }
 
+    .event-details{
+        grid-template-columns: repeat(2, 11em)
+    }
+
     .event-location{
         grid-column-start: 1;
         grid-column-end: 2;
