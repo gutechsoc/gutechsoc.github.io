@@ -438,6 +438,12 @@ svg {
     object-fit: contain;
 }
 
+.link a {
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+}
+
 #join-us {
     display: flex;
     flex-direction: column;
