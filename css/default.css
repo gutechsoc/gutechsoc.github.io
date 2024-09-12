@@ -324,14 +324,19 @@ svg {
 
 .member .mugshot{
     width: 10em;
+    height: 10em;
     background-color: red;
     border-radius: 10%;
     transition: border-radius var(--card-animation-time) ease-out var(--card-animation-time);
     z-index: 101;
+    overflow: hidden;
 }
 
-.member .mugshot .img{
-    object-fit: contain;
+
+.member .mugshot img{
+    object-fit: cover;
+    width:100%;
+    height:100%;
 }
 
 .member .mugshot:hover{
@@ -342,7 +347,7 @@ svg {
 .member .info{
     overflow: hidden;
     max-width: 0;
-    text-wrap: nowrap;
+    /*text-wrap: nowrap;*/
     border-radius: 0 10% 10% 0;
     background-color: var(--blue);
     transform: translate(-10%, 0);
@@ -373,7 +378,7 @@ svg {
 }
 
 #sponsor-us .sponsor-us-info .msg{
-    width: 20em;
+    width: 30em;
     padding-right: 10em;
 }
 

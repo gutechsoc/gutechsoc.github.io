@@ -92,5 +92,85 @@
     "name": "Github",
     "logo" : "github_white.webp",
     "url" : "https://github.com/"
+  },
+  "uofg-socs" : {
+    "name": "School of Computing Science",
+    "logo": "uofg_white.webp",
+    "url" : "https://www.gla.ac.uk/schools/computing/"
+  },
+  "morgan-stanley" : {
+    "name": "Morgan Stanley",
+    "logo": "morganstanley_white.webp",
+    "url" : "https://www.morganstanley.com/"
+  },
+  "jpm" : {
+    "name": "JP Morgan",
+    "logo": "jpm_white.webp",
+    "url" : "https://www.jpmorganchase.com/"
+  },
+  "sas" : {
+    "name": "SAS",
+    "logo": "sas_white.webp",
+    "url" : "https://www.sas.com/"
+  },
+  "verint" : {
+    "name": "Verint",
+    "logo": "verint_white.webp",
+    "url" : "https://www.verint.com/"
+  },
+  "guitarguitar" : {
+    "name": "GuitarGuitar",
+    "logo": "gg_white.webp",
+    "url" : "https://www.guitarguitar.co.uk/"
+  },
+  "showcode" : {
+    "name": "ShowCode",
+    "logo": "showcode.webp",
+    "url" : "https://www.showcode.io/"
+  },
+  "twillo" : {
+    "name": "Twillo",
+    "logo": "twillo_white.webp",
+    "url" : "https://www.twilio.com/en-us"
+  },
+  "ibm" : {
+    "name": "IBM",
+    "logo": "IBM_white.webp",
+    "url" : "https://www.IBM.com"
+  },
+  "skyscanner" : {
+    "name": "SkyScanner",
+    "logo": "skyscanner_white.webp",
+    "url" : "https://www.skyscanner.com/"
+  },
+  "tennents" : {
+    "name": "Tennets",
+    "logo": "tennents_white.webp",
+    "url" : "http://tennents.com/"
+  },
+  "MM" : {
+    "name": "MetixMedical",
+    "logo": "metix-logo_white.webp",
+    "url" : "https://www.metixmedical.co.uk/"
+  },
+  "mlh" : {
+    "name": "Major League Hacking",
+    "logo": "mlh_white.webp",
+    "url" : "http://mlh.io"
+  },
+  "wrld" : {
+    "name": "WRLD3D",
+    "logo": "WRLD_white.webp",
+    "url" : "https://www.wrld3d.com/"
+  },
+  "guss" : {
+    "name": "Glasgow University Software Service",
+    "logo": "guss_logo_white.webp",
+    "url" : "https://www.gla.ac.uk/schools/computing/industry/glasgowuniversitysoftwareserviceguss/"
+  },
+  "mwam" : {
+    "name": "Marshall Wace",
+    "logo": "marshallwace.webp",
+    "url" : "https://www.mwam.com/"
   }
 }
