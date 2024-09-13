@@ -12,7 +12,6 @@
     <script src="js/sponsorsSection.js"></script>
     <script src="js/navHamburger.js"></script>
     <script src="js/navHighlight.js"></script>
-    <!-- I AM A VERY IMPORTANT CHANGE THA NEEDS TO BE INCLUDED -->
 </head>
 <body onload="setup();">
 <nav>
@@ -78,6 +77,15 @@
             <div class="section-title centre">
                 <h2>Upcoming Events</h2>
             </div>
+            <!--'disable' tag used to toggle visibility-->
+            <div class="centre disable">
+                <div class="video-embed">
+                    <iframe
+                    src="https://www.youtube.com/embed/oip-4Q2Pk0k?si=Cnq6GjO3K59oOSn_">
+                    </iframe>
+                </div>
+            </div>
+
             <div id="upcoming-events-list" class="events-list centre">
             </div>
         </div>
@@ -94,7 +102,7 @@
                                 <h2>CODE OLYMPICS</h2>
                             </div>
                             <div class="tab-option" id="dyhtguts-tab-option" onclick="toggleEventGroup(this, 'dyhtguts-events-list', 'codeolympics')">
-                                <h2>DYHTGUTS</h2>
+                                <h2>DYHTG?</h2>
                             </div>
                         </div>
                         <div id="major-past-events-tab-content" class="event-group">
@@ -123,29 +131,44 @@
         <div class="section-title centre">
             <h2>About Us</h2>
         </div>
+
+        <!-- Who Are We? [whoarewesection] -->
         <div class="centre gen-drop" id="who-are-we">
             <div class="gen-drop-container">
                 <div class="gen-drop-toggle" onclick="dropdown(this)">
                     <p>Who Are We?</p>
                 </div>
                 <div class="gen-drop-content">
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <!-- Edit Here -->
+                    <p>The Glasgow University Tech Society (GUTS) is the official student society for the School of
+                        Computing Science and aims to provide students with opportunities to, develop their technical
+                        ability and connect with our industrial partners</p>
+                    <!-- Constitution -->
+                    <a href="/constitution/current.pdf"><br>Our Constitution.</a>
                 </div>
             </div>
         </div>
 
+        <!-- What Events Do We Host? [whateventdowehostsection] -->
         <div class="centre gen-drop" id="what-events">
             <div class="gen-drop-container">
                 <div class="gen-drop-toggle" onclick="dropdown(this)">
                     <p>What Events do We Host?</p>
                 </div>
                 <div class="gen-drop-content">
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <!-- Edit Here -->
+                    <p>We host two annual hackathons are “Do You Have the GUTS?” in the first semester and Code
+                        Olympics in the second semester. Both of these events create a unique opportunity for
+                        students and industry partners to network in a fun, relaxed environment. <br> In addition to
+                        these we organise a variety of social events throughout the year, such as student mixers, pub
+                        quizzes, an end of year black tie gala ball, and more. We also host talks and workshops with our
+                        partners throughout the year.</p>
                 </div>
             </div>
 
         </div>
 
+        <!-- Board Members [boardmembers]-->
         <div class=" centre gen-drop" id="board-members">
             <div class="gen-drop-container" id="board-members-container">
                 <div class="gen-drop-toggle" onclick="membersDropdown(this)">
@@ -153,56 +176,58 @@
                 </div>
                 <div class="gen-drop-content">
                     <h1>2024</h1>
+
                     <div class="board-members">
+                        <!--Edit Here-->
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/board_members/2024-25/jackson.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">President</p>
+                                <p class="name"> Jackson Dam</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/jackson-dam-65a5381a7/">LinkedIn</a>
                             </div>
                         </div>
 
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/board_members/2024-25/anya.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">Vice President</p>
+                                <p class="name"> Anya Chaudhary</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/anya-chaudhary-176438292/">LinkedIn</a>
                             </div>
                         </div>
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/board_members/2024-25/ahmed.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">Treasurer</p>
+                                <p class="name"> Ahmed Ibrahim</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/ahmed-ibrahim-968416244/">LinkedIn</a>
                             </div>
                         </div>
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/board_members/2024-25/tay.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">Secretary</p>
+                                <p class="name"> Taylor Sim</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/taylor-sim/">LinkedIn</a>
                             </div>
                         </div>
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/board_members/2024-25/harry.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">Welfare Officer</p>
+                                <p class="name"> Harry Singh</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/harparkash-harry-singh-61698b211/">LinkedIn</a>
                             </div>
                         </div>
                     </div>
@@ -210,53 +235,42 @@
                     <div class="board-members">
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/guts-logo.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
-                            </div>
-                        </div>
-
-                        <div class="member">
-                            <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
-                            </div>
-                            <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">President</p>
+                                <p class="name"> Tomasz Sadowski</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/tomasz-sadowski-a22a5784">LinkedIn</a>
                             </div>
                         </div>
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/guts-logo.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">Vice President</p>
+                                <p class="name"> Adam Kurkiewicz</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/adam-kurkiewicz-37393681">LinkedIn</a>
                             </div>
                         </div>
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/guts-logo.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">Secretary</p>
+                                <p class="name"> Daniel Tsvetkov</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/danieltsvetkov">LinkedIn</a>
                             </div>
                         </div>
                         <div class="member">
                             <div class="mugshot" onclick="expandMember(this)">
-                                <img src="images/about_us/board_memebers/xyz.webp" alt="your mug here">
+                                <img src="images/guts-logo.webp" alt="your mug here">
                             </div>
                             <div class="info">
-                                <p class="role">GENERAL ASSISTANT</p>
-                                <p class="name"> JOHN SMITH</p>
-                                <a class="linked-in" href="https://www.linkedin.com">LinkedIn</a>
+                                <p class="role">Treasurer</p>
+                                <p class="name">Iva Babukova</p>
+                                <a class="linked-in" href="https://www.linkedin.com/in/iva-babukova-06097596">LinkedIn</a>
                             </div>
                         </div>
                     </div>
@@ -278,11 +292,19 @@
                 <h2>Sponsor Us</h2>
             </div>
             <div class="sponsor-us-info">
-                <div class="msg">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat  tellus in massa gravida, nec molestie orci commodo. Curabitur maximus  augue erat, id aliquam ipsum luctus hendrerit. Aenean at justo vel ante  aliquet cursus ac at purus. Quisque quis eleifend enim.</p>
+                <div class="msg"> <!-- Sponsor Us Content - Edit below here [sponsoruscontentsection] -->
+                    <p>partnering with us will give you a wonderful opportunity to network with a large number of
+                        students in an intimate, relaxed environment. For our main events, you will have a
+                        weekend of hands-on interactions with students and the chance to mentor students
+                        through challenging but rewarding tasks.<br>
+                        You will be able to present challenges at our hackathons, which will give you a natural way
+                        to talk and work with the students. You are also encouraged to give a short presentation
+                        about your company at the opening ceremony to give students an idea of what you’re
+                        about.
+                        Your company will be given a stall to advertise, and the students a place to find you</p>
                 </div>
                 <div class="link">
-                    email@link.here
+                    <a href="mailto:gutechsoc@gmail.com">Email us at:</br>gutechsoc@gmail.com</a>
                 </div>
             </div>
             <div class="sponsors-wrapper">
@@ -299,7 +321,11 @@
         </div>
         <section id="join-us-content">
             <section>
-                <p>Do you have the GUTS to join us?<br>If so take the plunge, register a member on the SRC website for free, join our Discord server and allow yourself to be consumed by all things tech!</p>
+                <!-- Edit below here -->
+                <p>So whether you’re a tech enthusiast or someone with just a tiny bit (or byte) of interest, you are
+                    very welcome to join our events – it’s not all ones and zeroes! There’s no membership fee and no
+                    requirement for School of Computing Science students to apply for membership. Follow our Instagram
+                    and join our Discord to stay up-to-date with us.</p>
             </section>
 
             <section id="join-us-links">
