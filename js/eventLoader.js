@@ -252,11 +252,36 @@ function addEventToList(events) {
     for (let eventsListKey in eventsList) {
         if (eventsListKey === "upcoming") { // For upcoming we want to display the soonest event first
             eventsList[eventsListKey].sort(function (a, b) {
-                return a["date"] > b["date"] || a["time"] > b["time"]
+                if (a["date"] > b["date"]) {
+                    return 1;
+                } else if (a["date"] < b["date"]) {
+                    return -1;
+                }
+
+                if (a["time"] > b["time"]) {
+                    return 1;
+                } else if (a["time"] < b["time"]) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             });
         } else { // For events that have already happened, we want to display the latest event held first
             eventsList[eventsListKey].sort(function (a, b) {
-                return a["date"] < b["date"] || a["time"] < b["time"]
+                // return a["date"] < b["date"] || a["time"] < b["time"]
+                if (a["date"] < b["date"]) {
+                    return 1;
+                } else if (a["date"] > b["date"]) {
+                    return -1;
+                }
+
+                if (a["time"] < b["time"]) {
+                    return 1;
+                } else if (a["time"] > b["time"]) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             });
         }
     }
