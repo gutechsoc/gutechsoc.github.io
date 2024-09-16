@@ -57,7 +57,7 @@ async function getRequest(url) {
             case "text/html":
                 return await response.text();
             case "application/json":
-            case "application/json  charset=utf-8":
+            case "application/json; charset=utf-8":
                 return await response.json();
             default:
                 throw new Error(`Content type: ${response.headers.get("content-type")} not supported.`)
