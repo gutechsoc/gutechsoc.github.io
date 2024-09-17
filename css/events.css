@@ -81,6 +81,7 @@
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
+    font-weight: 500;
 }
 
 .event-img {
@@ -89,6 +90,8 @@
     grid-row-start: 1;
     grid-row-end: 3;
     width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1;
     transform: translate(0, -20%);
 }
 
@@ -99,6 +102,7 @@
     grid-row-start: 2;
     grid-row-end: 3;
     text-align: end;
+    font-weight: 500;
 }
 
 .event-sponsors {
