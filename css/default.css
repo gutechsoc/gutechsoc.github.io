@@ -163,7 +163,8 @@ svg {
 }
 
 .video-embed{
-    padding-bottom: 6em;
+    padding-bottom: 4em;
+    padding-top: 8em;
 }
 
 .disable{
