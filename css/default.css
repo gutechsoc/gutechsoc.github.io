@@ -304,6 +304,7 @@ svg {
 .gen-drop-content{
     display: flex;
     max-height: 0;
+    max-width: 50em;
     overflow: hidden;
     background: var(--selected-background-colour);
     transition: all var(--card-animation-time) ease-in-out ;
@@ -349,10 +350,10 @@ svg {
 .member .mugshot{
     width: 10em;
     height: 10em;
-    background-color: red;
+    background-color: var(--blue);
     border-radius: 10%;
     transition: border-radius var(--card-animation-time) ease-out var(--card-animation-time);
-    z-index: 101;
+    z-index: 100;
     overflow: hidden;
 }
 
@@ -381,7 +382,7 @@ svg {
 }
 
 .member.selected .info {
-    max-width: 20em;
+    max-width: 7em;
     padding-left: 6%;
 }
 
@@ -738,10 +739,12 @@ svg {
 
     .member .mugshot{
         width: 13em;
+        height: 100%;
     }
 
     .member .info{
         width: 20em;
     }
+
 
 }
