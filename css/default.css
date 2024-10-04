@@ -364,10 +364,12 @@ svg {
     height:100%;
 }
 
-.member .mugshot:hover{
+.member .mugshot:hover,
+.member .mugshot:hover ~ .info{
     cursor: pointer;
-    border: 1px solid var(--blue)
+    box-shadow: 0 0 10px var(--blue);
 }
+
 
 .member .info{
     overflow: hidden;
