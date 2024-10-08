@@ -745,7 +745,11 @@ svg {
     }
 
     .member .info{
-        width: 20em;
+        width: 9em;
+    }
+
+    .member.selected .info{
+        max-width: 9em;
     }
 
 
