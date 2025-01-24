@@ -15,13 +15,18 @@
 
 .event-card:hover{
     border: 2px solid var(--blue);
-    box-shadow: 0 0 17px  var(--blue);
+    box-shadow: 0 0 17px var(--blue);
 }
 
 .event-details {
     display: grid;
     grid-gap: 0.1em;
     align-content: space-evenly;
+    /*
+       Because we are adding an extra row for .event-price,
+       you could adjust row definitions if needed. But in
+       many cases, repeat(3, 14.9em) still works fine.
+    */
     grid-template-columns: repeat(3, 14.9em);
 }
 
@@ -29,22 +34,21 @@
     cursor: pointer;
 }
 
-.event-card .event-content{
+.event-card .event-content {
     display: flex;
     flex-direction: column;
     overflow: hidden;
     opacity: 0;
     max-height: 0;
-    transition:  max-height var(--card-animation-time) ease-in-out;
+    transition: max-height var(--card-animation-time) ease-in-out;
 }
 
-.event-card.selected .event-content{
-    /*overflow: visible; if you look closely the text appears before the box has finished expanding */
+.event-card.selected .event-content {
     opacity: 100%;
     transition: max-height var(--card-animation-time) ease-in-out;
 }
 
-.event-content p{
+.event-content p {
     margin: 0;
 }
 
@@ -64,7 +68,6 @@
     border: 2px solid var(--card-background-colour);
 }
 
-/* Event grid positioning */
 
 .event-title {
     width: 100%;
@@ -96,7 +99,15 @@
 }
 
 .event-location {
-    width: 100%;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: end;
+    font-weight: 500;
+}
+
+.event-price {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
@@ -126,18 +137,20 @@
     .event-card {
         width: 70vw;
         font-size: 1.7em;
-        margin: 0 0 1em
+        margin: 0 0 1em;
     }
 
-    .event-title, .event-location, .event-date{
-        margin: .2em 0 ;
+    .event-title,
+    .event-location,
+    .event-date {
+        margin: .2em 0;
     }
 
-    .event-details{
-        grid-template-columns: repeat(2, 11em)
+    .event-details {
+        grid-template-columns: repeat(2, 11em);
     }
 
-    .event-location{
+    .event-location {
         grid-column-start: 1;
         grid-column-end: 2;
         grid-row-start: 3;
@@ -145,19 +158,26 @@
         text-align: start;
     }
 
-    .event-img{
+    .event-price {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        text-align: start;
+    }
+
+    .event-img {
         grid-column-start: 2;
-        grid-column-end : 3;
+        grid-column-end: 3;
         grid-row-start: 1;
         grid-row-end: 4;
     }
 
-    .event-content h3{
+    .event-content h3 {
         margin-bottom: 0;
     }
 
-    .event-content p{
+    .event-content p {
         margin-top: 1em;
     }
-
 }
