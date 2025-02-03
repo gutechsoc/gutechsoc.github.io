@@ -172,5 +172,10 @@
     "name": "Marshall Wace",
     "logo": "marshallwace.webp",
     "url" : "https://www.mwam.com/"
+  },
+  "blackrock" : {
+    "name": "BlackRock",
+    "logo": "blackrock.webp",
+    "url" : "https://www.blackrock.com/aladdin"
   }
 }
