@@ -93,7 +93,7 @@
     grid-row-start: 1;
     grid-row-end: 3;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 1;
     transform: translate(0, -20%);
 }
