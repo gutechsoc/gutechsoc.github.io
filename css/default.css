@@ -820,16 +820,16 @@ svg {
     }
 
     .member{
-        height: 13em;
+        height: 18em;
     }
 
     .member .mugshot{
-        width: 13em;
+        width: 15em;
         height: 100%;
     }
 
     .member .info{
-        width: 9em;
+        width: 12em;
     }
 
     .member.selected .info{
