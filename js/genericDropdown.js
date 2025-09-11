@@ -1,14 +1,20 @@
-// Generic function for a dropdown element
 function dropdown(toggleElement){
-    // uses toggle (clickable) element to move to content element (should be next sibling)
-    let contentElement = toggleElement.nextElementSibling
-    if(toggleElement.classList.contains("selected")){
-        toggleElement.classList.remove("selected")
-        contentElement.style.maxHeight = 0 + "px";
-    }else{
-        toggleElement.classList.add("selected")
-        contentElement.style.maxHeight= contentElement.scrollHeight + "px"
+    const container = toggleElement.closest('.gen-drop-container');
+    const content   = toggleElement.nextElementSibling;
+
+    if (container.classList.contains('is-open')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+            content.style.maxHeight = '0px';
+            container.classList.remove('is-open');
+            toggleElement.classList.remove('selected');
+        });
+    } else {
+        container.classList.add('is-open');
+        toggleElement.classList.add('selected');
+        content.style.maxHeight = '0px';
+        requestAnimationFrame(() => {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        });
     }
-
-
 }

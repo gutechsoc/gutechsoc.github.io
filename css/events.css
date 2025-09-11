@@ -6,7 +6,7 @@
     background: var(--card-background-colour);
     width: 45em;
     margin: 0 2em 3em;
-    padding: 0.5em;
+    padding: 1.5em;
     border: 2px solid var(--card-background-colour);
     border-radius: 1em;
     box-shadow: 0 0 10px 6px rgba(24,24,24,0.46);
@@ -95,7 +95,7 @@
     width: 100%;
     object-fit: contain;
     aspect-ratio: 1;
-    transform: translate(0, -20%);
+    transform: translate(0, -17.5%);
 }
 
 .event-location {
@@ -131,12 +131,12 @@
     max-height: 2.5em;
     max-width: 15em;
     margin-right: 1em;
-}
+}f
 
 /* Mobile */
 @media screen and (max-width: 1140px) {
     .event-card {
-        width: 70vw;
+        width: 60%;
         font-size: 1.7em;
         margin: 0 0 1em;
     }
@@ -172,6 +172,7 @@
         grid-column-end: 3;
         grid-row-start: 1;
         grid-row-end: 4;
+        transform: translate(-15%);
     }
 
     .event-content h3 {

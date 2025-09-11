@@ -12,6 +12,10 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
     font-weight: 500;
 }
+h1 {
+    font-size: 1.5rem;
+    font-weight: 750;
+}
 
 .name {
     margin-right: 1em;
@@ -275,16 +279,6 @@ svg {
     cursor: pointer;
 }
 
-.gen-drop-toggle{
-    display: flex;
-    width: 100%;
-    height: 5em;
-    background: var(--card-background-colour);
-    justify-content: center;
-    align-items: center;
-    transition: background-color var(--card-animation-time) ease;
-}
-
 .gen-drop-toggle:hover{
     display: flex;
     height: 5em;
@@ -296,18 +290,46 @@ svg {
 
 .gen-drop-toggle.selected{
     display: flex;
-    transition-delay: 0s;
+    transition-delay: 0.5s;
     transition: none;
     background: var(--selected-background-colour);
 }
 
+.gen-drop-toggle{
+    display:flex;
+    height: 5em;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: .8em;
+}
+
 .gen-drop-content{
-    display: flex;
-    max-height: 0;
-    max-width: 50em;
-    overflow: hidden;
-    background: var(--selected-background-colour);
-    transition: all var(--card-animation-time) ease-in-out ;
+    max-height:0;
+    overflow:hidden;
+    padding:0;
+    margin:0;
+    background:transparent;
+    border-radius:.8em;
+    transition:
+            max-height var(--card-animation-time) ease-in-out,
+            padding    var(--card-animation-time) ease-in-out,
+            margin     var(--card-animation-time) ease-in-out,
+            background-color var(--card-animation-time) ease-in-out,
+            border-color var(--card-animation-time) ease-in-out;
+    width:50em;
+}
+
+.gen-drop-container.is-open .gen-drop-content{
+    padding-bottom:1rem;
+    margin:.5rem;
+    background:var(--selected-background-colour);
+    border-color:rgba(255,255,255,.25);
+    border-radius:.8em;
+}
+
+.gen-drop-container.is-open{
+    background:none;
 }
 
 #board-members .gen-drop-content {
@@ -362,6 +384,7 @@ svg {
     object-fit: cover;
     width:100%;
     height:100%;
+
 }
 
 .member .mugshot:hover,
@@ -391,6 +414,67 @@ svg {
 .member .info .role{
     font-weight: bold;
 }
+
+.logo-icon { width: 40px; height: auto; }
+
+
+.empty-events{
+    --card-bg: var(--selected-background-colour, #333);
+    --card-brd: rgba(255,255,255,.12);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:1rem;
+    padding:2rem;
+    margin:1rem auto 0;
+    max-width:40em;
+    width:100%;
+
+    background:var(--card-bg);
+    border:1px solid var(--card-brd);
+    border-radius:1rem;
+}
+
+.empty-events.disable{
+    display:none !important;
+}
+
+.empty-events__icon{
+    width:40px;
+    height:40px;
+    opacity:.6;
+    fill:currentColor;
+}
+
+.empty-events__actions{
+    display:flex;
+    gap:.75rem;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:.6rem 1rem;
+    border-radius:999px;
+    border:1px solid var(--card-brd);
+    color:inherit;
+    text-decoration:none;
+    transition:transform .15s ease, border-color .15s ease, background-color .15s ease;
+    background:transparent;
+}
+.btn:hover{ transform:translateY(-1px); border-color:rgba(255,255,255,.28); }
+
+.btn-primary{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(255,255,255,.18);
+}
+.btn-primary:hover{ background:rgba(255,255,255,.1); }
+
 
 #sponsor-us-content{
     display: flex;
@@ -436,25 +520,25 @@ svg {
 
 #sponsors-top-marquee-one{
     z-index: 1;
-    animation: marquee 15s infinite linear 0s;
+    animation: marquee 7s infinite linear 0s;
 }
 #sponsors-top-marquee-two{
     z-index: 2;
     translate: -100%;
     position: relative;
-    animation: marquee 15s infinite linear 7.5s;
+    animation: marquee 7s infinite linear 3.5s;
 }
 
 #sponsors-bottom-marquee-one{
     z-index: 1;
-    animation: marquee 15s infinite linear 0s;
+    animation: marquee 7s infinite linear 0s;
     animation-direction: reverse;
 }
 
 #sponsors-bottom-marquee-two{
     z-index: 2;
     translate: -100%;
-    animation: marquee 15s infinite linear 7.5s;
+    animation: marquee 7s infinite linear 3.5s;
     animation-direction: reverse;
 }
 
