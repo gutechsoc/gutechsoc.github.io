@@ -19,7 +19,7 @@
     const PLAYER_SPEED_BASE = 5;
     const BULLET_SPEED = -7;
 
-    let DEV_GODMODE = true;
+    let DEV_GODMODE = false;
 
     const PLAYER_WIDTH_FACTOR = 1.65;
     const BULLET_WIDTH_FACTOR = 1.50;
