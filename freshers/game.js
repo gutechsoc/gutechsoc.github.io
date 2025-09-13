@@ -47,34 +47,34 @@
        ASSETS
     ============================ */
     const IMG = {
-        bg:'backdrop.png',
-        player:'gunship.png',
-        playerShield:'gunship.png', // placeholder
+        bg:'backdrop.PNG',
+        player:'gunship.PNG',
+        playerShield:'gunship.PNG', // placeholder
 
-        ufoNormal:'notepad.png',
-        ufoTank:'laptop.png',
-        ufoSpeed:'iphone.png',
-        ufoBoss:'extension.png',
+        ufoNormal:'notepad.PNG',
+        ufoTank:'laptop.PNG',
+        ufoSpeed:'iphone.PNG',
+        ufoBoss:'extension.PNG',
 
         // stickers
-        ufoNormalStamp:'notepad_stamped.png',
-        ufoTankStamp:'laptop_stamped.png',
-        ufoSpeedStamp:'iphone_stamped.png',
+        ufoNormalStamp:'notepad_stamped.PNG',
+        ufoTankStamp:'laptop_stamped.PNG',
+        ufoSpeedStamp:'iphone_stamped.PNG',
 
         // boss
-        ufoBossGif:'extension.gif',
-        ufoBossStamp1:'extension_stamped1.gif',
-        ufoBossStamp2:'extension_stamped2.gif',
-        ufoBossStamp3:'extension_stamped3.gif',
-        ufoBossStamp4:'extension_stamped4.gif',
-        ufoBossStamp5:'extension_stamped5.gif',
+        ufoBossGif:'extension.GIF',
+        ufoBossStamp1:'extension_stamped1.GIF',
+        ufoBossStamp2:'extension_stamped2.GIF',
+        ufoBossStamp3:'extension_stamped3.GIF',
+        ufoBossStamp4:'extension_stamped4.GIF',
+        ufoBossStamp5:'extension_stamped5.GIF',
 
         // player bullets (placeholder powerups)
-        laser:'stickerbullet.gif',
-        laserWide:'stickerbullet.gif',
-        laserPierce:'stickerbullet.gif',
-        laserBomb:'stickerbullet.gif',
-        laserDown:'bullet2.gif',
+        laser:'stickerbullet.GIF',
+        laserWide:'stickerbullet.GIF',
+        laserPierce:'stickerbullet.GIF',
+        laserBomb:'stickerbullet.GIF',
+        laserDown:'bullet2.GIF',
 
         pWide:'powerup_bullet_wide.png',
         pPierce:'powerup_bullet_piercing.png',
