@@ -11,6 +11,7 @@
 
     const isTouchLike = () => window.matchMedia("(pointer: coarse), (hover: none)").matches;
     const isWidescreen = () => window.matchMedia("(min-aspect-ratio: 16/10)").matches;
+    const mobile = isTouchLike() && !isWidescreen();
 
     let bottomSafeGU = 50;
     let difficulty = 1;
@@ -21,7 +22,7 @@
 
     let DEV_GODMODE = false;
 
-    const PLAYER_WIDTH_FACTOR = 1.65;
+    const PLAYER_WIDTH_FACTOR = mobile ? 2.35 : 1.65;
     const BULLET_WIDTH_FACTOR = 1.50;
 
     const ENEMY_ENLARGE_FACTOR = 1.35;
@@ -108,7 +109,6 @@
         }
 
         let padPx = 0;
-        const mobile = isTouchLike() && !isWidescreen();
         if (mobile) {
             const buttonHeightPx = Math.min(winH * 0.10, 110);
             const verticalOffsets = 45 + 16;
@@ -118,7 +118,7 @@
 
         const mobileBoost = mobile ? 1.5 : 1.0;
         difficulty = Math.max(1, Math.min(2.5, (GAME_H / 900) * mobileBoost));
-        entityScale = mobile ? 1.35 : 1;
+        entityScale = mobile ? 1.65 : 1;
 
         if (player) {
             player.h = Math.round(75 * entityScale);
@@ -495,9 +495,8 @@
             6:[[5,1,  780,   100, 300,'boss']]
         }[level] || [];
 
-        const mobile = isTouchLike() && !isWidescreen();
-        const spacingX = mobile ? 1.25 : 1.0;
-        const spacingY = mobile ? 1.35 : 1.0;
+        const spacingX = mobile ? 1.45 : 1.0;
+        const spacingY = mobile ? 1.65 : 1.0;
 
         for (const [w,h,ox,oy,dist,key] of cfg){
             const [speed,health,img,stampImg,worth,kind,gifSrcs] = T[key];
@@ -507,7 +506,7 @@
 
             const rawW = img.w, rawH = img.h;
             const typeMul = ENEMY_TYPE_SIZE[key] ?? 1.0;
-            const baseScale = (mobile ? Math.min(entityScale * 0.85, 1.0) : entityScale)
+            const baseScale = (mobile ? Math.min(entityScale * 0.85, 1.55) : entityScale)
                 * ENEMY_ENLARGE_FACTOR * typeMul;
 
             const marginX = 60;
