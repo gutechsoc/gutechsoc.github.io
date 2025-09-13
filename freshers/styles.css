@@ -6,12 +6,11 @@
     --accent: #00e5ff;
 }
 
-
 html,body{
     height:100%;
     margin:0;
     background:#000;
-    color:var(--ui-fg);
+    color:var(--ui-bg);
     font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 }
 #wrap{
@@ -74,7 +73,7 @@ html,body{
 }
 .touchpad.active{ background:var(--btn-bg-active); }
 #padLeft{ left:12px; }
-#padRight{ left:calc(12px + min(22vw, 180px) + 10px); }
+#padRight{ left:calc(12px + min(16vw, 180px) + 10px); }
 #padFire{ right:12px; }
 
 @media (pointer: coarse), (hover: none){
