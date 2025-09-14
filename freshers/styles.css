@@ -78,6 +78,32 @@ html,body{
 }
 .touchpad.active{ background:var(--btn-bg-active); }
 
+#controlBar{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    height:var(--ctrlH, 0px);
+    background:#000;
+    z-index:3;
+    pointer-events:none;
+}
+
+#wrap{ z-index:1; }
+#game{ position:relative; z-index:1; }
+
+#topBar{
+    position:fixed;
+    left:0; right:0; top:0;
+    height:var(--topH, 0px);
+    background:#fff;
+    border:0; box-shadow:none;
+    z-index:0;
+    pointer-events:none;
+}
+
+#controlBar{ z-index:3; }
+.touchpad{ z-index:5; }
+
+
 #padLeft{ left:12px; }
 #padRight{ left: calc(12px + var(--padW) + 10px); }
 #padFire{ right:12px; }

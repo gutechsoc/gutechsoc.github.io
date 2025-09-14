@@ -193,57 +193,71 @@
 
         const mobile = isTouchLike() && !isWidescreen();
 
-        const buttonHeightPx  = mobile ? Math.min(Math.round(winH * 0.12), 130) : 0;
-        const buttonWidthPx   = mobile ? Math.min(Math.round(buttonHeightPx * 1.10), Math.round(winW * 0.22), 180) : 0;
-        const buttonGapPx     = mobile ? 24 : 0;
-        const controlBarPx    = buttonHeightPx + buttonGapPx;
-
+        let buttonHeightPx = 0, buttonWidthPx = 0, ctrlBarPx = 0;
         if (mobile){
+            buttonHeightPx = clamp(Math.round(winW * 0.18), 68, 110);
+            buttonWidthPx  = clamp(Math.round(buttonHeightPx * 1.05), 72, 160);
             setCssVar('--padH', `${buttonHeightPx}px`);
             setCssVar('--padW', `${buttonWidthPx}px`);
+
+            const safe = safeAreaBottomPx();
+            ctrlBarPx = buttonHeightPx + safe + 12;
+            setCssVar('--ctrlH', `${ctrlBarPx}px`);
+        } else {
+            setCssVar('--ctrlH', `0px`);
         }
 
+        const TARGET_AR_H_OVER_W = 768 / 540;
         if (mobile){
-            const TARGET_AR_H_OVER_W = 768 / 540;
             GAME_H = Math.round(GAME_W * TARGET_AR_H_OVER_W);
             scale  = winW / GAME_W;
-            offX   = 0;
-
-
-            const gamePxH  = GAME_H * scale;
-            const availPxH = Math.max(0, winH - controlBarPx);
-            const liftPx   = Math.round(buttonHeightPx * 0.60);
-            offY = Math.max(0, (availPxH - gamePxH) - liftPx);
         } else {
             GAME_H = Math.max(700, Math.round(GAME_W * (winH / winW)));
             scale  = winW / GAME_W;
-            offX   = 0; offY = 0;
         }
+        offX = 0;
+
+        const playablePxH = winH - ctrlBarPx;
+
+        const WORLD_BAR_GAP_PX   = clamp(Math.round(buttonHeightPx * 0.08), 6, 18);
+        offY = Math.round(playablePxH - scale * GAME_H - WORLD_BAR_GAP_PX);
+
+        setCssVar('--topH', `${Math.max(0, offY)}px`);
+
+        const PLAYER_BAR_GAP_PX  = clamp(Math.round(buttonHeightPx * 0.12), 10, 24);
+        const playerGapGU = Math.round((ctrlBarPx + PLAYER_BAR_GAP_PX) / Math.max(scale, 0.0001));
+        bottomSafeGU = mobile ? Math.max(60, Math.min(180, playerGapGU)) : 110;
 
         const mobileBoost = mobile ? 1.5 : 1.0;
         difficulty  = Math.max(1, Math.min(2.2, (GAME_H / 900) * mobileBoost));
         entityScale = mobile ? 1.75 : 1.55;
 
-        bottomSafeGU = mobile ? 8 : 110;
-
-        if (player) {
+        if (player){
             player.h = Math.round(85 * entityScale * PLAYER_HEIGHT_FACTOR);
             player.w = Math.round(85 * entityScale * PLAYER_WIDTH_FACTOR);
             player.onResize();
         }
-        mobs.forEach(m => {
-            if (m.img) { m.w = Math.round(m.img.w * m.scale); m.h = Math.round(m.img.h * m.scale); }
-            if (m.gifEl) positionGifEl(m);
-        });
-        powerups.forEach(p => {
-            p.w = Math.round(p.img.w * entityScale);
-            p.h = Math.round(p.img.h * entityScale);
-            if (p.onResize) p.onResize();
-        });
+        mobs.forEach(m => { if (m.img){ m.w = Math.round(m.img.w * m.scale); m.h = Math.round(m.img.h * m.scale); } if (m.gifEl) positionGifEl(m); });
+        powerups.forEach(p => { p.w = Math.round(p.img.w * entityScale); p.h = Math.round(p.img.h * entityScale); if (p.onResize) p.onResize(); });
         bullets.forEach(b => { if (b.gifEl) positionGifEl(b); });
         enemyBullets.forEach(b => { if (b.gifEl) positionGifEl(b); });
     }
+
+
     addEventListener('resize', resize);
+
+    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+    function safeAreaBottomPx(){
+        const probe = document.createElement('div');
+        probe.style.cssText = 'position:fixed;left:-9999px;bottom:0;height:0;padding-bottom: env(safe-area-inset-bottom);';
+        document.body.appendChild(probe);
+        const h = Math.round(probe.getBoundingClientRect().height);
+        probe.remove();
+        return h;
+    }
+
+
 
     /* ============================
        LOADING
@@ -334,30 +348,29 @@
     /* ============================
        DOM GIF OVERLAYS
     ============================ */
-    function createGifEl(src){
+    function createGifEl(src, z = 2){
         const el = new Image();
         el.src = IMG_PATH + src;
         el.alt = ''; el.draggable = false;
         el.style.position = 'fixed';
-        el.style.left = '0px'; el.style.top  = '0px';
+        el.style.left = '0px'; el.style.top = '0px';
         el.style.width = '0px'; el.style.height = '0px';
         el.style.pointerEvents = 'none';
-        el.style.zIndex = '2';
+        el.style.zIndex = String(z);
         document.body.appendChild(el);
         return el;
     }
-    function removeGifEl(el){
-        if (!el) return;
-        try { el.remove(); } catch(_) {}
-    }
+    function removeGifEl(el){ if (el) try{ el.remove(); }catch(_){} }
+
     function positionGifEl(o){
         if (!o.gifEl) return;
-        o.gifEl.style.left   = (offX + o.x * scale) + 'px';
-        o.gifEl.style.top    = (offY + o.y * scale) + 'px';
-        o.gifEl.style.width  = (o.w * scale) + 'px';
-        o.gifEl.style.height = (o.h * scale) + 'px';
+        o.gifEl.style.left   = Math.round(offX + o.x * scale) + 'px';
+        o.gifEl.style.top    = Math.round(offY + o.y * scale) + 'px';
+        o.gifEl.style.width  = Math.round(o.w * scale) + 'px';
+        o.gifEl.style.height = Math.round(o.h * scale) + 'px';
         o.gifEl.style.visibility = (o.y > -o.h && o.y < GAME_H + o.h) ? 'visible' : 'hidden';
     }
+
 
     /* ============================
        GAME OBJECTS
@@ -366,6 +379,16 @@
         return a.x < b.x + b.w && a.x + a.w > b.x &&
             a.y < b.y + b.h && a.y + a.h > b.y;
     }
+
+    function shrinkRect(r, sx=0.2, sy=0.2){
+        const w = r.w * (1 - sx);
+        const h = r.h * (1 - sy);
+        return { x: r.x + (r.w - w)/2, y: r.y + (r.h - h)/2, w, h };
+    }
+    function overlap(a,b){
+        return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+    }
+
 
     class Player{
         constructor(game){
@@ -465,24 +488,24 @@
                 this.h = normalH;
             }
 
-            this.x = x - this.w/2; this.y = y - this.h;
+            const SPAWN_GAP = 6;
+            this.x = x - this.w/2;
+            this.y = y - SPAWN_GAP;
+
             this.vy = BULLET_SPEED * (0.9 + 0.30*(difficulty-1));
             this.hp = (type==='BulletPiercing') ? 5 : 1;
 
-            this.gifEl = createGifEl(type==='BulletPiercing' ? IMG.laserPierce : IMG.laser);
+            this.gifEl = createGifEl(type==='BulletPiercing' ? IMG.laserPierce : IMG.laser, 3);
             this.gifEl.onerror = () => { removeGifEl(this.gifEl); this.gifEl = null; };
-
             positionGifEl(this);
         }
         update(){ this.y += this.vy; }
-        draw(){
-            if (this.gifEl) positionGifEl(this);
-            else ctx.drawImage(this.img.img, this.x, this.y, this.w, this.h);
-        }
+        draw(){ if (this.gifEl) positionGifEl(this); else ctx.drawImage(this.img.img, this.x, this.y, this.w, this.h); }
         destroy(){ if (this.gifEl) { removeGifEl(this.gifEl); this.gifEl = null; } }
         get rect(){ return {x:this.x,y:this.y,w:this.w,h:this.h}; }
         get offscreen(){ return this.y + this.h < 0; }
     }
+
 
     class EnemyBullet{
         constructor(x,y){
@@ -495,7 +518,7 @@
             this.y = Math.round(y);
             this.vy = 3.2 + difficulty * 1.4;
 
-            this.gifEl = createGifEl(IMG.laserDown);
+            this.gifEl = createGifEl(IMG.laserDown, 4);
             this.gifEl.onerror = () => { removeGifEl(this.gifEl); this.gifEl = null; };
             positionGifEl(this);
         }
@@ -779,25 +802,26 @@
         ctx.textAlign = align; ctx.textBaseline = 'top';
         ctx.fillText(str,x,y);
     }
-    function drawHUD(){
-        const hudSize = (isTouchLike() && !isWidescreen()) ? 34 : 26;
-        const hudLine = hudSize + 8;
-        drawText(`Score: ${score}`, 100, 10, hudSize, COLOR.CYAN);
-        drawText(`Level: ${level}`, 100, 10 + hudLine, hudSize, COLOR.WHITE);
-
+    function drawWorldHUD(){
         const col = bulletPower==='BulletPiercing' ? COLOR.ORANGE
             : bulletPower==='BulletBomb' ? COLOR.GRAY : COLOR.WHITE;
         const ammoSize = (isTouchLike() && !isWidescreen()) ? 34 : 26;
         const ammoLabel = DEV_GODMODE ? '∞' : String(bulletsNum);
         drawText(`Ammo: ${ammoLabel}`, player.x + player.w/2, player.y - 30, ammoSize, col, 'center');
 
-        if (DEV_GODMODE){
-            drawText('GODMODE', GAME_W - 40, 10, 18, COLOR.ORANGE, 'right');
-        }
-
         if (performance.now() - levelBannerAt < 2000)
             drawText(`Level ${level}`, GAME_W/2, GAME_H/2 - 25, 50, COLOR.WHITE, 'center');
     }
+
+    function drawTopOverlayHUD(){
+        ctx.save();
+        ctx.setTransform(1,0,0,1,0,0);
+        const hudSize = (isTouchLike() && !isWidescreen()) ? 32 : 24;
+        const topY = Math.max(0, Math.round(offY)) + 6;
+        const line = hudSize + 6;
+        ctx.restore();
+    }
+
 
     /* ============================
        LOOP
@@ -809,9 +833,15 @@
 
         ctx.setTransform(1,0,0,1,0,0);
         ctx.clearRect(0,0,canvas.width,canvas.height);
+        if (offY > 0){
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, canvas.width, Math.round(offY));
+        }
         ctx.setTransform(scale,0,0,scale, offX, offY);
 
-        ctx.drawImage(images.bg.img, 0, 0, GAME_W, GAME_H);
+        const bgBaseH = images.bg.h || 900;
+        const bgDrawH = Math.max(GAME_H, bgBaseH);
+        ctx.drawImage(images.bg.img, 0, GAME_H - bgDrawH, GAME_W, bgDrawH);
 
         if (state === 'MAIN_MENU'){
             drawText("GUTS Space Invaders", GAME_W/2, 180, 64, COLOR.BLACK, 'center');
@@ -848,9 +878,9 @@
 
             player.update();
             mobs.forEach(m=>m.update());
-            bullets.forEach(b=>b.update());
             powerups.forEach(p=>p.update());
             enemyBullets.forEach(b=>b.update());
+            bullets.forEach(b=>b.update());
             effects.forEach(f=>f.update(dtMs));
 
             enemyFireTimer += dt;
@@ -889,7 +919,7 @@
                     if (!DEV_GODMODE){ gameWon = false; state='GAME_OVER'; showOverButtons(); }
                     break;
                 }
-                if (rectsOverlap(player.rect, m.rect)){
+                if (overlap(shrinkRect(player.rect, 0.25, 0.3), shrinkRect(m.rect, 0.15, 0.15))){
                     if (DEV_GODMODE){
                         score += m.worth; m.destroy(); mobs.splice(i,1); tryPlay(sounds.boom);
                         continue;
@@ -903,7 +933,7 @@
                 const b=bullets[bi]; let hit=false;
                 for (let mi=0; mi<mobs.length; mi++){
                     const m=mobs[mi];
-                    if (!rectsOverlap(b.rect,m.rect)) continue;
+                    if (!overlap(shrinkRect(b.rect, 0.15, 0.10), shrinkRect(m.rect, 0.10, 0.10))) continue;
                     hit=true;
 
                     if (m.kind === 'boss'){
@@ -957,7 +987,7 @@
 
             for (let ei = enemyBullets.length-1; ei>=0; ei--){
                 const eb = enemyBullets[ei];
-                if (rectsOverlap(eb.rect, player.rect)){
+                if (overlap(shrinkRect(eb.rect, 0.2, 0.2), shrinkRect(player.rect, 0.3, 0.25))){
                     if (DEV_GODMODE){ eb.destroy(); enemyBullets.splice(ei,1); continue; }
                     if (player.shielded){ player.unshield(); eb.destroy(); enemyBullets.splice(ei,1); }
                     else { state='GAME_OVER'; showOverButtons(); break; }
@@ -1004,7 +1034,8 @@
             bullets.forEach(b=>b.draw());
             player.draw();
             effects.forEach(f=>f.draw());
-            drawHUD();
+            drawWorldHUD();
+            drawTopOverlayHUD();
         }
 
         if (state === 'GAME_OVER'){
