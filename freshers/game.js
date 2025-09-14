@@ -480,7 +480,7 @@
     class EnemyBullet{
         constructor(x,y){
             const img = images.laserDown;
-            const scaleEB = 1.5;
+            const scaleEB = 2.0;
             this.img = img;
             this.w = Math.round(img.w * scaleEB);
             this.h = Math.round(img.h * scaleEB);
