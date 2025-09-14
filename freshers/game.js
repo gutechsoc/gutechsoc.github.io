@@ -11,30 +11,32 @@
 
     const isTouchLike = () => window.matchMedia("(pointer: coarse), (hover: none)").matches;
     const isWidescreen = () => window.matchMedia("(min-aspect-ratio: 16/10)").matches;
-    const mobile = isTouchLike() && !isWidescreen();
 
     let bottomSafeGU = 50;
     let difficulty = 1;
-    let entityScale = 1;
+    let entityScale = 1.25;
+    const PLAYER_RELOAD_MS = 500;
 
     const PLAYER_SPEED_BASE = 5;
     const BULLET_SPEED = -7;
 
     let DEV_GODMODE = false;
 
-    const PLAYER_WIDTH_FACTOR = mobile ? 2.35 : 1.65;
-    const BULLET_WIDTH_FACTOR = 1.50;
+    const PLAYER_WIDTH_FACTOR = 3.00;
+    const PLAYER_HEIGHT_FACTOR = 1.55;
+    const BULLET_WIDTH_FACTOR = 2.60;
+    const BULLET_HEIGHT_FACTOR = 2.30;
 
-    const ENEMY_ENLARGE_FACTOR = 1.35;
+    const ENEMY_ENLARGE_FACTOR = 1.40;
 
     const ENEMY_TYPE_SIZE = {
-        normal: 2.05,
-        fast:   1.35,
-        tank:   1.12,
-        boss:   1.0
+        normal: 1.7,
+        fast:   1.30,
+        tank:   1,
+        boss:   3.0
     };
 
-    const ENEMY_FIRE_BASE_MS = 1400;
+    const ENEMY_FIRE_BASE_MS = 2000;
 
     const COLOR = {
         WHITE:'#FFFFFF', BLACK:'#000000', CYAN:'#00FFFF',
@@ -44,25 +46,27 @@
 
     const MAX_LEVEL = 7;
 
+    const OVER_BTN1_TEXT = "Try Again";
+    const OVER_BTN2_TEXT = "More about GUTS";
+    const OVER_BTN2_URL  = "https://gutechsoc.com";
+
     /* ============================
        ASSETS
     ============================ */
     const IMG = {
         bg:'backdrop.PNG',
         player:'gunship.PNG',
-        playerShield:'gunship.PNG', // placeholder
+        playerShield:'gunship_shield.PNG',
 
         ufoNormal:'notepad.PNG',
         ufoTank:'laptop.PNG',
         ufoSpeed:'iphone.PNG',
         ufoBoss:'extension.PNG',
 
-        // stickers
         ufoNormalStamp:'notepad_stamped.PNG',
         ufoTankStamp:'laptop_stamped.PNG',
         ufoSpeedStamp:'iphone_stamped.PNG',
 
-        // boss
         ufoBossGif:'extension.GIF',
         ufoBossStamp1:'extension_stamped1.GIF',
         ufoBossStamp2:'extension_stamped2.GIF',
@@ -70,24 +74,109 @@
         ufoBossStamp4:'extension_stamped4.GIF',
         ufoBossStamp5:'extension_stamped5.GIF',
 
-        // player bullets (placeholder powerups)
         laser:'stickerbullet.GIF',
-        laserWide:'stickerbullet.GIF',
-        laserPierce:'stickerbullet.GIF',
+        laserPierce:'stickerbullet_pierce.GIF',
         laserBomb:'stickerbullet.GIF',
         laserDown:'bullet2.GIF',
 
-        pWide:'powerup_bullet_wide.png',
-        pPierce:'powerup_bullet_piercing.png',
-        pBomb:'powerup_bomb.png',
-        pShield:'powerup_shield.png',
-        pScore:'powerup_score.png'
+        pPierce:'powerup_pierce.PNG',
+        pBomb:'powerup_bomb.PNG',
+        pShield:'powerup_shield.PNG'
     };
     const SND = { shoot:'shooting.wav', boom:'explosion.wav' };
     const IMG_PATH = './images/', SND_PATH = './sounds/';
 
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
+
+    /* ============================
+       GAME OVER BUTTONS
+    ============================ */
+    let overBtnRetry = null, overBtnLink = null, overBtnCont = null;
+    function ensureOverButtons(){
+        if (overBtnRetry && overBtnLink && overBtnCont) return;
+        if (!overBtnRetry) overBtnRetry = document.createElement('button');
+        if (!overBtnLink)  overBtnLink  = document.createElement('button');
+        if (!overBtnCont)  overBtnCont  = document.createElement('button');
+
+        const styleBtn = (b) => {
+            b.style.position='fixed';
+            b.style.left='50%'; b.style.transform='translateX(-50%)';
+            b.style.padding='12px 20px';
+            b.style.fontSize='16px';
+            b.style.borderRadius='10px';
+            b.style.border='none';
+            b.style.cursor='pointer';
+            b.style.zIndex='5';
+            b.style.display='none';
+        };
+
+        styleBtn(overBtnRetry);
+        styleBtn(overBtnLink);
+        styleBtn(overBtnCont);
+
+        overBtnRetry.style.backgroundColor = '#808080';
+        overBtnRetry.style.color = '#FFFFFF';
+        overBtnRetry.style.border = '1px solid #6e6e6e';
+        overBtnRetry.style.top = '60%';
+
+        overBtnLink.style.backgroundColor  = '#49B3FF';
+        overBtnLink.style.color            = '#FFFFFF';
+        overBtnLink.style.border = '1px solid #2a90e0';
+        overBtnLink.style.top  = '68%';
+
+        overBtnCont.style.backgroundColor = '#00C853';
+        overBtnCont.style.color = '#FFFFFF';
+        overBtnCont.style.border = '1px solid #009E3E';
+        overBtnCont.style.top = '80%';
+
+        overBtnRetry.textContent = OVER_BTN1_TEXT;
+        overBtnLink.textContent  = OVER_BTN2_TEXT;
+        overBtnCont.textContent  = "Continue?";
+
+        overBtnRetry.addEventListener('click', ()=>{
+            if (state==='GAME_OVER'){
+                endlessMode = false;
+                gameWon = false;
+                hideOverButtons();
+                state='PLAYING'; resetGame(); createMobsForLevel();
+            }
+        });
+        overBtnLink.addEventListener('click', ()=>{
+            if (!OVER_BTN2_URL) return;
+            window.location.href = OVER_BTN2_URL;
+        });
+        overBtnCont.addEventListener('click', ()=>{
+            if (state==='GAME_OVER' && gameWon){
+                endlessMode = true;
+                endlessStage = 0;
+                gameWon = false;
+                hideOverButtons();
+                state='PLAYING';
+                resetGame();
+                level = 1;
+                createMobsForLevel();
+            }
+        });
+
+        if (!overBtnRetry.parentNode) document.body.appendChild(overBtnRetry);
+        if (!overBtnLink.parentNode)  document.body.appendChild(overBtnLink);
+        if (!overBtnCont.parentNode)  document.body.appendChild(overBtnCont);
+    }
+
+    function showOverButtons(){
+        ensureOverButtons();
+        overBtnRetry.style.display='block';
+        overBtnLink.style.display='block';
+        if (gameWon && overBtnCont) overBtnCont.style.display='block';
+        else if (overBtnCont) overBtnCont.style.display='none';
+    }
+    function hideOverButtons(){
+        if (overBtnRetry) overBtnRetry.style.display='none';
+        if (overBtnLink)  overBtnLink.style.display='none';
+        if (overBtnCont)  overBtnCont.style.display='none';
+    }
+
 
     /* ============================
        RESIZE / VIEW
@@ -109,6 +198,7 @@
         }
 
         let padPx = 0;
+        const mobile = isTouchLike() && !isWidescreen();
         if (mobile) {
             const buttonHeightPx = Math.min(winH * 0.10, 110);
             const verticalOffsets = 45 + 16;
@@ -117,12 +207,12 @@
         bottomSafeGU = Math.max(110, Math.round(padPx / scale + 80));
 
         const mobileBoost = mobile ? 1.5 : 1.0;
-        difficulty = Math.max(1, Math.min(2.5, (GAME_H / 900) * mobileBoost));
-        entityScale = mobile ? 1.65 : 1;
+        difficulty = Math.max(1, Math.min(2.2, (GAME_H / 900) * mobileBoost));
+        entityScale = mobile ? 1.75 : 1.55;
 
         if (player) {
-            player.h = Math.round(75 * entityScale);
-            player.w = Math.round(75 * entityScale * PLAYER_WIDTH_FACTOR);
+            player.h = Math.round(85 * entityScale* PLAYER_HEIGHT_FACTOR);
+            player.w = Math.round(85 * entityScale * PLAYER_WIDTH_FACTOR);
             player.onResize();
         }
         mobs.forEach(m => {
@@ -157,24 +247,19 @@
         ['ufoSpeed',  IMG.ufoSpeed,  36, 36],
         ['ufoBoss',   IMG.ufoBoss,  150,150],
 
-        // sticker
         ['ufoNormalStamp', IMG.ufoNormalStamp, 36, 36],
         ['ufoTankStamp',   IMG.ufoTankStamp,   50, 50],
         ['ufoSpeedStamp',  IMG.ufoSpeedStamp,  36, 36],
 
-        // bullets
-        ['laser',     IMG.laser,     20, 50],
-        ['laserWide', IMG.laserWide, 60,100],
-        ['laserPierce',IMG.laserPierce,10,100],
-        ['laserBomb', IMG.laserBomb, 30, 50],
+        ['laser',       IMG.laser,       20, 50],
+        ['laserPierce', IMG.laserPierce, 20,50],
+        ['laserBomb',   IMG.laserBomb,   30, 50],
+
         ['laserDown', IMG.laserDown, 18, 42],
 
-        // powerups
-        ['pWide',   IMG.pWide,   30, 30],
         ['pPierce', IMG.pPierce, 30, 30],
         ['pBomb',   IMG.pBomb,   30, 30],
-        ['pShield', IMG.pShield, 30, 30],
-        ['pScore',  IMG.pScore,  30, 30]
+        ['pShield', IMG.pShield, 30, 30]
     ];
 
     function loadImage(key, file, w, h){
@@ -272,7 +357,7 @@
     class Player{
         constructor(game){
             this.g = game;
-            this.h = Math.round(75 * entityScale);
+            this.h = Math.round(75 * entityScale * PLAYER_HEIGHT_FACTOR);
             this.w = Math.round(75 * entityScale * PLAYER_WIDTH_FACTOR);
             this.x = (GAME_W - this.w)/2;
             this.y = GAME_H - bottomSafeGU - this.h;
@@ -318,9 +403,9 @@
         }
         update(){
             if (this.frozen) return;
-            const intervalBase = 20;
-            const interval = Math.max(5, Math.round(intervalBase / difficulty));
-            if (this.counter % interval === 0) this.y += this.baseSpeed * difficulty * 1.15;
+            const intervalBase = 22;
+            const interval = Math.max(7, Math.round(intervalBase / difficulty));
+            if (this.counter % interval === 0) this.y += this.baseSpeed * difficulty * 1.05;
             if (this.counter === 0) this.x += 50;
             else if (this.counter === 1000) this.x -= 50;
             this.counter = (this.counter + 1) % 2000;
@@ -344,20 +429,36 @@
         get rect(){ return {x:this.x,y:this.y,w:this.w,h:this.h}; }
     }
 
+    /* ============================
+   BULLET SIZING
+============================ */
     class Bullet{
         constructor(x,y,type){
             this.type=type;
-            const map = { laser:images.laser, BulletWidth:images.laserWide, BulletPiercing:images.laserPierce, BulletBomb:images.laserBomb };
+            const map = { laser:images.laser, BulletPiercing:images.laserPierce, BulletBomb:images.laserBomb };
             this.img = map[type || 'laser'];
 
-            this.w = Math.round(this.img.w * BULLET_WIDTH_FACTOR);
-            this.h = this.img.h;
-            this.x = x - this.w/2; this.y = y - this.h;
-            this.vy = BULLET_SPEED * (0.9 + 0.35*(difficulty-1));
-            this.hp = (type==='BulletWidth') ? 3 : (type==='BulletPiercing') ? 5 : 1;
+            const mobileMul = (isTouchLike() && !isWidescreen()) ? 1.45 : 1.25;
+            const baseW = this.img.w, baseH = this.img.h;
 
-            this.gifEl = createGifEl(IMG.laser);
+            const normalW = Math.round(baseW * BULLET_WIDTH_FACTOR  * mobileMul);
+            const normalH = Math.round(baseH * BULLET_HEIGHT_FACTOR * mobileMul);
+
+            if (type === 'BulletBomb'){
+                this.w = Math.round(normalW * 1.25);
+                this.h = Math.round(normalH * 1.25);
+            } else {
+                this.w = normalW;
+                this.h = normalH;
+            }
+
+            this.x = x - this.w/2; this.y = y - this.h;
+            this.vy = BULLET_SPEED * (0.9 + 0.30*(difficulty-1));
+            this.hp = (type==='BulletPiercing') ? 5 : 1;
+
+            this.gifEl = createGifEl(type==='BulletPiercing' ? IMG.laserPierce : IMG.laser);
             this.gifEl.onerror = () => { removeGifEl(this.gifEl); this.gifEl = null; };
+
             positionGifEl(this);
         }
         update(){ this.y += this.vy; }
@@ -370,16 +471,17 @@
         get offscreen(){ return this.y + this.h < 0; }
     }
 
+
     class EnemyBullet{
         constructor(x,y){
             const img = images.laserDown;
-            const scaleEB = Math.max(1, entityScale * 0.95);
+            const scaleEB = 1.5;
             this.img = img;
             this.w = Math.round(img.w * scaleEB);
             this.h = Math.round(img.h * scaleEB);
             this.x = Math.round(x - this.w/2);
             this.y = Math.round(y);
-            this.vy = 3.8 + difficulty * 1.7;
+            this.vy = 3.2 + difficulty * 1.4;
 
             this.gifEl = createGifEl(IMG.laserDown);
             this.gifEl.onerror = () => { removeGifEl(this.gifEl); this.gifEl = null; };
@@ -418,11 +520,13 @@
     let score = 0, level = 0, levelBannerAt = 0;
     let bulletPower = null, maxBullets = 3, bulletsNum = 3, bulletReloadTimer = 0;
     let playerSpeed = PLAYER_SPEED_BASE;
-    let highScores = [];
-    const hiKey = 'si_high_scores';
+    let gameWon = false;
+    let endlessMode = false;
+    let endlessStage = 0;
 
     let enemyFireTimer = 0;
     let enemyNextInterval = 1.0;
+    let shootersBaseline = 1;
 
     const gate = document.getElementById('nameGate');
     const nameInput = document.getElementById('playerName');
@@ -438,21 +542,13 @@
         setTimeout(()=> nameInput.focus(), 0);
     }
 
-    function saveHighScores(){
-        const rec = { name: username || 'Player', score, level };
-        highScores.push(rec);
-        highScores.sort((a,b)=> (b.score - a.score) || (b.level - a.level));
-        highScores = highScores.slice(0,10);
-        localStorage.setItem(hiKey, JSON.stringify(highScores));
-    }
-    function loadHighScores(){
-        try { highScores = JSON.parse(localStorage.getItem(hiKey) || '[]'); }
-        catch { highScores = []; }
-    }
     function randomEnemyIntervalSec(){
         const base = ENEMY_FIRE_BASE_MS / 1000 / Math.max(1, difficulty);
-        return base * (0.8 + Math.random() * 0.4);
+        const current = Math.max(1, bottomRowMobs().length);
+        const scale = Math.min(3.5, Math.max(1, shootersBaseline / current));
+        return base * scale * (0.9 + Math.random() * 0.3);
     }
+
     function bottomRowMobs(){
         const out = [];
         for (const m of mobs){
@@ -486,27 +582,26 @@
             }]
         };
 
-        const cfg = {
-            1:[[9,3,  500, 60, 60,'normal']],
-            2:[[11,4, 440, 60, 60,'normal'], [15,2, 320,-80,60,'normal']],
-            3:[[11,5, 440, 60, 60,'normal'], [15,3, 320,-120,60,'normal'], [15,2,320,-100,60,'fast']],
-            4:[[11,5, 440,  60, 60,'normal'], [15,4, 320,-150,60,'normal'], [15,3,320,-130,60,'fast'], [ 9,3,360,-260,80,'tank']],
-            5:[[11,5, 440,  60, 60,'normal'], [15,5, 320,-240,60,'normal'], [ 8,4,360,-480,85,'tank'], [15,5,320,-350,60,'fast'], [1,1,780,-400,0,'boss']],
-            6:[[5,1,  780,   100, 300,'boss']]
-        }[level] || [];
+        let cfg;
+        if (endlessMode){
+            cfg = generateEndlessCfg();
+        } else {
+            cfg = getCampaignCfg()[level] || [];
+        }
 
-        const spacingX = mobile ? 1.45 : 1.0;
-        const spacingY = mobile ? 1.65 : 1.0;
+        const mobile = isTouchLike() && !isWidescreen();
+        const spacingX = mobile ? 2.55 : 1.0;
+        const spacingY = mobile ? 3.05 : 1.0;
 
         for (const [w,h,ox,oy,dist,key] of cfg){
-            const [speed,health,img,stampImg,worth,kind,gifSrcs] = T[key];
+            const [speed,health,img,stampImg,worth,kind] = T[key];
 
             const distX = Math.round(dist * spacingX);
             const distY = Math.round(dist * spacingY);
 
             const rawW = img.w, rawH = img.h;
             const typeMul = ENEMY_TYPE_SIZE[key] ?? 1.0;
-            const baseScale = (mobile ? Math.min(entityScale * 0.85, 1.55) : entityScale)
+            const baseScale = (mobile ? Math.min(entityScale * 2.85, 4.5) : entityScale)
                 * ENEMY_ENLARGE_FACTOR * typeMul;
 
             const marginX = 60;
@@ -519,11 +614,27 @@
             const fitX = (availableWidth  - (w - 1) * distX) / rawW;
             const fitY = (availableHeight - (h - 1) * distY) / rawH;
 
-            const scaleFit = Math.min(baseScale, fitX, fitY);
-            const finalScale = Math.max(0.45, Math.min(scaleFit, baseScale));
+            let finalScale;
+            if (key === 'boss') {
+                const bossMinPx = (isTouchLike() && !isWidescreen()) ? 520 : 400;
+                const bossMinScale = bossMinPx / rawH;
+
+                const maxScaleByHeight = Math.min(fitY, baseScale * 2.2);
+                const capByWidth = (availableWidth - (w - 1) * distX) / rawW;
+
+                finalScale = Math.max(bossMinScale, Math.min(maxScaleByHeight, capByWidth));
+            } else {
+                const scaleFit = Math.min(baseScale, fitX, fitY);
+                finalScale = Math.max(0.55, Math.min(scaleFit, baseScale));
+            }
+
 
             const formationWidth = (w - 1) * distX + rawW * finalScale;
-            const startX = Math.round((GAME_W - formationWidth) / 2);
+            let startX = Math.round((GAME_W - formationWidth) / 2);
+
+            if (key === 'fast') {
+                startX += Math.round(distX / 2);
+            }
 
             for (let x=0;x<w;x++){
                 for (let y=0;y<h;y++){
@@ -541,6 +652,7 @@
                     } : null));
                 }
             }
+            shootersBaseline = Math.max(1, bottomRowMobs().length);
         }
 
         if (level === 3) maxBullets = 4;
@@ -550,6 +662,44 @@
         enemyFireTimer = 0;
         enemyNextInterval = randomEnemyIntervalSec();
     }
+
+    function getCampaignCfg(){
+        return {
+            1: [[6, 5, 520, -780, 70, 'normal']],
+            2: [[6, 8, 520, -920, 80, 'normal']],
+            3: [[6, 8, 480, -980, 80, 'normal'],
+                [6, 3, 360, -220, 80, 'fast']],
+            4: [[6, 2, 480,   60, 70, 'normal'],
+                [5, 2, 380, -150, 75, 'normal'],
+                [6, 2, 380, -130, 75, 'fast'],
+                [5, 2, 480, -260, 120, 'tank']],
+            5: [[6, 4, 480, -120, 70, 'normal'],
+                [6, 4, 360, -360, 70, 'normal'],
+                [5, 3, 380, -600, 120, 'tank'],
+                [8, 3, 360, -420, 70, 'fast']],
+            6: [[3, 1, 780, 140, 260, 'boss']]
+        };
+    }
+
+    const ENDLESS_POOL = (() => {
+        const obj = getCampaignCfg();
+        const out = [];
+        for (const lvl of [1,2,3,4,5]) {
+            for (const g of obj[lvl] || []) if (g[5] !== 'boss') out.push(g);
+        }
+        return out;
+    })();
+
+    function generateEndlessCfg(){
+        const pool = ENDLESS_POOL;
+        const k = Math.min(pool.length, 2 + endlessStage);
+        const idx = pool.map((_,i)=>i);
+        for (let i=idx.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [idx[i],idx[j]]=[idx[j],idx[i]]; }
+        const picked = idx.slice(0,k).map(i => pool[i].map(x => (Array.isArray(x) ? x.slice() : x)));
+        endlessStage++;
+        return picked.map(g => g.slice());
+    }
+
 
     function destroyAllMobs(){
         for (const m of mobs) m.destroy();
@@ -561,6 +711,7 @@
     }
 
     function resetGame(){
+        hideOverButtons();
         destroyAllMobs();
         destroyList(bullets);
         destroyList(enemyBullets);
@@ -587,13 +738,14 @@
             this.spawnAt=performance.now();
         }
         randomize(includeShield){
-            const choices=['BulletWidth','BulletPiercing','BulletBomb','Shield','Score'];
+            const choices=['BulletPiercing','BulletBomb','Shield'];
             if (!includeShield) choices.splice(choices.indexOf('Shield'),1);
             this.type = choices[(Math.random()*choices.length)|0];
-            const map={BulletWidth:'pWide',BulletPiercing:'pPierce',BulletBomb:'pBomb',Shield:'pShield',Score:'pScore'};
+            const map={BulletPiercing:'pPierce',BulletBomb:'pBomb',Shield:'pShield'};
             this.img=this.images[map[this.type]];
-            this.w=Math.round(this.img.w * entityScale);
-            this.h=Math.round(this.img.h * entityScale);
+            const powMul = (isTouchLike() && !isWidescreen()) ? 1.9 : 1.4;
+            this.w = Math.round(this.img.w * entityScale * powMul);
+            this.h = Math.round(this.img.h * entityScale * powMul);
 
             const top = Math.max(380, Math.floor(GAME_H * 0.50));
             const bottom = Math.max(top + 50, Math.floor(GAME_H - bottomSafeGU - 40));
@@ -620,12 +772,10 @@
         const hudSize = (isTouchLike() && !isWidescreen()) ? 34 : 26;
         const hudLine = hudSize + 8;
         drawText(`Score: ${score}`, 100, 10, hudSize, COLOR.CYAN);
-        drawText(`High: ${Math.max(score, highScores[0]?.score || 0)}`, 100, 10 + hudLine, hudSize, COLOR.BLUE);
-        drawText(`Level: ${level}`, 100, 10 + 2*hudLine, hudSize, COLOR.WHITE);
+        drawText(`Level: ${level}`, 100, 10 + hudLine, hudSize, COLOR.WHITE);
 
-        const col = bulletPower==='BulletWidth' ? COLOR.YELLOW
-            : bulletPower==='BulletPiercing' ? COLOR.ORANGE
-                : bulletPower==='BulletBomb' ? COLOR.GRAY : COLOR.WHITE;
+        const col = bulletPower==='BulletPiercing' ? COLOR.ORANGE
+            : bulletPower==='BulletBomb' ? COLOR.GRAY : COLOR.WHITE;
         const ammoSize = (isTouchLike() && !isWidescreen()) ? 34 : 26;
         const ammoLabel = DEV_GODMODE ? '∞' : String(bulletsNum);
         drawText(`Ammo: ${ammoLabel}`, player.x + player.w/2, player.y - 30, ammoSize, col, 'center');
@@ -662,12 +812,10 @@
         if (state === 'INSTRUCTIONS'){
             drawText("How to Play", GAME_W/2, 60, 64, COLOR.WHITE, 'center');
             const lines=[
-                "Move: Arrow Keys or ◀ ▶ (mobile)",
+                "Move: Arrow Keys or ◀ ▶",
                 "Shoot: Space or FIRE button",
-                "Enemies now shoot back — dodge!",
                 "",
-                "Power-ups: Orange=Piercing, Yellow=Wide, Grey=Bomb",
-                "Shield = survive one hit, Cyan = +5 score",
+                "Power-ups: Piercing (orange), Bomb (grey), Shield",
                 "",
                 "Tap / click to return"
             ];
@@ -675,6 +823,8 @@
         }
 
         if (state === 'PLAYING'){
+            hideOverButtons();
+
             if (input.fireEdge && (DEV_GODMODE || bulletsNum>0)){
                 bullets.push(new Bullet(
                     player.x + player.w/2, player.y, bulletPower
@@ -715,14 +865,17 @@
 
             if (mobs.length === 0){
                 level++; levelBannerAt = performance.now();
-                if (level >= MAX_LEVEL){ state='GAME_OVER'; saveHighScores(); }
-                else createMobsForLevel();
+                if (!endlessMode && level >= MAX_LEVEL){
+                    gameWon = true; state='GAME_OVER'; showOverButtons();
+                } else {
+                    createMobsForLevel();
+                }
             }
 
             for (let i=mobs.length-1;i>=0;i--){
                 const m=mobs[i];
                 if (m.y + m.h > GAME_H){
-                    if (!DEV_GODMODE){ state='GAME_OVER'; saveHighScores(); }
+                    if (!DEV_GODMODE){ gameWon = false; state='GAME_OVER'; showOverButtons(); }
                     break;
                 }
                 if (rectsOverlap(player.rect, m.rect)){
@@ -731,7 +884,7 @@
                         continue;
                     }
                     if (player.shielded){ player.unshield(); score += m.worth; m.destroy(); mobs.splice(i,1); tryPlay(sounds.boom); }
-                    else { state='GAME_OVER'; saveHighScores(); break; }
+                    else { gameWon = false; state='GAME_OVER'; showOverButtons(); break; }
                 }
             }
 
@@ -796,26 +949,40 @@
                 if (rectsOverlap(eb.rect, player.rect)){
                     if (DEV_GODMODE){ eb.destroy(); enemyBullets.splice(ei,1); continue; }
                     if (player.shielded){ player.unshield(); eb.destroy(); enemyBullets.splice(ei,1); }
-                    else { state='GAME_OVER'; saveHighScores(); break; }
+                    else { state='GAME_OVER'; showOverButtons(); break; }
                 } else if (eb.offscreen){
                     eb.destroy(); enemyBullets.splice(ei,1);
                 }
             }
 
             for (const pu of powerups){
-                for (const b of bullets){
-                    if (rectsOverlap(pu.rect,b.rect)){
-                        if (pu.type==='Shield') player.shield();
-                        else if (pu.type.startsWith('Bullet')) bulletPower=pu.type;
-                        else if (pu.type==='Score') score+=5;
-                        pu.randomize(!player.shielded); break;
+                let collected = false;
+
+                if (rectsOverlap(pu.rect, player.rect)){
+                    if (pu.type==='Shield') player.shield();
+                    else if (pu.type.startsWith('Bullet')) bulletPower = pu.type;
+                    pu.randomize(!player.shielded);
+                    collected = true;
+                }
+
+                if (!collected){
+                    for (const b of bullets){
+                        if (rectsOverlap(pu.rect, b.rect)){
+                            if (pu.type==='Shield') player.shield();
+                            else if (pu.type.startsWith('Bullet')) bulletPower = pu.type;
+                            pu.randomize(!player.shielded);
+                            break;
+                        }
                     }
                 }
             }
 
             if (bulletsNum < maxBullets && !DEV_GODMODE){
-                bulletReloadTimer += difficulty;
-                if (bulletReloadTimer >= 50){ bulletsNum++; bulletReloadTimer = 0; }
+                bulletReloadTimer += dtMs;
+                if (bulletReloadTimer >= PLAYER_RELOAD_MS){
+                    bulletsNum++;
+                    bulletReloadTimer = 0;
+                }
             }
 
             effects = effects.filter(f => !f.done);
@@ -830,16 +997,13 @@
         }
 
         if (state === 'GAME_OVER'){
-            drawText("GAME OVER", GAME_W/2, 100, 64, COLOR.RED, 'center');
-            drawText(`Final Score: ${score}`, GAME_W/2, 180, 40, COLOR.CYAN, 'center');
-            drawText("Top Scores", GAME_W/2, 250, 36, COLOR.YELLOW, 'center');
-            for (let i=0;i<highScores.length;i++){
-                const r=highScores[i]; const y=300 + i*34;
-                drawText(`${i+1}.`, 350, y, 26, COLOR.WHITE);
-                drawText(r.name, 450, y, 26, COLOR.WHITE);
-                drawText(String(r.score), 750, y, 26, COLOR.WHITE, 'right');
-            }
-            drawText("Tap / Click to play again", GAME_W/2, 700, 24, COLOR.GRAY, 'center');
+            ctx.save();
+            const overMsg = gameWon ? "You Won" : "GAME OVER";
+            const overCol = gameWon ? COLOR.GREEN : COLOR.RED;
+            drawText(overMsg, GAME_W/2, 160, 64, overCol, 'center');
+            showOverButtons();
+            ctx.restore();
+
         }
 
         requestAnimationFrame(loop);
@@ -851,13 +1015,13 @@
     canvas.addEventListener('pointerdown', ()=>{
         if (state==='MAIN_MENU'){ state='PLAYING'; resetGame(); createMobsForLevel(); tryPlay(sounds.shoot); }
         else if (state==='INSTRUCTIONS'){ state='MAIN_MENU'; }
-        else if (state==='GAME_OVER'){ state='PLAYING'; resetGame(); createMobsForLevel(); tryPlay(sounds.shoot); }
+        else if (state==='GAME_OVER'){  }
     });
     addEventListener('keydown', e=>{
         if (state === 'PLAYING' && !isTouchLike() && e.code === 'KeyK' && e.ctrlKey && e.altKey && e.shiftKey){
             level++; levelBannerAt = performance.now();
             destroyAllMobs(); destroyList(bullets); destroyList(enemyBullets); effects = [];
-            if (level >= MAX_LEVEL){ state = 'GAME_OVER'; saveHighScores(); }
+            if (level >= MAX_LEVEL){ state = 'GAME_OVER'; }
             else { createMobsForLevel(); }
             return;
         }
@@ -865,7 +1029,7 @@
         if (state==='MAIN_MENU' && (e.code==='Enter'||e.code==='Space')){ state='PLAYING'; resetGame(); createMobsForLevel(); }
         else if (state==='MAIN_MENU' && e.code==='KeyH'){ state='INSTRUCTIONS'; }
         else if (state==='INSTRUCTIONS' && ['Escape','Backspace','Enter','Space'].includes(e.code)){ state='MAIN_MENU'; }
-        else if (state==='GAME_OVER' && (e.code==='Enter'||e.code==='Space')){ state='PLAYING'; resetGame(); createMobsForLevel(); }
+        else if (state==='GAME_OVER' && (e.code==='Enter'||e.code==='Space')){  }
     });
 
     /* ============================
@@ -873,8 +1037,6 @@
     ============================ */
     async function boot(){
         await loadAssets();
-        try { highScores = JSON.parse(localStorage.getItem(hiKey) || '[]'); }
-        catch { highScores = []; }
 
         username = (localStorage.getItem('si_username') || '');
         nameInput.addEventListener('input', () => localStorage.setItem('si_username', nameInput.value));
