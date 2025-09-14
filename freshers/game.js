@@ -192,38 +192,31 @@
 
         const mobile = isTouchLike() && !isWidescreen();
 
-        // Reserve a fixed bottom control bar (black) on mobile
-        const buttonHeightPx  = mobile ? Math.min(winH * 0.10, 110) : 0;
-        const verticalOffsets = mobile ? (45 + 16) : 0;
-        const controlBarPx    = buttonHeightPx + verticalOffsets;
+        const buttonHeightPx  = mobile ? Math.min(winH * 0.12, 130) : 0;
+        const buttonGapPx     = mobile ? 24 : 0;
+        const controlBarPx    = buttonHeightPx + buttonGapPx;
 
         if (mobile){
-            // Lock game view to 540×768 AR and bottom-align it above the control bar
             const TARGET_AR_H_OVER_W = 768 / 540;
             GAME_H = Math.round(GAME_W * TARGET_AR_H_OVER_W);
-            scale  = winW / GAME_W;            // fit width
+            scale  = winW / GAME_W;
             offX   = 0;
+
             const gamePxH  = GAME_H * scale;
             const availPxH = Math.max(0, winH - controlBarPx);
-            offY = Math.max(0, availPxH - gamePxH); // bottom-align the backdrop
+            offY = Math.max(0, availPxH - gamePxH);
         } else {
-            // Desktop/widescreen as before
             GAME_H = Math.max(700, Math.round(GAME_W * (winH / winW)));
             scale  = winW / GAME_W;
             offX   = 0; offY = 0;
         }
 
-        // Difficulty / global scale
         const mobileBoost = mobile ? 1.5 : 1.0;
         difficulty  = Math.max(1, Math.min(2.2, (GAME_H / 900) * mobileBoost));
         entityScale = mobile ? 1.75 : 1.55;
 
-        // Put the ship almost on the image’s bottom edge (not the black bar)
-        // Small constant gap in game units so it “slides” along the bottom
-        const GLIDE_MARGIN_GU = mobile ? 8 : 110;   // tiny gap on mobile, keep desktop margin
-        bottomSafeGU = GLIDE_MARGIN_GU;
+        bottomSafeGU = mobile ? 8 : 110;
 
-        // Resize sprites & reposition
         if (player) {
             player.h = Math.round(85 * entityScale * PLAYER_HEIGHT_FACTOR);
             player.w = Math.round(85 * entityScale * PLAYER_WIDTH_FACTOR);

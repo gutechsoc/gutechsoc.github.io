@@ -68,9 +68,13 @@ html,body{
 .card .hint{ opacity:.75; margin-top:10px; font-size:14px; }
 
 .touchpad{
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    margin-bottom: 0;
+}
+
+.touchpad{
     display:none;
     position:fixed;
-    bottom:45px;
     z-index:5;
     background:var(--btn-bg);
     border-radius:16px;
@@ -78,7 +82,6 @@ html,body{
     max-width:180px;
     height:10vh;
     max-height:110px;
-    margin-bottom: 1em;
     display:grid; place-items:center;
     color:#fff; font-weight:700;
     user-select:none; -webkit-user-select:none;
