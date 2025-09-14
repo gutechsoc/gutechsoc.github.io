@@ -192,7 +192,7 @@
     function setCssVar(name, value){ document.documentElement.style.setProperty(name, value); }
 
     function resize(){
-        const winW = vw(), winH = vh();
+        const { w: winW, h: winH } = vv();
         canvas.width = winW; canvas.height = winH;
 
         const mobile = isTouchLike() && !isWidescreen();
@@ -201,15 +201,18 @@
         if (mobile){
             buttonHeightPx = clamp(Math.round(winW * 0.18), 68, 110);
             buttonWidthPx  = clamp(Math.round(buttonHeightPx * 1.05), 72, 160);
+
             setCssVar('--padH', `${buttonHeightPx}px`);
             setCssVar('--padW', `${buttonWidthPx}px`);
 
             const safe = safeAreaBottomPx();
             ctrlBarPx = buttonHeightPx + safe + 12;
-            setCssVar('--ctrlH', `${ctrlBarPx}px`);
         } else {
-            setCssVar('--ctrlH', `0px`);
+            ctrlBarPx = 0;
         }
+
+        layoutBottomUI(ctrlBarPx, buttonWidthPx, buttonHeightPx);
+        setCssVar('--ctrlH', `${ctrlBarPx}px`);
 
         const TARGET_AR_H_OVER_W = 768 / 540;
         if (mobile){
@@ -222,12 +225,12 @@
         offX = 0;
 
         const playablePxH = winH - ctrlBarPx;
-        const WORLD_BAR_GAP_PX   = clamp(Math.round(buttonHeightPx * 0.08), 6, 18);
+        const WORLD_BAR_GAP_PX  = clamp(Math.round(buttonHeightPx * 0.08), 6, 18);
         offY = Math.round(playablePxH - scale * GAME_H - WORLD_BAR_GAP_PX);
 
         setCssVar('--topH', `${Math.max(0, offY)}px`);
 
-        const PLAYER_BAR_GAP_PX  = clamp(Math.round(buttonHeightPx * 0.12), 10, 24);
+        const PLAYER_BAR_GAP_PX = clamp(Math.round(buttonHeightPx * 0.12), 10, 24);
         const playerGapGU = Math.round((ctrlBarPx + PLAYER_BAR_GAP_PX) / Math.max(scale, 0.0001));
         bottomSafeGU = mobile ? Math.max(60, Math.min(180, playerGapGU)) : 110;
 
@@ -257,6 +260,13 @@
         if (!document.hidden) setTimeout(resize, 50);
     });
 
+    const vv = () => {
+        const v = window.visualViewport;
+        return v
+            ? { x: Math.round(v.offsetLeft), y: Math.round(v.offsetTop), w: Math.round(v.width), h: Math.round(v.height) }
+            : { x: 0, y: 0, w: window.innerWidth, h: window.innerHeight };
+    };
+
     const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
     function safeAreaBottomPx(){
@@ -268,7 +278,37 @@
         return h;
     }
 
+    function layoutBottomUI(ctrlBarPx, buttonWidthPx, buttonHeightPx){
+        const { x, y, w, h } = vv();
+        const barTop = y + h - ctrlBarPx;
 
+        const bar = document.getElementById('controlBar');
+        if (bar){
+            bar.style.position = 'fixed';
+            bar.style.left = x + 'px';
+            bar.style.top  = barTop + 'px';
+            bar.style.width  = w + 'px';
+            bar.style.height = ctrlBarPx + 'px';
+        }
+
+        const gap = 12, between = 10;
+        const padY = barTop + Math.max(0, Math.round((ctrlBarPx - buttonHeightPx) / 2));
+
+        const L = document.getElementById('padLeft');
+        const R = document.getElementById('padRight');
+        const F = document.getElementById('padFire');
+
+        [L, R, F].forEach(el => {
+            if (!el) return;
+            el.style.position = 'fixed';
+            el.style.bottom = 'auto';
+            el.style.top = padY + 'px';
+        });
+
+        if (L) L.style.left = (x + gap) + 'px';
+        if (R) R.style.left = (x + gap + buttonWidthPx + between) + 'px';
+        if (F) F.style.left = (x + w - gap - buttonWidthPx) + 'px';
+    }
 
     /* ============================
        LOADING
