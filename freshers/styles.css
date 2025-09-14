@@ -4,27 +4,21 @@
     --ui-bg: rgba(0,0,0,.6);
     --ui-fg: #fff;
     --accent: #00e5ff;
-}
 
-html, body { height:100%; margin:0; overscroll-behavior:none; }
-body { touch-action: none; }
-#game { touch-action: none; }
-.touchpad, .touchpad button {
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    font-size: 16px;
+    --padW: 120px;
+    --padH: 96px;
 }
-
-html, body { height:100%; margin:0; background:#000; }
-#game { display:block; background:#000; }
 
 html,body{
     height:100%;
     margin:0;
     background:#000;
-    color:var(--ui-bg);
+    color:var(--ui-fg);
     font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    overscroll-behavior:none;
+    touch-action:none;
 }
+
 #wrap{
     position:fixed;
     inset:0;
@@ -68,27 +62,24 @@ html,body{
 .card .hint{ opacity:.75; margin-top:10px; font-size:14px; }
 
 .touchpad{
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
-    margin-bottom: 0;
-}
-
-.touchpad{
-    display:none;
     position:fixed;
     z-index:5;
+    display:none;
+    place-items:center;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
     background:var(--btn-bg);
     border-radius:16px;
-    width:16vw;
-    max-width:180px;
-    height:10vh;
-    max-height:110px;
-    display:grid; place-items:center;
+    width: var(--padW);
+    height: var(--padH);
     color:#fff; font-weight:700;
     user-select:none; -webkit-user-select:none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 .touchpad.active{ background:var(--btn-bg-active); }
+
 #padLeft{ left:12px; }
-#padRight{ left:calc(12px + min(16vw, 180px) + 10px); }
+#padRight{ left: calc(12px + var(--padW) + 10px); }
 #padFire{ right:12px; }
 
 @media (pointer: coarse), (hover: none){

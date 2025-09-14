@@ -5,7 +5,7 @@
        CONFIG / CONSTANTS
     ============================ */
     const GAME_W = 1600;
-    let GAME_H = 900;
+    let   GAME_H = 900;
 
     let scale = 1, offX = 0, offY = 0;
 
@@ -182,20 +182,26 @@
         if (overBtnCont)  overBtnCont.style.display='none';
     }
 
-
     /* ============================
        RESIZE / VIEW
     ============================ */
+    function setCssVar(name, value){ document.documentElement.style.setProperty(name, value); }
+
     function resize(){
         const winW = window.innerWidth, winH = window.innerHeight;
         canvas.width = winW; canvas.height = winH;
 
         const mobile = isTouchLike() && !isWidescreen();
 
-        // Bottom control bar sizing
-        const buttonHeightPx  = mobile ? Math.min(winH * 0.12, 130) : 0;
+        const buttonHeightPx  = mobile ? Math.min(Math.round(winH * 0.12), 130) : 0;
+        const buttonWidthPx   = mobile ? Math.min(Math.round(buttonHeightPx * 1.10), Math.round(winW * 0.22), 180) : 0;
         const buttonGapPx     = mobile ? 24 : 0;
         const controlBarPx    = buttonHeightPx + buttonGapPx;
+
+        if (mobile){
+            setCssVar('--padH', `${buttonHeightPx}px`);
+            setCssVar('--padW', `${buttonWidthPx}px`);
+        }
 
         if (mobile){
             const TARGET_AR_H_OVER_W = 768 / 540;
@@ -203,11 +209,10 @@
             scale  = winW / GAME_W;
             offX   = 0;
 
+
             const gamePxH  = GAME_H * scale;
             const availPxH = Math.max(0, winH - controlBarPx);
-
-            const liftPx = Math.round(buttonHeightPx * 0.60);
-
+            const liftPx   = Math.round(buttonHeightPx * 0.60);
             offY = Math.max(0, (availPxH - gamePxH) - liftPx);
         } else {
             GAME_H = Math.max(700, Math.round(GAME_W * (winH / winW)));
@@ -438,8 +443,8 @@
     }
 
     /* ============================
-   BULLET SIZING
-============================ */
+       BULLET SIZING
+    ============================ */
     class Bullet{
         constructor(x,y,type){
             this.type=type;
@@ -478,7 +483,6 @@
         get rect(){ return {x:this.x,y:this.y,w:this.w,h:this.h}; }
         get offscreen(){ return this.y + this.h < 0; }
     }
-
 
     class EnemyBullet{
         constructor(x,y){
@@ -598,6 +602,7 @@
         }
 
         const mobile = isTouchLike() && !isWidescreen();
+
         const spacingX = mobile ? 2.55 : 1.0;
         const spacingY = mobile ? 3.05 : 1.0;
 
@@ -635,7 +640,6 @@
                 const scaleFit = Math.min(baseScale, fitX, fitY);
                 finalScale = Math.max(0.55, Math.min(scaleFit, baseScale));
             }
-
 
             const formationWidth = (w - 1) * distX + rawW * finalScale;
             let startX = Math.round((GAME_W - formationWidth) / 2);
@@ -707,7 +711,6 @@
         endlessStage++;
         return picked.map(g => g.slice());
     }
-
 
     function destroyAllMobs(){
         for (const m of mobs) m.destroy();
@@ -1011,7 +1014,6 @@
             drawText(overMsg, GAME_W/2, 160, 64, overCol, 'center');
             showOverButtons();
             ctx.restore();
-
         }
 
         requestAnimationFrame(loop);
