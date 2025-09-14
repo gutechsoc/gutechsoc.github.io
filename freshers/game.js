@@ -192,6 +192,7 @@
 
         const mobile = isTouchLike() && !isWidescreen();
 
+        // Bottom control bar sizing
         const buttonHeightPx  = mobile ? Math.min(winH * 0.12, 130) : 0;
         const buttonGapPx     = mobile ? 24 : 0;
         const controlBarPx    = buttonHeightPx + buttonGapPx;
@@ -204,7 +205,10 @@
 
             const gamePxH  = GAME_H * scale;
             const availPxH = Math.max(0, winH - controlBarPx);
-            offY = Math.max(0, availPxH - gamePxH);
+
+            const liftPx = Math.round(buttonHeightPx * 0.60);
+
+            offY = Math.max(0, (availPxH - gamePxH) - liftPx);
         } else {
             GAME_H = Math.max(700, Math.round(GAME_W * (winH / winW)));
             scale  = winW / GAME_W;
@@ -234,7 +238,6 @@
         bullets.forEach(b => { if (b.gifEl) positionGifEl(b); });
         enemyBullets.forEach(b => { if (b.gifEl) positionGifEl(b); });
     }
-
     addEventListener('resize', resize);
 
     /* ============================
