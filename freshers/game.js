@@ -22,8 +22,8 @@
 
     let DEV_GODMODE = false;
 
-    const PLAYER_WIDTH_FACTOR = 3.00;
-    const PLAYER_HEIGHT_FACTOR = 1.55;
+    const PLAYER_WIDTH_FACTOR = 2.75;
+    const PLAYER_HEIGHT_FACTOR = 1.25;
     const BULLET_WIDTH_FACTOR = 2.60;
     const BULLET_HEIGHT_FACTOR = 2.30;
 
@@ -190,41 +190,47 @@
         const winW = window.innerWidth, winH = window.innerHeight;
         canvas.width = winW; canvas.height = winH;
 
-        if (isTouchLike() && !isWidescreen()) {
-            const targetAspectHW = 16 / 9;
-            GAME_H = Math.round(GAME_W * targetAspectHW);
-            scale  = winW / GAME_W;
+        const mobile = isTouchLike() && !isWidescreen();
+
+        // Reserve a fixed bottom control bar (black) on mobile
+        const buttonHeightPx  = mobile ? Math.min(winH * 0.10, 110) : 0;
+        const verticalOffsets = mobile ? (45 + 16) : 0;
+        const controlBarPx    = buttonHeightPx + verticalOffsets;
+
+        if (mobile){
+            // Lock game view to 540×768 AR and bottom-align it above the control bar
+            const TARGET_AR_H_OVER_W = 768 / 540;
+            GAME_H = Math.round(GAME_W * TARGET_AR_H_OVER_W);
+            scale  = winW / GAME_W;            // fit width
             offX   = 0;
-            offY   = Math.round((winH - (GAME_H * scale)) / 2);
+            const gamePxH  = GAME_H * scale;
+            const availPxH = Math.max(0, winH - controlBarPx);
+            offY = Math.max(0, availPxH - gamePxH); // bottom-align the backdrop
         } else {
+            // Desktop/widescreen as before
             GAME_H = Math.max(700, Math.round(GAME_W * (winH / winW)));
             scale  = winW / GAME_W;
             offX   = 0; offY = 0;
         }
 
-        let padPx = 0;
-        const mobile = isTouchLike() && !isWidescreen();
-        if (mobile) {
-            const buttonHeightPx = Math.min(winH * 0.10, 110);
-            const verticalOffsets = 45 + 16;
-            padPx = buttonHeightPx + verticalOffsets;
-        }
-        bottomSafeGU = Math.max(110, Math.round(padPx / scale + 80));
-
+        // Difficulty / global scale
         const mobileBoost = mobile ? 1.5 : 1.0;
-        difficulty = Math.max(1, Math.min(2.2, (GAME_H / 900) * mobileBoost));
+        difficulty  = Math.max(1, Math.min(2.2, (GAME_H / 900) * mobileBoost));
         entityScale = mobile ? 1.75 : 1.55;
 
+        // Put the ship almost on the image’s bottom edge (not the black bar)
+        // Small constant gap in game units so it “slides” along the bottom
+        const GLIDE_MARGIN_GU = mobile ? 8 : 110;   // tiny gap on mobile, keep desktop margin
+        bottomSafeGU = GLIDE_MARGIN_GU;
+
+        // Resize sprites & reposition
         if (player) {
-            player.h = Math.round(85 * entityScale* PLAYER_HEIGHT_FACTOR);
+            player.h = Math.round(85 * entityScale * PLAYER_HEIGHT_FACTOR);
             player.w = Math.round(85 * entityScale * PLAYER_WIDTH_FACTOR);
             player.onResize();
         }
         mobs.forEach(m => {
-            if (m.img) {
-                m.w = Math.round(m.img.w * m.scale);
-                m.h = Math.round(m.img.h * m.scale);
-            }
+            if (m.img) { m.w = Math.round(m.img.w * m.scale); m.h = Math.round(m.img.h * m.scale); }
             if (m.gifEl) positionGifEl(m);
         });
         powerups.forEach(p => {
@@ -235,6 +241,7 @@
         bullets.forEach(b => { if (b.gifEl) positionGifEl(b); });
         enemyBullets.forEach(b => { if (b.gifEl) positionGifEl(b); });
     }
+
     addEventListener('resize', resize);
 
     /* ============================
@@ -673,7 +680,7 @@
             1: [[6, 5, 520, -780, 70, 'normal']],
             2: [[6, 8, 520, -920, 80, 'normal']],
             3: [[6, 8, 480, -980, 80, 'normal'],
-                [6, 3, 360, -220, 80, 'fast']],
+                [6, 5, 360, -520, 80, 'fast']],
             4: [[6, 2, 480,   60, 70, 'normal'],
                 [5, 2, 380, -150, 75, 'normal'],
                 [6, 2, 380, -130, 75, 'fast'],
