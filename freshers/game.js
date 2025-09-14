@@ -12,6 +12,10 @@
     const isTouchLike = () => window.matchMedia("(pointer: coarse), (hover: none)").matches;
     const isWidescreen = () => window.matchMedia("(min-aspect-ratio: 16/10)").matches;
 
+    const vw = () => (window.visualViewport ? Math.round(window.visualViewport.width)  : window.innerWidth);
+    const vh = () => (window.visualViewport ? Math.round(window.visualViewport.height) : window.innerHeight);
+
+
     let bottomSafeGU = 50;
     let difficulty = 1;
     let entityScale = 1.25;
@@ -188,7 +192,7 @@
     function setCssVar(name, value){ document.documentElement.style.setProperty(name, value); }
 
     function resize(){
-        const winW = window.innerWidth, winH = window.innerHeight;
+        const winW = vw(), winH = vh();
         canvas.width = winW; canvas.height = winH;
 
         const mobile = isTouchLike() && !isWidescreen();
@@ -218,7 +222,6 @@
         offX = 0;
 
         const playablePxH = winH - ctrlBarPx;
-
         const WORLD_BAR_GAP_PX   = clamp(Math.round(buttonHeightPx * 0.08), 6, 18);
         offY = Math.round(playablePxH - scale * GAME_H - WORLD_BAR_GAP_PX);
 
@@ -243,8 +246,16 @@
         enemyBullets.forEach(b => { if (b.gifEl) positionGifEl(b); });
     }
 
-
     addEventListener('resize', resize);
+
+    if (window.visualViewport){
+        visualViewport.addEventListener('resize', resize, { passive:true });
+        visualViewport.addEventListener('scroll',  resize, { passive:true });
+    }
+    addEventListener('orientationchange', () => setTimeout(resize, 0));
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) setTimeout(resize, 50);
+    });
 
     const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
@@ -753,7 +764,7 @@
         score = 0; level = 0; levelBannerAt = 0;
         bulletPower = null; maxBullets = 3; bulletsNum = maxBullets; bulletReloadTimer = 0;
 
-        const tiny = (Math.min(innerWidth, innerHeight) < 720);
+        const tiny = (Math.min(vw(), vh()) < 720);
         playerSpeed = tiny ? Math.max(PLAYER_SPEED_BASE, 6) : PLAYER_SPEED_BASE;
 
         player = new Player({ playerSpeed });
@@ -833,10 +844,7 @@
 
         ctx.setTransform(1,0,0,1,0,0);
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        if (offY > 0){
-            ctx.fillStyle = '#fff';
-            ctx.fillRect(0, 0, canvas.width, Math.round(offY));
-        }
+        if (offY > 0){ ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width, Math.round(offY)); }
         ctx.setTransform(scale,0,0,scale, offX, offY);
 
         const bgBaseH = images.bg.h || 900;
