@@ -192,8 +192,15 @@
     function setCssVar(name, value){ document.documentElement.style.setProperty(name, value); }
 
     function resize(){
-        const { w: winW, h: winH } = vv();
+        const { x: vx, y: vy, w: winW, h: winH } = vv();
         canvas.width = winW; canvas.height = winH;
+
+        const cs = canvas.style;
+        cs.position = 'fixed';
+        cs.left = vx + 'px';
+        cs.top  = vy + 'px';
+        cs.width  = winW + 'px';
+        cs.height = winH + 'px';
 
         const mobile = isTouchLike() && !isWidescreen();
 
@@ -414,8 +421,9 @@
 
     function positionGifEl(o){
         if (!o.gifEl) return;
-        o.gifEl.style.left   = Math.round(offX + o.x * scale) + 'px';
-        o.gifEl.style.top    = Math.round(offY + o.y * scale) + 'px';
+        const { x, y } = vv();
+        o.gifEl.style.left   = Math.round(x + offX + o.x * scale) + 'px';
+        o.gifEl.style.top    = Math.round(y + offY + o.y * scale) + 'px';
         o.gifEl.style.width  = Math.round(o.w * scale) + 'px';
         o.gifEl.style.height = Math.round(o.h * scale) + 'px';
         o.gifEl.style.visibility = (o.y > -o.h && o.y < GAME_H + o.h) ? 'visible' : 'hidden';
