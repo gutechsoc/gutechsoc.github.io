@@ -201,7 +201,6 @@
         if (mobile){
             buttonHeightPx = clamp(Math.round(winW * 0.18), 68, 110);
             buttonWidthPx  = clamp(Math.round(buttonHeightPx * 1.05), 72, 160);
-
             setCssVar('--padH', `${buttonHeightPx}px`);
             setCssVar('--padW', `${buttonWidthPx}px`);
 
@@ -214,23 +213,22 @@
         layoutBottomUI(ctrlBarPx, buttonWidthPx, buttonHeightPx);
         setCssVar('--ctrlH', `${ctrlBarPx}px`);
 
-        const TARGET_AR_H_OVER_W = 768 / 540;
-        if (mobile){
-            GAME_H = Math.round(GAME_W * TARGET_AR_H_OVER_W);
-            scale  = winW / GAME_W;
-        } else {
-            GAME_H = Math.max(700, Math.round(GAME_W * (winH / winW)));
-            scale  = winW / GAME_W;
-        }
-        offX = 0;
-
         const playablePxH = winH - ctrlBarPx;
-        const WORLD_BAR_GAP_PX  = clamp(Math.round(buttonHeightPx * 0.08), 6, 18);
-        offY = Math.round(playablePxH - scale * GAME_H - WORLD_BAR_GAP_PX);
+
+        const TARGET_AR_H_OVER_W = 768 / 540;
+        GAME_H = Math.round(GAME_W * TARGET_AR_H_OVER_W);
+        const scaleW = winW  / GAME_W;
+        const scaleH = playablePxH / GAME_H;
+        scale = Math.min(scaleW, scaleH);
+
+        const worldPxW = Math.round(GAME_W * scale);
+        const worldPxH = Math.round(GAME_H * scale);
+        offX = Math.round((winW - worldPxW) / 2);
+        offY = Math.round((playablePxH - worldPxH));
 
         setCssVar('--topH', `${Math.max(0, offY)}px`);
 
-        const PLAYER_BAR_GAP_PX = clamp(Math.round(buttonHeightPx * 0.12), 10, 24);
+        const PLAYER_BAR_GAP_PX  = clamp(Math.round(buttonHeightPx * 0.12), 10, 24);
         const playerGapGU = Math.round((ctrlBarPx + PLAYER_BAR_GAP_PX) / Math.max(scale, 0.0001));
         bottomSafeGU = mobile ? Math.max(60, Math.min(180, playerGapGU)) : 110;
 
@@ -292,7 +290,7 @@
         }
 
         const gap = 12, between = 10;
-        const padY = barTop + Math.max(0, Math.round((ctrlBarPx - buttonHeightPx) / 2));
+        const padTop = barTop + Math.max(0, Math.round((ctrlBarPx - buttonHeightPx) / 2));
 
         const L = document.getElementById('padLeft');
         const R = document.getElementById('padRight');
@@ -301,8 +299,8 @@
         [L, R, F].forEach(el => {
             if (!el) return;
             el.style.position = 'fixed';
+            el.style.top = padTop + 'px';
             el.style.bottom = 'auto';
-            el.style.top = padY + 'px';
         });
 
         if (L) L.style.left = (x + gap) + 'px';
@@ -310,13 +308,14 @@
         if (F) F.style.left = (x + w - gap - buttonWidthPx) + 'px';
     }
 
+
     /* ============================
        LOADING
     ============================ */
     const images = {};
     const sounds = {};
     const imageDefs = [
-        ['bg', IMG.bg, GAME_W, 900],
+        ['bg', IMG.bg, 540, 768],
         ['player', IMG.player, 75, 75],
         ['playerShield', IMG.playerShield, 75, 75],
 
@@ -887,9 +886,20 @@
         if (offY > 0){ ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width, Math.round(offY)); }
         ctx.setTransform(scale,0,0,scale, offX, offY);
 
-        const bgBaseH = images.bg.h || 900;
-        const bgDrawH = Math.max(GAME_H, bgBaseH);
-        ctx.drawImage(images.bg.img, 0, GAME_H - bgDrawH, GAME_W, bgDrawH);
+        const bg = images.bg;
+        const iw = bg.img.naturalWidth || bg.w;
+        const ih = bg.img.naturalHeight || bg.h;
+
+        const drawW = GAME_W;
+        const drawH = Math.round(drawW * ih/iw);
+        const dx = 0;
+        const dy = Math.round(GAME_H - drawH);
+
+        const prevSmooth = ctx.imageSmoothingEnabled;
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(bg.img, dx, dy, drawW, drawH);
+        ctx.imageSmoothingEnabled = prevSmooth;
+
 
         if (state === 'MAIN_MENU'){
             drawText("GUTS Space Invaders", GAME_W/2, 180, 64, COLOR.BLACK, 'center');
