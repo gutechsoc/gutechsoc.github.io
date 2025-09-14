@@ -15,7 +15,7 @@
     let bottomSafeGU = 50;
     let difficulty = 1;
     let entityScale = 1.25;
-    const PLAYER_RELOAD_MS = 500;
+    const PLAYER_RELOAD_MS = 250;
 
     const PLAYER_SPEED_BASE = 5;
     const BULLET_SPEED = -7;
@@ -50,6 +50,11 @@
     const OVER_BTN2_TEXT = "More about GUTS";
     const OVER_BTN2_URL  = "https://gutechsoc.com";
 
+    document.addEventListener('gesturestart',  e => e.preventDefault(), { passive:false });
+    document.addEventListener('gesturechange', e => e.preventDefault(), { passive:false });
+    document.addEventListener('gestureend',    e => e.preventDefault(), { passive:false });
+    document.addEventListener('dblclick',      e => e.preventDefault(), { passive:false });
+
     /* ============================
        ASSETS
     ============================ */
@@ -83,7 +88,7 @@
         pBomb:'powerup_bomb.PNG',
         pShield:'powerup_shield.PNG'
     };
-    const SND = { shoot:'shooting.wav', boom:'explosion.wav' };
+    const SND = { shoot:'throw.wav', boom:'shot.wav' };
     const IMG_PATH = './images/', SND_PATH = './sounds/';
 
     const canvas = document.getElementById('game');

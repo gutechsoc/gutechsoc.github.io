@@ -6,6 +6,16 @@
     --accent: #00e5ff;
 }
 
+html, body { height:100%; margin:0; overscroll-behavior:none; }
+body { touch-action: none; }
+#game { touch-action: none; }
+.touchpad, .touchpad button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
+}
+
+
 html,body{
     height:100%;
     margin:0;
