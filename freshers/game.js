@@ -19,7 +19,7 @@
     let bottomSafeGU = 50;
     let difficulty = 1;
     let entityScale = 1.25;
-    const PLAYER_RELOAD_MS = 250;
+    const PLAYER_RELOAD_MS = 500;
 
     const PLAYER_SPEED_BASE = 5;
     const BULLET_SPEED = -7;
