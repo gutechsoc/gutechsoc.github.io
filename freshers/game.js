@@ -758,6 +758,16 @@
 
     function getCampaignCfg(){
         return {
+            // 1: [[1, 1, 0, -500, 0, 'boss']], // test boss
+            1: [[6, 4, 520, -780, 70, 'normal']],
+            2: [[5, 4, 360, -520, 80, 'fast']],
+            3: [[5, 2, 480, -260, 120, 'tank']],
+            4: [[1, 1, 1600, -100, 700, 'boss']]
+        };
+    }
+
+    function endlessCfgPool(){
+        return {
             1: [[6, 5, 520, -780, 70, 'normal']],
             2: [[6, 8, 520, -920, 80, 'normal']],
             3: [[6, 8, 480, -980, 80, 'normal'],
@@ -775,7 +785,7 @@
     }
 
     const ENDLESS_POOL = (() => {
-        const obj = getCampaignCfg();
+        const obj = endlessCfgPool();
         const out = [];
         for (const lvl of [1,2,3,4,5]) {
             for (const g of obj[lvl] || []) if (g[5] !== 'boss') out.push(g);
