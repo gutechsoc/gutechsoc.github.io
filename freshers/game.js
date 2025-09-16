@@ -710,16 +710,16 @@
 
             let finalScale;
             if (key === 'boss') {
-                const bossMinPx = (isTouchLike() && !isWidescreen()) ? 520 : 400;
+                const bossMinPx = (isTouchLike() && !isWidescreen()) ? 420 : 300;
                 const bossMinScale = bossMinPx / rawH;
 
-                const maxScaleByHeight = Math.min(fitY, baseScale * 2.2);
+                const maxScaleByHeight = Math.min(fitY, baseScale * 1.8);
                 const capByWidth = (availableWidth - (w - 1) * distX) / rawW;
 
-                finalScale = Math.max(bossMinScale, Math.min(maxScaleByHeight, capByWidth));
+                finalScale = Math.max(bossMinScale, Math.min(maxScaleByHeight, capByWidth)) * 0.7;
             } else {
                 const scaleFit = Math.min(baseScale, fitX, fitY);
-                finalScale = Math.max(0.55, Math.min(scaleFit, baseScale));
+                finalScale = Math.max(0.25, Math.min(scaleFit, baseScale));
             }
 
             const formationWidth = (w - 1) * distX + rawW * finalScale;
@@ -758,11 +758,12 @@
 
     function getCampaignCfg(){
         return {
-            // 1: [[1, 1, 0, -500, 0, 'boss']], // test boss
+            // 1: [[5, 1, 480, 100, 120, 'tank'],[1, 1, 1600, -1000, 700, 'boss'],], // test boss
             1: [[6, 4, 520, -780, 70, 'normal']],
             2: [[5, 4, 360, -520, 80, 'fast']],
             3: [[5, 2, 480, -260, 120, 'tank']],
-            4: [[1, 1, 1600, -100, 700, 'boss']]
+            4: [[5, 1, 480, 100, 120, 'tank'],
+                [1, 1, 1600, -1000, 700, 'boss']]
         };
     }
 
@@ -1014,9 +1015,9 @@
 
                     if (m.kind === 'boss'){
                         m.bossHits++;
-                        const stage = Math.floor(m.bossHits / 2);
+                        const stage = Math.floor(m.bossHits / 6);
                         if (stage >= 1 && stage <= 5) m.setBossStage(stage);
-                        if (m.bossHits >= 10 && !m.frozen){
+                        if (m.bossHits >= 30 && !m.frozen){
                             m.frozen = true;
                             m.dieAt = performance.now() + 1000;
                         }
