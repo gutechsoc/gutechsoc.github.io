@@ -716,7 +716,7 @@
                 const maxScaleByHeight = Math.min(fitY, baseScale * 1.8);
                 const capByWidth = (availableWidth - (w - 1) * distX) / rawW;
 
-                finalScale = Math.max(bossMinScale, Math.min(maxScaleByHeight, capByWidth)) * 0.7;
+                finalScale = Math.max(bossMinScale, Math.min(maxScaleByHeight, capByWidth));
             } else {
                 const scaleFit = Math.min(baseScale, fitX, fitY);
                 finalScale = Math.max(0.25, Math.min(scaleFit, baseScale));
@@ -762,8 +762,7 @@
             1: [[6, 4, 520, -780, 70, 'normal']],
             2: [[5, 4, 360, -520, 80, 'fast']],
             3: [[5, 2, 480, -260, 120, 'tank']],
-            4: [[5, 1, 480, 100, 120, 'tank'],
-                [1, 1, 1600, -1000, 700, 'boss']]
+            4: [[3, 1, 780, 140, 260, 'boss']]
         };
     }
 
@@ -1015,9 +1014,9 @@
 
                     if (m.kind === 'boss'){
                         m.bossHits++;
-                        const stage = Math.floor(m.bossHits / 6);
+                        const stage = Math.floor(m.bossHits / 4);
                         if (stage >= 1 && stage <= 5) m.setBossStage(stage);
-                        if (m.bossHits >= 30 && !m.frozen){
+                        if (m.bossHits >= 20 && !m.frozen){
                             m.frozen = true;
                             m.dieAt = performance.now() + 1000;
                         }
