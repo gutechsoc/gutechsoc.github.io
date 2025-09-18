@@ -195,7 +195,8 @@
                 gameWon = false;
                 hideOverButtons();
                 state='PLAYING';
-                resetGame();
+                maxBullets = 6;
+                // resetGame();
                 level = 1;
                 createMobsForLevel();
             }
@@ -1035,10 +1036,10 @@
         function draw(ctx){
             if (!state.visible) return;
 
-            const panelW = Math.min(1200, Math.round(GAME_W * 0.92));
-            const panelX = Math.round((GAME_W - panelW)/2);
-            const panelY = 140;
-            const lineH  = 40;
+            const panelW = Math.min(1500, Math.round(GAME_W * 0.92));
+            const panelX = Math.round((GAME_W - panelW)/1.6);
+            const panelY = 160;
+            const lineH  = 50;
             const maxRows = 10;
 
             ctx.save();
@@ -1057,24 +1058,24 @@
                 drawText(msg, x,   y,   size, color,               align);
             };
 
-            text('Leaderboard', panelX + 18, panelY + 16, 36, '#000', 'left');
+            text('Leaderboard', panelX + 18, panelY, 50, '#000', 'left');
 
             let y = panelY + 64;
 
             if (state.status === 'loading'){
-                text('Submitting & loading…', panelX + 18, y, 26, '#000', 'left');
+                text('Submitting & loading…', panelX + 18, y, 44, '#000', 'left');
             } else if (state.status === 'error'){
-                text('Could not load leaderboard.', panelX + 18, y, 26, '#000', 'left');
+                text('Could not load leaderboard.', panelX + 18, y, 44, '#000', 'left');
             } else {
                 rows.forEach((r, i) => {
                     const mine  = (r.name === (username || 'Player'));
                     const color = mine ? '#00e5ff' : '#000';
-                    text(`${i+1}. ${r.name} — ${r.score}`, panelX + 18, y, 28, color, 'left');
+                    text(`${i+1}. ${r.name} — ${r.score}`, panelX + 18, y, 40, color, 'left');
                     y += lineH;
                 });
 
                 if (!rows.some(r => r.name === (username || 'Player'))){
-                    text(`• ${username || 'Player'} — ${state.myBest}`, panelX + 18, y, 24, '#00e5ff', 'left');
+                    text(`• ${username || 'Player'} — ${state.myBest}`, panelX + 18, y, 40, '#00e5ff', 'left');
                 }
             }
 
