@@ -108,6 +108,59 @@ html,body{
 #padRight{ left: calc(12px + var(--padW) + 10px); }
 #padFire{ right:12px; }
 
+#hudUser{
+    max-width: 60vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hudbox{
+    position:fixed;
+    background:var(--ui-bg);
+    padding:6px 10px;
+    border-radius:10px;
+    font-weight:700;
+    z-index:6;
+}
+#hudScore{ left:12px; top:8px; pointer-events:none; }
+#hudUser{  top:8px; display:flex; align-items:center; gap:6px; }
+#hudUser .icon-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:6px;
+    border:none; background:transparent; color:#fff; cursor:pointer;
+}
+#hudUser .icon-btn:hover{ opacity:.85; }
+#hudUser .icon-btn:active{ transform:translateY(1px); }
+
+
+#scoreHud{
+    position:fixed;
+    left:12px;
+    top: calc(var(--topH, 0px) + 8px);
+    background: var(--ui-bg);
+    padding:6px 10px;
+    border-radius:10px;
+    font-weight:700;
+    z-index:6;
+    pointer-events:none;
+}
+#userHud{
+    position:fixed;
+    right:12px;
+    top: calc(var(--topH, 0px) + 8px);
+    background: var(--ui-bg);
+    padding:6px 10px;
+    border-radius:10px;
+    display:flex; align-items:center; gap:6px;
+    z-index:6;
+}
+
+
+#leaderboard ol{ max-height:50vh; overflow:auto; margin:0; padding-left:1.2em; }
+#leaderboard li.me{ color: var(--accent); font-weight:700; }
+
+
 @media (pointer: coarse), (hover: none){
     .touchpad{ display:grid; }
 }

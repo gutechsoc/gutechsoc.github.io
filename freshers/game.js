@@ -54,6 +54,19 @@
     const OVER_BTN2_TEXT = "More about GUTS";
     const OVER_BTN2_URL  = "https://gutechsoc.com";
 
+    /* ===== Leaderboard config ===== */
+    const LB_CFG = {
+        SUPABASE_URL: 'https://tlsphfwgjrvuvfcabbau.supabase.co',
+        SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRsc3BoZndnanJ2dXZmY2FiYmF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxOTQ1MTYsImV4cCI6MjA3Mzc3MDUxNn0.VKyJgR3rqHayqNFfSto26WbyZfPJCQ4kdGectxoEEoQ',
+        TABLE: 'scores'
+    };
+
+    const hudScore    = document.getElementById('hudScore');
+    const hudUser     = document.getElementById('hudUser');
+    const hudName     = document.getElementById('hudName');
+    const editNameBtn = document.getElementById('editNameBtn');
+    editNameBtn?.addEventListener('click', () => showNameGate());
+
     document.addEventListener('gesturestart',  e => e.preventDefault(), { passive:false });
     document.addEventListener('gesturechange', e => e.preventDefault(), { passive:false });
     document.addEventListener('gestureend',    e => e.preventDefault(), { passive:false });
@@ -97,6 +110,26 @@
 
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
+
+    const scoreHud    = document.getElementById('scoreHud');
+    const lbOverlay = document.getElementById('leaderboard');
+    const lbStatus  = document.getElementById('lbStatus');
+    const lbList    = document.getElementById('lbList');
+    const lbAgain   = document.getElementById('lbAgain');
+
+    editNameBtn?.addEventListener('click', () => showNameGate());
+    lbAgain?.addEventListener('click', () => {
+        lbOverlay.style.display = 'none';
+        endlessMode = false; gameWon = false;
+        state = 'PLAYING';
+        resetGame(); createMobsForLevel();
+    });
+
+    function updateHUD(){
+        if (hudScore) hudScore.textContent = `Score: ${score|0}`;
+        if (hudName)  hudName.textContent  = username || 'Player';
+    }
+
 
     /* ============================
        GAME OVER BUTTONS
@@ -194,6 +227,17 @@
     function resize(){
         const { x: vx, y: vy, w: winW, h: winH } = vv();
         canvas.width = winW; canvas.height = winH;
+
+        if (hudScore){
+            hudScore.style.left = (vx + 12) + 'px';
+            hudScore.style.top  = (vy + 8)  + 'px';
+        }
+        if (hudUser){
+            const w = hudUser.getBoundingClientRect().width || 120;
+            hudUser.style.left = (vx + winW - w - 12) + 'px';
+            hudUser.style.top  = (vy + 8)  + 'px';
+        }
+
 
         const cs = canvas.style;
         cs.position = 'fixed';
@@ -628,6 +672,8 @@
         username = (nameInput.value || 'Player').slice(0,20);
         gate.style.display = 'none';
         state = 'MAIN_MENU';
+        requestAnimationFrame(positionHUD);
+        updateHUD();
     });
     function showNameGate(){
         gate.style.display = 'flex';
@@ -793,6 +839,12 @@
         return out;
     })();
 
+    function campaignLastLevel(){
+        const keys = Object.keys(getCampaignCfg()).map(k => +k).filter(n => !Number.isNaN(n));
+        return Math.max(...keys);
+    }
+
+
     function generateEndlessCfg(){
         const pool = ENDLESS_POOL;
         const k = Math.min(pool.length, 2 + endlessStage);
@@ -890,6 +942,154 @@
         ctx.restore();
     }
 
+    function positionHUD(){
+        const { x: vx, y: vy, w: winW } = vv();
+        if (hudScore){
+            hudScore.style.left = (vx + 12) + 'px';
+            hudScore.style.top  = (vy + 8)  + 'px';
+        }
+        if (hudUser){
+            const w = hudUser.offsetWidth || 120;
+            hudUser.style.left = (vx + winW - w - 12) + 'px';
+            hudUser.style.top  = (vy + 8) + 'px';
+        }
+    }
+
+
+    /* ===== Leaderboard service (canvas-drawn UI, no overlay) ===== */
+    const Leaderboard = (() => {
+        const enabled = () => !!(LB_CFG.SUPABASE_URL && LB_CFG.SUPABASE_ANON_KEY);
+        const headers = () => ({
+            'apikey': LB_CFG.SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${LB_CFG.SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json'
+        });
+
+        const state = { visible:false, status:'idle', rows:[], myBest:0 };
+
+        async function getMyBest(name){
+            if (!enabled()) return +(localStorage.getItem('si_best')||0);
+            const url = `${LB_CFG.SUPABASE_URL}/rest/v1/${LB_CFG.TABLE}?select=score&name=eq.${encodeURIComponent(name)}&limit=1`;
+            const r = await fetch(url, { headers: headers() });
+            const j = await r.json();
+            return (Array.isArray(j) && j[0]?.score) ? +j[0].score : 0;
+        }
+
+        async function submit(name, s){
+            const best = await getMyBest(name);
+            const newBest = Math.max(best, s|0);
+
+            if (!enabled()){
+                const cur = +(localStorage.getItem('si_best')||0);
+                if (newBest > cur) localStorage.setItem('si_best', String(newBest));
+                state.myBest = Math.max(cur, newBest);
+                return;
+            }
+
+            const url = `${LB_CFG.SUPABASE_URL}/rest/v1/${LB_CFG.TABLE}?on_conflict=name`;
+            const r = await fetch(url, {
+                method:'POST',
+                headers: { ...headers(), 'Prefer':'resolution=merge-duplicates,return=representation' },
+                body: JSON.stringify([{ name, score:newBest }])
+            });
+            if (!r.ok) throw new Error('submit_failed');
+            state.myBest = newBest;
+        }
+
+        async function top(n=10){
+            if (!enabled()){
+                const me   = (localStorage.getItem('si_username')||'Player');
+                const best = +(localStorage.getItem('si_best')||0);
+                return [{ name: me, score: best }];
+            }
+            const url = `${LB_CFG.SUPABASE_URL}/rest/v1/${LB_CFG.TABLE}?select=name,score&order=score.desc.nullslast&limit=${n}`;
+            const r = await fetch(url, { headers: headers() });
+            if (!r.ok) {
+                const txt = await r.text();
+                throw new Error(`top_failed ${r.status}: ${txt}`);
+            }
+            const j = await r.json();
+            if (!Array.isArray(j)) throw new Error('top_not_array');
+            return j;
+        }
+
+        async function showAndSubmit(name, s){
+            state.visible = true;
+            state.status  = 'loading';
+            state.rows    = [];
+            try{
+                await submit(name, s);
+                const rows = await top(10);
+                state.rows  = rows;
+                state.status = 'ready';
+                console.log('[Leaderboard] top10 →', rows);
+            }catch(e){
+                console.error('[Leaderboard]', e);
+                state.status = 'error';
+            }
+        }
+
+
+        function hide(){ state.visible = false; }
+
+        function draw(ctx){
+            if (!state.visible) return;
+
+            const panelW = Math.min(1200, Math.round(GAME_W * 0.92));
+            const panelX = Math.round((GAME_W - panelW)/2);
+            const panelY = 140;
+            const lineH  = 40;
+            const maxRows = 10;
+
+            ctx.save();
+            ctx.globalAlpha = 1;
+            ctx.globalCompositeOperation = 'source-over';
+
+            const rows = (state.status==='ready' ? state.rows.slice(0, maxRows) : []);
+            const rowsH = (rows.length || 1) * lineH + 72;
+
+            ctx.lineWidth   = 3;
+            ctx.strokeStyle = '#9aa0a6';
+            ctx.strokeRect(panelX, panelY, panelW, rowsH);
+
+            const text = (msg, x, y, size, color, align='left') => {
+                drawText(msg, x+2, y+2, size, 'rgba(0,0,0,0.6)', align);
+                drawText(msg, x,   y,   size, color,               align);
+            };
+
+            text('Leaderboard', panelX + 18, panelY + 16, 36, '#000', 'left');
+
+            let y = panelY + 64;
+
+            if (state.status === 'loading'){
+                text('Submitting & loading…', panelX + 18, y, 26, '#000', 'left');
+            } else if (state.status === 'error'){
+                text('Could not load leaderboard.', panelX + 18, y, 26, '#000', 'left');
+            } else {
+                rows.forEach((r, i) => {
+                    const mine  = (r.name === (username || 'Player'));
+                    const color = mine ? '#00e5ff' : '#000';
+                    text(`${i+1}. ${r.name} — ${r.score}`, panelX + 18, y, 28, color, 'left');
+                    y += lineH;
+                });
+
+                if (!rows.some(r => r.name === (username || 'Player'))){
+                    text(`• ${username || 'Player'} — ${state.myBest}`, panelX + 18, y, 24, '#00e5ff', 'left');
+                }
+            }
+
+            ctx.restore();
+        }
+
+
+
+        return { showAndSubmit, hide, draw };
+    })();
+
+    function addScore(delta){
+        score = (score|0) + (delta|0);
+        updateHUD();
+    }
 
     /* ============================
        LOOP
@@ -975,15 +1175,16 @@
                 if (m.frozen && performance.now() >= m.dieAt){
                     m.destroy();
                     mobs.splice(i,1);
-                    score += m.worth;
-                    tryPlay(sounds.boom);
+                     tryPlay(sounds.boom);
                 }
             }
 
             if (mobs.length === 0){
                 level++; levelBannerAt = performance.now();
-                if (!endlessMode && level >= MAX_LEVEL){
+                const last = campaignLastLevel();
+                if (!endlessMode && level > last){
                     gameWon = true; state='GAME_OVER'; showOverButtons();
+                    Leaderboard.showAndSubmit(username || 'Player', score|0);
                 } else {
                     createMobsForLevel();
                 }
@@ -993,15 +1194,18 @@
                 const m=mobs[i];
                 if (m.y + m.h > GAME_H){
                     if (!DEV_GODMODE){ gameWon = false; state='GAME_OVER'; showOverButtons(); }
+                    if (endlessMode) Leaderboard.showAndSubmit(username || 'Player', score|0);
                     break;
                 }
                 if (overlap(shrinkRect(player.rect, 0.25, 0.3), shrinkRect(m.rect, 0.15, 0.15))){
                     if (DEV_GODMODE){
-                        score += m.worth; m.destroy(); mobs.splice(i,1); tryPlay(sounds.boom);
+                        addScore(m.worth);m.destroy(); mobs.splice(i,1); tryPlay(sounds.boom);
                         continue;
                     }
-                    if (player.shielded){ player.unshield(); score += m.worth; m.destroy(); mobs.splice(i,1); tryPlay(sounds.boom); }
-                    else { gameWon = false; state='GAME_OVER'; showOverButtons(); break; }
+                    if (player.shielded){ player.unshield(); addScore(m.worth);m.destroy(); mobs.splice(i,1); tryPlay(sounds.boom); }
+                    else { gameWon = false; state='GAME_OVER'; Leaderboard.showAndSubmit(username || 'Player', score|0); showOverButtons(); break; }
+                    if (endlessMode) Leaderboard.showAndSubmit(username || 'Player', score|0);
+
                 }
             }
 
@@ -1052,7 +1256,7 @@
                             effects.push(new Flash(m.x, m.y, m.w, m.h, 200, m.stampImg || m.img));
                             m.destroy();
                             mobs.splice(mi,1);
-                            score += m.worth;
+                            addScore(m.worth);
                             tryPlay(sounds.boom);
                         }
                     }
@@ -1066,7 +1270,12 @@
                 if (overlap(shrinkRect(eb.rect, 0.2, 0.2), shrinkRect(player.rect, 0.3, 0.25))){
                     if (DEV_GODMODE){ eb.destroy(); enemyBullets.splice(ei,1); continue; }
                     if (player.shielded){ player.unshield(); eb.destroy(); enemyBullets.splice(ei,1); }
-                    else { state='GAME_OVER'; showOverButtons(); break; }
+                    else { state='GAME_OVER';
+                        Leaderboard.showAndSubmit(username || 'Player', score|0);
+                        showOverButtons();
+                        break;
+                    }
+                    if (endlessMode) Leaderboard.showAndSubmit(username || 'Player', score|0, 'endless_lose');
                 } else if (eb.offscreen){
                     eb.destroy(); enemyBullets.splice(ei,1);
                 }
@@ -1118,12 +1327,16 @@
             ctx.save();
             const overMsg = gameWon ? "You Won" : "GAME OVER";
             const overCol = gameWon ? COLOR.GREEN : COLOR.RED;
-            drawText(overMsg, GAME_W/2, 160, 64, overCol, 'center');
+            Leaderboard.draw(ctx);
+            drawText(overMsg, GAME_W/2, 75, 64, overCol, 'center');
+
             showOverButtons();
             ctx.restore();
         }
 
+
         requestAnimationFrame(loop);
+        updateHUD();
     }
 
     /* ============================
@@ -1159,6 +1372,7 @@
         nameInput.addEventListener('input', () => localStorage.setItem('si_username', nameInput.value));
         state = username ? 'MAIN_MENU' : 'USERNAME_INPUT';
         if (!username) { const gate = document.getElementById('nameGate'); gate.style.display = 'flex'; setTimeout(()=> nameInput.focus(), 0); }
+        updateHUD();
 
         resize();
         requestAnimationFrame(loop);
