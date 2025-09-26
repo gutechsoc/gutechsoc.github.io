@@ -177,5 +177,10 @@
     "name": "BlackRock",
     "logo": "blackrock.webp",
     "url" : "https://www.blackrock.com/aladdin"
+  },
+  "freetobook" : {
+    "name": "Freetobook",
+    "logo": "freetobook.webp",
+    "url": "https://en.freetobook.com/"
   }
 }
