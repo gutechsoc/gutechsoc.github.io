@@ -22,11 +22,6 @@
     display: grid;
     grid-gap: 0.1em;
     align-content: space-evenly;
-    /*
-       Because we are adding an extra row for .event-price,
-       you could adjust row definitions if needed. But in
-       many cases, repeat(3, 14.9em) still works fine.
-    */
     grid-template-columns: repeat(3, 14.9em);
 }
 

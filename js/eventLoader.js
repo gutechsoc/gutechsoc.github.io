@@ -35,6 +35,8 @@ async function setup() {
     dyhtguts["targetElement"] = document.getElementById('dyhtguts-events-list');
     other["targetElement"] = document.getElementById('other-events-list');
 
+    updateUpcomingEmptyState();
+
     // Load three events of each category
     addEvents(upcoming, 3)
     addEvents(dyhtguts, 3);
@@ -93,6 +95,19 @@ async function loadMoreEvents(section, amount) {
 
     }
 }
+
+function updateUpcomingEmptyState() {
+    const listEl = document.getElementById("upcoming-events-list");
+    if (!listEl) return;
+
+    const emptyEl = listEl.querySelector(".empty-events");
+    const hasUpcoming = eventsList["upcoming"] && eventsList["upcoming"].length > 0;
+
+    if (emptyEl) emptyEl.classList.toggle("disable", hasUpcoming);
+
+    listEl.classList.toggle("is-empty", !hasUpcoming);
+}
+
 
 // Adds the sponsors to the scrolling marquees in the Sponsor Us Section
 function loadSponsorUsSection(){
