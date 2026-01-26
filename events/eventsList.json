@@ -9,6 +9,7 @@
     {"html": "dyhtg2019.html", "date":  20191018, "time":  1700}
   ],
   "codeolympics": [
+    {"html": "CO2026.html", "date":  20260221, "time":  1000},
     {"html": "CO2025.html", "date":  20250222, "time":  1000},
     {"html": "CO2024.html", "date":  20240127, "time":  900},
     {"html": "CO2023.html", "date":  20230218, "time":  1200},
@@ -32,5 +33,6 @@
     {"html": "cv-workshop-2025.html", "date":  20251003, "time":  1400},
     {"html": "guts-socs-quiz2025.html", "date": 20251117,"time": 1830},
     {"html": "games-night2025.html", "date": 20251202,"time": 1730},
-    {"html": "Mic_drop-2.html", "date":  20260120, "time":  1900}]
+    {"html": "Mic_drop-2.html", "date":  20260120, "time":  1900},
+    {"html": "ball2026.html", "date":  20260329, "time":  1830}]
 }
