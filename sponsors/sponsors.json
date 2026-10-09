@@ -103,6 +103,11 @@
     "logo": "morganstanley_white.webp",
     "url" : "https://www.morganstanley.com/"
   },
+  "jane-street" : {
+    "name": "Jane Street",
+    "logo": "jane_street_white.webp",
+    "url": "https://www.janestreet.com/"
+  },
   "jpm" : {
     "name": "JP Morgan",
     "logo": "jpm_white.webp",
