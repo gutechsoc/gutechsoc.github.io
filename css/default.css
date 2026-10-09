@@ -180,6 +180,10 @@ svg {
     width: 40em;
     height: 20em;
 }
+#events {
+    padding-top: 3em;
+}
+
 #upcoming-events .section-title {
     margin-bottom: 2em;
 }
