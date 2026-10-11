@@ -387,23 +387,44 @@ svg {
 }
 
 .board-members{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2em .5em;
+    width: 100%;
     max-width: 55em;
 }
+
+.board-members:has(> .member.selected:nth-child(3n + 1)){
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.board-members:has(> .member.selected:nth-child(3n + 2)){
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.board-members:has(> .member.selected:nth-child(3n)){
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.board-members > .member:nth-child(4):last-child{
+    grid-column: 2;
+}
+
 .member{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    min-width: 0;
     height: 10em;
-    margin: 1em;
-    padding: 1em;
+    margin: 0;
+    padding: 0;
 }
 
 .member .mugshot{
     width: 10em;
     height: 10em;
+    flex-shrink: 1;
+    min-width: 0;
     background-color: var(--blue);
     border-radius: 10%;
     transition: border-radius var(--card-animation-time) ease-out var(--card-animation-time);
@@ -428,19 +449,22 @@ svg {
 
 .member .info{
     overflow: hidden;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 0;
     max-width: 0;
-    /*text-wrap: nowrap;*/
     border-radius: 0 10% 10% 0;
     background-color: var(--blue);
-    transform: translate(-10%, 0);
-    padding-left: 0;
+    margin-left: 0;
+    padding: 0;
     transition: all var(--card-animation-time) ease-in-out;
     z-index: 100;
 }
 
 .member.selected .info {
-    max-width: 7em;
-    padding-left: 6%;
+    width: 10em;
+    max-width: 10em;
+    padding: 0 .75em;
 }
 
 .member .info .role{
@@ -860,12 +884,9 @@ svg {
         height: 100%;
     }
 
-    .member .info{
-        width: 12em;
-    }
-
     .member.selected .info{
-        max-width: 9em;
+        width: 12em;
+        max-width: 12em;
     }
 
 
